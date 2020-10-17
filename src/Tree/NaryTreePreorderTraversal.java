@@ -1,7 +1,6 @@
 package Tree;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 class Node {
     public int val;
@@ -17,7 +16,7 @@ class Node {
         children = _children;
     }
 };
-
+//方法一  使用递归
 public class NaryTreePreorderTraversal {
     List<Integer> list;
     public void tree(Node root){
@@ -33,6 +32,25 @@ public class NaryTreePreorderTraversal {
         if (root == null) return list;
         tree(root);
          return list;
+    }
+    //方法2   使用迭代
+    public List<Integer> preorder1(Node root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) return res;
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+        while (stack.size() != 0) {
+            Node node = stack.pop();
+            res.add(node.val);
+            Collections.reverse(node.children);
+
+            for (Node nodes:
+                 node.children) {
+                stack.add(nodes);
+            }
+
+        }
+        return res;
     }
 }
 
