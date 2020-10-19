@@ -41,7 +41,6 @@ public class NaryTreePreorderTraversal {
             Node node = stack.pop();
             res.add(node.val);
             Collections.reverse(node.children);
-
             for (Node nodes:
                  node.children) {
                 stack.add(nodes);
