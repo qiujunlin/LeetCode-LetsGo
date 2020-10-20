@@ -28,22 +28,6 @@ public class BinaryTreeZigzagLevelOrderTraversal {
         }
      return  lists;
     }
-   /* public LinkedList reverse(LinkedList queue){
-
-        LinkedList<TreeNode> queue1 = new LinkedList<>();
-        LinkedList<TreeNode> queue2=new LinkedList<>();
-        Collections.copy(queue,queue2);
-        while(!queue.isEmpty()){
-            queue2.offer((TreeNode) queue.poll());
-
-        }
-
-        while(!queue2.isEmpty()){
-              queue1.offer((TreeNode) queue2.getLast());
-              queue2.removeLast();
-        }
-        return  queue1;
-    }*/
     public static void main(String[] args) {
         TreeNode noe1 = new TreeNode(3);
         TreeNode noe2 = new TreeNode(9);
