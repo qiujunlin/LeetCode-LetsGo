@@ -28,16 +28,5 @@ public class BinaryTreeZigzagLevelOrderTraversal {
         }
      return  lists;
     }
-    public static void main(String[] args) {
-        TreeNode noe1 = new TreeNode(3);
-        TreeNode noe2 = new TreeNode(9);
-        TreeNode noe3 = new TreeNode(20);
-        TreeNode noe4 = new TreeNode(15);
-        TreeNode noe5 = new TreeNode(7);
-        noe1.left=noe2;
-        noe1.right=noe3;
-        noe3.left=noe4;
-        noe3.right=noe5;
-        System.out.println(new BinaryTreeZigzagLevelOrderTraversal().zigzagLevelOrder(noe1));
-    }
+
 }
