@@ -23,20 +23,37 @@ public class BinaryTreeInorderTraversal94 {
         }
         return list;
     }
+    //迭代2
+    public List<Integer> inorderTraversal3(TreeNode root){
+        LinkedList<Integer> list= new LinkedList<>();
+        Stack<TreeNode> stack= new Stack<>();
+        while(root!=null||!stack.isEmpty()){
+            if(root!=null){
+                stack.push(root);
+                root=root.left;
+            }else{
+                TreeNode node=stack.pop();
+                list.add(node.val);
+                root=node.right;
+
+            }
+        }
+        return  list;
+    }
 //使用迭代 万能
-        public List<Integer> inorderTraversal3(TreeNode root) {
+        public List<Integer> inorderTraversal4(TreeNode root) {
             if(root==null) return  list;
-            Stack<TreeNode> queue = new Stack<>();
-            queue.push(root);
-            while(!queue.isEmpty()){
-                TreeNode node = queue.pop();
+            Stack<TreeNode> stack = new Stack<>();
+            stack.push(root);
+            while(!stack.isEmpty()){
+                TreeNode node = stack.pop();
                 if(node!=null){
-                    if(node.right!=null) queue.push(node.right);
-                    queue.push(node);
-                    queue.push(null);
-                    if(node.left!=null) queue.push(node.left);
+                    if(node.right!=null) stack.push(node.right);
+                    stack.push(node);
+                    stack.push(null);
+                    if(node.left!=null) stack.push(node.left);
                 }else{
-                    list.add(queue.pop().val);
+                    list.add(stack.pop().val);
                 }
 
             }
