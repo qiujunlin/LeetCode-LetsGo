@@ -16,4 +16,22 @@ public class MaximumBinaryTreeII998 {
         return root;
 
     }
+    //方法2  使用递归 参考 有点难懂
+    public  TreeNode insertIntoMaxTree2(TreeNode root,int val){
+        if(root.val<val){
+              TreeNode node= new TreeNode(val);
+              node.left=root;
+              return  node;
+        }else{
+            if(root.right==null) root.right=new TreeNode(val);
+            else{
+                root.right=insertIntoMaxTree(root.right,val);
+            }
+
+        }
+        return  root;
+
+
+
+    }
 }

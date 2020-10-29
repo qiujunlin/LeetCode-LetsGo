@@ -1,7 +1,7 @@
 package Tree;
 
 public class UniqueBinarySearchTrees96 {
-    class Solution {
+
         public int numTrees(int n) {
             int res[]= new int[n+1];
             res[0]=1;
@@ -13,5 +13,17 @@ public class UniqueBinarySearchTrees96 {
             }
             return res[n];
         }
+
+    //解法2 使用 递归
+
+    public int numTrees2(int n){
+        if(n==1||n==0){
+            return 1;
+        }
+        int sum=0;
+        for(int i=1;i<=n;i++){
+            sum+=numTrees(i-1)*numTrees(n-i);
+        }
+        return sum;
     }
 }
