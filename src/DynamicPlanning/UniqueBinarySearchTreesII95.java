@@ -1,7 +1,8 @@
-package Tree;
-import sun.plugin.javascript.navig.Link;
+package DynamicPlanning;
 
-import  java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class UniqueBinarySearchTreesII95 {
     //解法1  使 用递归
     public List<TreeNode> generateTrees(int n) {
