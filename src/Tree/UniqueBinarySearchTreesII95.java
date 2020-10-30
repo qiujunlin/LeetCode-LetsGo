@@ -41,7 +41,7 @@ public class UniqueBinarySearchTreesII95 {
     }
     //解法 2  使用动态规划
     public List<TreeNode> generateTrees2(int n) {
-        ArrayList<TreeNode> list[] = new ArrayList<TreeNode>[n+1];
+        ArrayList<TreeNode> list[] = new ArrayList[n+1];
         if(n==0)
             return list[0];
     }
