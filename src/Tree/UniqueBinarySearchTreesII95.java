@@ -44,6 +44,7 @@ public class UniqueBinarySearchTreesII95 {
         ArrayList<TreeNode> list[] = new ArrayList[n+1];
         if(n==0)
             return list[0];
+        return  null;
     }
 
 }
