@@ -12,33 +12,17 @@ public class BinaryTreeInorderTraversal94 {
     }
     public List<Integer> inorderTraversal2(TreeNode root){
         Stack<TreeNode> stack = new Stack<>();
-        while(root!=null||!stack.isEmpty()){
-            while(root!=null){
-                stack.push(root);
-                root=root.left;
+        TreeNode cur = root;
+        while(cur!=null||!stack.isEmpty()){
+            while(cur!=null){
+                stack.push(cur);
+                cur=cur.left;
             }
             TreeNode node= stack.pop();
             list.add(node.val);
-            root=node.right;
+            cur=node.right;
         }
         return list;
-    }
-    //迭代2
-    public List<Integer> inorderTraversal3(TreeNode root){
-        LinkedList<Integer> list= new LinkedList<>();
-        Stack<TreeNode> stack= new Stack<>();
-        while(root!=null||!stack.isEmpty()){
-            if(root!=null){
-                stack.push(root);
-                root=root.left;
-            }else{
-                TreeNode node=stack.pop();
-                list.add(node.val);
-                root=node.right;
-
-            }
-        }
-        return  list;
     }
 //使用迭代 万能
         public List<Integer> inorderTraversal4(TreeNode root) {

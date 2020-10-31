@@ -20,28 +20,26 @@ public class BinaryTreePreorderTraversal144 {
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
         while(!stack.isEmpty()){
-            int num = stack.size();
-            for(int i=0;i<num;i++){
                 TreeNode node= stack.pop();
                 list.add(node.val);
                 if(node.right!=null) stack.push(node.right);
                 if(node.left!=null) stack.push(node.left);
             }
-        }
         return  list;
     }
     //迭代2
     public List<Integer> preorderTraversal3(TreeNode root){
         LinkedList<Integer> list= new LinkedList<>();
         Stack<TreeNode> stack= new Stack<>();
-        while(root!=null||!stack.isEmpty()){
-            if(root!=null){
-                list.add(root.val);
-                stack.push(root);
-                root=root.left;
+        TreeNode cur = root;
+        while(cur!=null||!stack.isEmpty()){
+            if(cur!=null){
+                list.add(cur.val);
+                stack.push(cur);
+                cur=cur.left;
             }else{
                 TreeNode node=stack.pop();
-                root=node.right;
+                cur=node.right;
 
             }
         }
