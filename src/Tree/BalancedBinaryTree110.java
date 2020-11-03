@@ -1,6 +1,6 @@
 package Tree;
 
-public class BalancedBinaryTree {
+public class BalancedBinaryTree110 {
     //方法一 指定向下
     int build(TreeNode  node){
         if(node==null) return 0;

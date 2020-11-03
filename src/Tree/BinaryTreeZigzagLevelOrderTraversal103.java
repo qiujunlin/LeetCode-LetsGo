@@ -2,7 +2,7 @@ package Tree;
 
 import java.util.*;
 
-public class BinaryTreeZigzagLevelOrderTraversal {
+public class BinaryTreeZigzagLevelOrderTraversal103 {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> lists= new ArrayList();
         if(root==null) return lists;

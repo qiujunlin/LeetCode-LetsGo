@@ -3,7 +3,7 @@ package Tree;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CountCompleteTreeNodes {
+public class CountCompleteTreeNodes222 {
     //方法一  通过  然后遍历后结果大小
     List<TreeNode> list = new ArrayList<>();
     public int countNodes(TreeNode root) {
