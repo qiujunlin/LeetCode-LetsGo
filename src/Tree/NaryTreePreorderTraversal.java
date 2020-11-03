@@ -2,18 +2,7 @@ package Tree;
 
 import java.util.*;
 
-class Node {
-    public int val;
-    public List<Node> children;
-    public Node() {}
-    public Node(int _val) {
-        val = _val;
-    }
-    public Node(int _val, List<Node> _children) {
-        val = _val;
-        children = _children;
-    }
-};
+
 //方法一  使用递归
 public class NaryTreePreorderTraversal {
     List<Integer> list;
@@ -49,5 +38,17 @@ public class NaryTreePreorderTraversal {
         }
         return res;
     }
+    class Node {
+        public int val;
+        public List<Node> children;
+        public Node() {}
+        public Node(int _val) {
+            val = _val;
+        }
+        public Node(int _val, List<Node> _children) {
+            val = _val;
+            children = _children;
+        }
+    };
 }
 
