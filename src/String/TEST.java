@@ -1,14 +1,25 @@
 package String;
 
+import org.omg.PortableInterceptor.INACTIVE;
+
 import java.util.*;
 
 public class TEST {
     public static void main(String[] args) {
-        List<String> list1 = Arrays.asList("文学","小说","历史","言情","科幻","悬疑");
+  int a[]={1,2,2,1,1,3};
 
-        String string1 = String.join(" ",list1);
-
-        System.out.println(string1);
+        System.out.println(uniqueOccurrences(a));
+    }
+    public static  boolean uniqueOccurrences(int[] arr) {
+        Map<Integer,Integer> map= new HashMap<>();
+        for (int a:arr) {
+            map.put(a ,map.getOrDefault(a, 0) + 1);
+        }
+        Set<Integer> set= new HashSet<>(map.values());
+        for(Integer a:map.values()){
+            if(set.add(a)==false) return false;
+        }
+        return true;
     }
 
 }

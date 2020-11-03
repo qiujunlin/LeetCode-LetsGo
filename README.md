@@ -14,7 +14,11 @@
 
 | 题号 |                             标题                             |       题解       |
 | ---- | :----------------------------------------------------------: | :--------------: |
+| 94   | [二叉树中序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeInorderTraversal94.java) |   迭代 ，递归    |
+| 95   | [不同的二叉树搜索树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/UniqueBinarySearchTreesII95.java)ii |  递归，动态规划  |
+| 96   | [不同的二叉搜索树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/UniqueBinarySearchTrees96.java) |  递归，动态规划  |
 | 114  | [二叉树的前序遍历](https://github.com/qiujunlin/FightLeetcode/blob/master/FightLeetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E5%9F%BA%E7%A1%80/114-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86.cpp) |    递归，迭代    |
+|      |                                                              |                  |
 | 145  | [二叉树的后序遍历](https://github.com/qiujunlin/FightLeetcode/blob/master/FightLeetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E5%9F%BA%E7%A1%80/145-%E5%90%8E%E7%BB%AD%E9%81%8D%E5%8E%86.cpp) | 递归，迭代，翻转 |
 | 95   | [二叉树的中序遍历](https://github.com/qiujunlin/FightLeetcode/blob/master/FightLeetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E5%9F%BA%E7%A1%80/%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86.cpp) |    递归，迭代    |
 | 102  | [二叉树的层序遍历](https://github.com/qiujunlin/FightLeetcode/blob/master/FightLeetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E5%9F%BA%E7%A1%80/%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86.cpp) |    递归，迭代    |
@@ -26,6 +30,8 @@
 | 116  | [填充每个节点的下一个右侧节点指针I](https://github.com/qiujunlin/FightLeetcode/blob/master/FightLeetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E5%88%B7%E9%A2%98/116-%E5%A1%AB%E5%85%85%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9%E6%8C%87%E9%92%88.cpp) |  迭代，next指针  |
 | 117  | [填充每个节点的下一个右侧节点指针II](https://github.com/qiujunlin/FightLeetcode/blob/master/FightLeetcode/%E4%BA%8C%E5%8F%89%E6%A0%91/%E5%88%B7%E9%A2%98/117-%E5%A1%AB%E5%85%85%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9%E6%8C%87%E9%92%88%20II.cpp) |       迭代       |
 |      |                                                              |                  |
+
+
 
 
 
