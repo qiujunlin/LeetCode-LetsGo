@@ -69,6 +69,7 @@ public class SerializeandDeserializeBinaryTree297 {
     return  root;
 
     }
+
     public void inorderTraversal1(TreeNode root){
         if(root==null) return;
         System.out.println(root.val);

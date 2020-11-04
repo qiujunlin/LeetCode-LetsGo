@@ -6,10 +6,14 @@ import java.util.*;
 
 public class TEST {
     public static void main(String[] args) {
-  int a[]={1,2,2,1,1,3};
+     int a[][]={{1,2},{2,1},{1,3}};
+     List<int[]> list= new ArrayList<>();
+     list.add(a[0]);
+     list.add(a[2]);
+        System.out.println(list.get(1)[1]);
 
-        System.out.println(uniqueOccurrences(a));
-    }
+}
+
     public static  boolean uniqueOccurrences(int[] arr) {
         Map<Integer,Integer> map= new HashMap<>();
         for (int a:arr) {
