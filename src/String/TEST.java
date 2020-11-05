@@ -6,9 +6,10 @@ import java.util.*;
 
 public class TEST {
     public static void main(String[] args) {
-  int a[]={1,2,2,1,1,3};
+        int a[][]= new int[1][2];
 
-        System.out.println(uniqueOccurrences(a));
+
+       // System.out.println(uniqueOccurrences(a));
     }
     public static  boolean uniqueOccurrences(int[] arr) {
         Map<Integer,Integer> map= new HashMap<>();
