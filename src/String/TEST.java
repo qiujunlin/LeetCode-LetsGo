@@ -6,13 +6,29 @@ import java.util.*;
 
 public class TEST {
     public static void main(String[] args) {
-        int a[][]= new int[1][2];
 
 
-       // System.out.println(uniqueOccurrences(a));
+
+    }
+    public int[] sortByBits(Integer[] arr) {
+        // Map<Integer,Integer> map = new HashMap<>();
+        // for(int i=0;i<arr.length;i++){
+        //   map.put(arr[i],cout(arr[i]));
+        // }
+        Arrays.sort(arr,(Integer a,Integer b)->a-b);
+        return null;
+    }
+    public static  int cout(int n){
+        int res=0;
+        while(n!=0){
+            if(n%2==1) res++;
+            n = n/2;
+        }
+        return   res;
     }
     public static  boolean uniqueOccurrences(int[] arr) {
         Map<Integer,Integer> map= new HashMap<>();
+
         for (int a:arr) {
             map.put(a ,map.getOrDefault(a, 0) + 1);
         }
