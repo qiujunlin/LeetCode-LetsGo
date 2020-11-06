@@ -29,4 +29,28 @@ public class InsertInterval57 {
         }
         return list.toArray(new int[list.size()][2]);
     }
+    //解法2 最优解
+    public int[][] insert2(int[][] intervals, int[] newInterval) {
+        List<int[]> list = new ArrayList<>();
+
+
+        int index=0;//记录intervals的下标
+        while(index<intervals.length&&intervals[index][1]<newInterval[0]){
+            list.add(intervals[index]);
+            index++;
+        }
+
+
+        while(index<intervals.length&&intervals[index][0]<=newInterval[1]){
+            newInterval[0]=Math.min(intervals[index][0],newInterval[0]);
+            newInterval[1]=Math.max(intervals[index][1],newInterval[1]);
+            index++;
+        }
+
+        list.add(newInterval);
+        while(index<intervals.length){
+            list.add(intervals[index++]);
+        }
+        return list.toArray(new int[list.size()][2]);
+    }
 }
