@@ -19,4 +19,16 @@ public class ReverseLinkedList206 {
         }
         return cur;
     }
+    //通过递归的方式翻转连表
+    public ListNode reverseList2(ListNode head) {
+        if(head==null||head.next==null){
+            return head;
+
+        }
+        ListNode node = reverseList(head.next);
+        head.next.next=head;
+        head.next=null;
+        return node;
+
+    }
 }

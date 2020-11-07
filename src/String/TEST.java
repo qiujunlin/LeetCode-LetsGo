@@ -8,6 +8,12 @@ public class TEST {
     public static void main(String[] args) {
 
 
+          List<Integer> list=new ArrayList<>();
+          list.add(1);
+          list.add(2);
+          list.add(3);
+          Integer[] a = list.toArray(new Integer[list.size()]);
+          System.out.println(a[2]);
 
     }
     public int[] sortByBits(Integer[] arr) {
