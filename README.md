@@ -26,6 +26,8 @@
 | 114  | [二叉树展开为链表](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/FlattenBinaryTreetoLinkedList114.java) |                          |
 | 116  | [填充每个节点的下一个右侧节点指针](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/PopulatingNextRightPointersinEachNode116.java) |                          |
 | 117  | [填充每个节点的下一个右侧节点指针2](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/PopulatingNextRightPointersinEachNodeII117.java) |                          |
+| 121  | [卖股票的最佳时机](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/BestTimetoBuyandSellStock121.java) |           遍历           |
+| 122  | [卖股票的最佳时机II](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/BestTimetoBuyandSellStockII122.java) |         遍历技巧         |
 | 129  | [求根到叶子节点数字之和](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/SumRoottoLeafNumbers129.java) |                          |
 | 144  | [二叉树前序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreePreorderTraversal144.java) |                          |
 | 145  | [二叉树的后序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreePostorderTraversal145.java) |     递归，迭代，翻转     |
@@ -36,12 +38,15 @@
 | 234  | [判断是否是回文链表](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/LinkedList/PalindromeLinkedList234.java) |  双指针，反转+快慢指针   |
 | 236  | [二叉树最近公共祖先](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/LowestCommonAncestorofaBinaryTree236.java) |                          |
 | 349  | [两个数组交集](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/IntersectionofTwoArrays349.java) |         双指针，         |
+| 340  | [两个数组的交集\|\|](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/IntersectionofTwoArrays350.java) |       双指针，map        |
 | 654  | [最大二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/MaximumBinaryTree654.java) |         递归构造         |
 | 876  | [链表中间节点](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/LinkedList/MiddleoftheLinkedList876.java) |      迭代  ，双指针      |
 | 946  | [有效的 山脉数组](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/ValidMountainArray946.java) |          双指针          |
 | 998  | [最大二叉树II](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/MaximumBinaryTreeII998.java) |           递归           |
+| 1207 | [独一无二的出现次数](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/UniqueNumberofOccurrences1207.java) |         java集合         |
 | 1356 | [按照二进制1的个数排序](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/SortIntegersbyTheNumberof1Bits1356.java) |      排序，巧妙方法      |
 | 1365 | [有多少小于当前数字的数字](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/HowManyNumbersAreSmallerThantheCurrentNumber1365.java) |  计数排序，额外数组排序  |
+| 1572 | [矩阵的对角线和](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/MatrixDiagonalSum1572.java) |     暴力，一次性遍历     |
 
 
 
