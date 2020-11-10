@@ -1,11 +1,21 @@
-记录自己的leetcode刷题过程！
-每隔一段时间修改一下markdown文件
-觉得挺有意思的解就在博客上面写
+记录自己的leetcode刷题过程。
+
+目标：
+
+1. 保持每天一道题，更新仓库，开始更新仓库时间：2010.9.20
+
+2. 每个周末参与周赛，开始参加比赛时间：2020.11.8
+3. 每个周末把每周做的题总结一遍，把题目链接到 ReadMe上
+4. 每个月对之前做的题看看，记一下模板
+5. 2021.9.20 号，所有类型都保证刷一遍。
+
+
 
 ## 二叉树
 
 | 题号 |                             标题                             |           题解           |
 | ---- | :----------------------------------------------------------: | :----------------------: |
+| 31   |                          下一个排列                          |        传统技巧题        |
 | 56   | [插入区间](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/MergeIntervals56.java) |           排序           |
 | 57   | [插入区间2](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/InsertInterval57.java) | 排序，遍历插入（双指针） |
 | 94   | [二叉树中序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeInorderTraversal94.java) |       迭代 ，递归        |
