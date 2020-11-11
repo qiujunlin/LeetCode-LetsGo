@@ -9,9 +9,7 @@
 4. 每个月对之前做的题看看，记一下模板
 5. 2021.9.20 号，所有类型都保证刷一遍。
 
-
-
-## 二叉树
+## leetcode
 
 | 题号 |                             标题                             |           题解           |
 | ---- | :----------------------------------------------------------: | :----------------------: |
@@ -53,6 +51,7 @@
 | 876  | [链表中间节点](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/LinkedList/MiddleoftheLinkedList876.java) |      迭代  ，双指针      |
 | 946  | [有效的 山脉数组](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/ValidMountainArray946.java) |          双指针          |
 | 998  | [最大二叉树II](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/MaximumBinaryTreeII998.java) |           递归           |
+| 1022 |                    从根到叶的二进制数之和                    |                          |
 | 1207 | [独一无二的出现次数](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/UniqueNumberofOccurrences1207.java) |         java集合         |
 | 1356 | [按照二进制1的个数排序](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/SortIntegersbyTheNumberof1Bits1356.java) |      排序，巧妙方法      |
 | 1365 | [有多少小于当前数字的数字](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/HowManyNumbersAreSmallerThantheCurrentNumber1365.java) |  计数排序，额外数组排序  |
@@ -62,5 +61,11 @@
 
 
 
+剑指OFFER
 
+|      |      |      |
+| ---- | ---- | ---- |
+|      |      |      |
+|      |      |      |
+|      |      |      |
 
