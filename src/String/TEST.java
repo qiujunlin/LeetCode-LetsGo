@@ -6,9 +6,8 @@ import java.util.*;
 
 public class TEST {
     public static void main(String[] args) {
-     Queue<Integer> queue = new LinkedList<>();
-     queue.peek();
 
+        System.out.println(Long.MIN_VALUE);
 
     }
 
