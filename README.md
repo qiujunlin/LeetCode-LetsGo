@@ -19,6 +19,7 @@
 | 94   | [二叉树中序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeInorderTraversal94.java) |          迭代 ，递归          |
 | 95   | [不同的二叉树搜索树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/UniqueBinarySearchTreesII95.java)ii |        递归，动态规划         |
 | 96   | [不同的二叉搜索树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/UniqueBinarySearchTrees96.java) |        递归，动态规划         |
+| 98   |                        验证二叉搜索树                        |           中序遍历            |
 | 100  | [相同的树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/SameTree100.java) |           递归，BF            |
 | 101  | [对称二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/SymmetricTree101.java) |          递归，迭代           |
 | 102  | [二叉树的层序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeLevelOrderTraversal102.java) |          递归，迭代           |
