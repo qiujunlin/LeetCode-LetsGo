@@ -18,6 +18,5 @@ public class BinaryTreeLevelOrderTraversal102 {
             res.add(list);
         }
         return res;
-
     }
 }
