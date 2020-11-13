@@ -1,7 +1,6 @@
 package Tree;
 
 import java.util.*;
-
 /**
  * @Classname ValidateBinarySearchTree98
  * @Description:
