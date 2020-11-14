@@ -60,6 +60,7 @@
 | 946  | [有效的 山脉数组](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/ValidMountainArray946.java) |                            双指针                            |        |
 | 998  | [最大二叉树II](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/MaximumBinaryTreeII998.java) |                             递归                             |        |
 | 1022 |                    从根到叶的二进制数之和                    |                           使用递归                           |        |
+| 1122 |                        数组的相对排序                        |                        常规解法 遍历                         | easy   |
 | 1207 | [独一无二的出现次数](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/UniqueNumberofOccurrences1207.java) |                           java集合                           |        |
 | 1356 | [按照二进制1的个数排序](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/SortIntegersbyTheNumberof1Bits1356.java) |                        排序，巧妙方法                        |        |
 | 1365 | [有多少小于当前数字的数字](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/HowManyNumbersAreSmallerThantheCurrentNumber1365.java) |                    计数排序，额外数组排序                    |        |
