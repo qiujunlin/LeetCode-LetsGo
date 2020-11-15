@@ -50,6 +50,7 @@
 | 226  | [反转二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/InvertBinaryTree226.java) |                      递归（前序/后序）                       |        |
 | 230  |                     二叉树中第K小的元素                      |                         迭代 ，递归                          | Middle |
 | 234  | [判断是否是回文链表](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/LinkedList/PalindromeLinkedList234.java) |                    双指针，反转+快慢指针                     |        |
+| 235  |                     二叉树的最近公共祖先                     |                                                              |        |
 | 236  | [二叉树最近公共祖先](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/LowestCommonAncestorofaBinaryTree236.java) |                                                              |        |
 | 349  | [两个数组交集](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/IntersectionofTwoArrays349.java) |                           双指针，                           |        |
 | 340  | [两个数组的交集\|\|](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/IntersectionofTwoArrays350.java) |                         双指针，map                          |        |
@@ -68,7 +69,23 @@
 
 
 
+周赛
 
+ 
+
+| 周赛 | 题目编号 | 题名                       | 难度   | 题解 |
+| ---- | -------- | -------------------------- | ------ | ---- |
+| 213  | 1640     | 能否连接形成数组           | easy   |      |
+| 214  | 1646     | 获取生成数组中的最大值     | easy   |      |
+| 241  | 1647     | 字符频次唯一的最小删除次数 | middle |      |
+| 215  | 5601     | 设计有序流                 | easy   |      |
+| 215  | 5603     | 确定两个字符串是否接近     | middle |      |
+
+| 场次 | 题目编号 | 题名   | 难度   | 题解 |
+| ---- | -------- | ------ | ------ | ---- |
+| 38   | 5550     | 踩炸弹 | middle |      |
+|      |          |        |        |      |
+|      |          |        |        |      |
 
 剑指OFFER
 

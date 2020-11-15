@@ -5,10 +5,12 @@ public class CheckArrayFormationThroughConcatenation5554 {
         for(int j=0;j<pieces.length;j++){
             int index=0;
             int len=pieces[j].length;
+            int flag=0;
             for(int k=0;k<arr.length;k++){
+                if(flag==1&&arr[k]!=pieces[j][index]) return false;
                 if(arr[k]==pieces[j][index]){
                     index++;
-                    //if(k==arr.length-1) break;
+                    flag=1;
                     if(index==len)  break;
                 }
 
