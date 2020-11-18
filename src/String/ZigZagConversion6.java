@@ -9,6 +9,7 @@ import java.util.*;
  * @Created by qiujunlin
  */
 public class ZigZagConversion6 {
+    //第一种方法很慢  不适合
     public String convert(String s, int numRows) {
         if(numRows==1) return s;
         List<List<Character>> lists= new ArrayList<>();
@@ -48,7 +49,25 @@ public class ZigZagConversion6 {
 
         return res;
     }
-
+    public String convert2(String s, int numRows) {
+        if(numRows==1) return s;
+        List<StringBuilder> list = new ArrayList<>();
+        for(int i=0;i<numRows;i++){
+            list.add(new StringBuilder());
+        }
+        int i=0;
+        int flag=-1;
+        for(char a:s.toCharArray()){
+            list.get(i).append(a);
+            if(i==0||i==numRows-1)  flag=-flag;
+            i=i+flag;
+        }
+        StringBuilder res= new StringBuilder();
+        for(i=0;i<numRows;i++){
+            res.append(list.get(i));
+        }
+        return res.toString();
+    }
     public static void main(String[] args) {
         Character a='a';
         Character b='b';
