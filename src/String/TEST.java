@@ -1,5 +1,6 @@
 package String;
 
+import Tree.TreeNode;
 import org.omg.PortableInterceptor.INACTIVE;
 
 import java.util.*;
@@ -9,7 +10,8 @@ public class TEST {
     public static void main(String[] args) {
         System.out.println(new TEST().tree4(999999999));
 
-         //new StringBuilder()
+         Queue<TreeNode> queue = new LinkedList<>();
+
 
 
 

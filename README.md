@@ -54,7 +54,9 @@
 | 236  | [二叉树最近公共祖先](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/LowestCommonAncestorofaBinaryTree236.java) |                                                              |        |
 | 349  | [两个数组交集](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/IntersectionofTwoArrays349.java) |                           双指针，                           |        |
 | 340  | [两个数组的交集\|\|](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/IntersectionofTwoArrays350.java) |                         双指针，map                          |        |
+| 450  |                     在二叉搜索树种删节点                     |                          递归，迭代                          |        |
 | 508  |                   出现次数最多的子树元素和                   | [递归排序](https://leetcode-cn.com/problems/most-frequent-subtree-sum/solution/java-liang-ge-90xiao-ji-qiao-by-qiujunlin/) | Middle |
+| 513  |                        找树左下角的值                        |                                                              |        |
 | 637  |                    二叉树的层序遍历平均值                    |                           层序遍历                           | easy   |
 | 654  | [最大二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/MaximumBinaryTree654.java) |                           递归构造                           |        |
 | 865  |                 具有所有最深节点的最小子树)                  |                          后序，前序                          | Middle |
