@@ -14,8 +14,11 @@
 | 题号 |                             标题                             |                             题解                             | 难度   |
 | ---- | :----------------------------------------------------------: | :----------------------------------------------------------: | ------ |
 | 31   |                          下一个排列                          |                          传统技巧题                          |        |
+| 53   |                          最大子序和                          |                           动态规划                           | Easy   |
 | 56   | [插入区间](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/MergeIntervals56.java) |                             排序                             |        |
 | 57   | [插入区间2](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/InsertInterval57.java) |                   排序，遍历插入（双指针）                   |        |
+| 62   |                           不同路径                           |                           动态规划                           | Middle |
+| 63   |                          不同路径II                          |                           动态规划                           | Middle |
 | 94   | [二叉树中序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeInorderTraversal94.java) |                         迭代 ，递归                          |        |
 | 95   | [不同的二叉树搜索树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/UniqueBinarySearchTreesII95.java)ii |                        递归，动态规划                        |        |
 | 96   | [不同的二叉搜索树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/UniqueBinarySearchTrees96.java) |                        递归，动态规划                        |        |
@@ -52,10 +55,12 @@
 | 234  | [判断是否是回文链表](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/LinkedList/PalindromeLinkedList234.java) |                    双指针，反转+快慢指针                     |        |
 | 235  |                     二叉树的最近公共祖先                     |                                                              |        |
 | 236  | [二叉树最近公共祖先](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/LowestCommonAncestorofaBinaryTree236.java) |                                                              |        |
+| 322  |                           零钱兑换                           |                           动态规划                           | Middle |
 | 349  | [两个数组交集](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/IntersectionofTwoArrays349.java) |                           双指针，                           |        |
 | 340  | [两个数组的交集\|\|](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/IntersectionofTwoArrays350.java) |                         双指针，map                          |        |
 | 450  |                     在二叉搜索树种删节点                     |                          递归，迭代                          |        |
 | 508  |                   出现次数最多的子树元素和                   | [递归排序](https://leetcode-cn.com/problems/most-frequent-subtree-sum/solution/java-liang-ge-90xiao-ji-qiao-by-qiujunlin/) | Middle |
+| 509  |                           斐波那契                           |             动态规划，递归（由上到下，由下到上）             | Easy   |
 | 513  |                        找树左下角的值                        |                                                              |        |
 | 637  |                    二叉树的层序遍历平均值                    |                           层序遍历                           | easy   |
 | 654  | [最大二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/MaximumBinaryTree654.java) |                           递归构造                           |        |
