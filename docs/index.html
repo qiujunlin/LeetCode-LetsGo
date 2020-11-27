@@ -13,16 +13,17 @@
   <script>
     window.$docsify = {
       name: '打怪升级',
-      repo: 'https://github.com/qiujunlin'
-	  loadSidebar: true
+      repo: 'https://github.com/qiujunlin',
+	  loadSidebar: true,
+	  loadNavbar: true,
 	  maxLevel: 2, // 默认情况下会抓取文档中所有标题渲染成目录，可配置最大支持渲染的标题层级。
       subMaxLevel: 4, // 生成目录的最大层级
       mergeNavbar: true, // 小屏设备下合并导航栏到侧边栏
-	  coverpage: true
-	  placeholder: '搜索'
-	  noData: '找不到结果'
-	  
-	  
+	  coverpage: true,
+	  placeholder: '搜索',
+	  noData: '找不到结果',
+	//  relativePath: true,
+	  themeColor: '#3F51B5' 
     }
   </script>
   <!-- Docsify v4 -->
@@ -31,6 +32,7 @@
   <script src="//unpkg.com/prismjs/components/prism-java.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-sql.js"></script>
   <script src="//unpkg.com/docsify-copy-code"></script>
-
+  <script src="//unpkg.com/docsify"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
 </body>
 </html>
