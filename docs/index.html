@@ -12,21 +12,28 @@
   <div id="app"></div>
   <script>
     window.$docsify = {
-      name: '打怪升级',
+      name: '算法学习',
       repo: 'https://github.com/qiujunlin',
 	  loadSidebar: true,
 	  loadNavbar: true,
 	  maxLevel: 2, // 默认情况下会抓取文档中所有标题渲染成目录，可配置最大支持渲染的标题层级。
-      subMaxLevel: 4, // 生成目录的最大层级
+      subMaxLevel: 3, // 生成目录的最大层级
       mergeNavbar: true, // 小屏设备下合并导航栏到侧边栏
 	  coverpage: true,
 	  placeholder: '搜索',
 	  noData: '找不到结果',
-	//  relativePath: true,
-	  themeColor: '#3F51B5' 
+	  //relativePath: true,
+	  themeColor: '#3F51B5' ,
+	  count:{
+       countable:true,
+       fontsize:'0.9em',
+       color:'rgb(90,90,90)',
+       language:'chinese'
+      }
     }
   </script>
   <!-- Docsify v4 -->
+  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//unpkg.com/prismjs/components/prism-bash.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-java.js"></script>

@@ -1,7 +1,7 @@
-* 简介
+* [简介](/data-structure/array/array.md)
 * 数据结构
-  * 数组
-     * [四数之和](data-structure/array/18四数之和.md)
+  * [数组](/data-structure/array/array.md)
+     * [四数之和](/data-structure/array/18四数之和.md  "The greatest guide in the world")
   * [字符串](data-structure/string/)
   * [链表](data-structure/linkedlist/)
   * 树

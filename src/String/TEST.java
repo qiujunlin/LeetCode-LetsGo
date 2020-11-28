@@ -3,14 +3,38 @@ package String;
 import Tree.TreeNode;
 import org.omg.PortableInterceptor.INACTIVE;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class TEST {
 
     public static void main(String[] args) {
-        System.out.println(new TEST().Answerforcn2(10000));
-    }
 
+
+        System.out.println(new TEST().Probability(2));
+    }
+    public String Probability (int n) {
+        // write code here
+        double x=2.0;
+        double res=2/fun(x,n);
+        String s = String.format("%.2f", res);
+        return s ;
+
+    }
+    double fun(double x,long n){
+        double res =1;
+        while(n>0){
+            if((n&1)==1){
+                res=res*x;
+            }
+            n=n>>1;
+            x=x*x;
+        }
+
+        return res;
+
+    }
     private long mod = 1000000007;
     public long power(int x,long n) {
         if(n == 0){
