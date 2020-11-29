@@ -1,8 +1,6 @@
-* [简介](/data-structure/array/array.md)
-* 数据结构
-  * [数组](/data-structure/array/array.md)
-     * [四数之和](/data-structure/array/18四数之和.md  "The greatest guide in the world")
-  * [字符串](data-structure/string/)
+* [🐶简介](README.md)
+* 😂数据结构
+  * [数组](/data-structure/array/array.md  "array")
   * [链表](data-structure/linkedlist/)
   * 树
     * [递归](data-structure/tree/)
@@ -10,7 +8,7 @@
   * [堆](data-structure/heap/)
   * [栈](data-structure/stack/)
   * [哈希表](data-structure/hash/)
-* 算法思想
+* ✌️算法思想
   * 排序
     * [堆排序](algorithm/sort/)
     * [快速排序](algorithm/sort/)
@@ -25,15 +23,6 @@
   * [位运算](algorithm/bit/)
   * [数学题](algorithm/math/)
   * [其他](algorithm/other/)
-* 周赛
-  * [第 121 场周赛](weekly/121/)
-  * [第 122 场周赛](weekly/122/)
-  * [第 124 场周赛](weekly/124/)
-  * [第 129 场周赛](weekly/129/)
-  * [第 130 场周赛](weekly/130/)
-  * [第 131 场周赛](weekly/131/)
-  * [第 133 场周赛](weekly/133/)
-  * [第 134 场周赛](weekly/134/)
-  * [第 136 场周赛](weekly/136/)
-  * [第 137 场周赛](weekly/137/)
-  * [第 138 场周赛](weekly/138/)
+* [周赛](/weekly/week.md)
+* [双周 赛](/doubleweekly/doubleweekly.md)
+* [牛客网](/牛客/contest.md)

@@ -14,11 +14,14 @@
 | 题号 |                             标题                             |                             题解                             | 难度   |
 | ---- | :----------------------------------------------------------: | :----------------------------------------------------------: | ------ |
 | 31   |                          下一个排列                          |                          传统技巧题                          |        |
+| 50   |                           Pow(x,y)                           |                            指数幂                            |        |
 | 53   |                          最大子序和                          |                           动态规划                           | Easy   |
 | 56   | [插入区间](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/MergeIntervals56.java) |                             排序                             |        |
 | 57   | [插入区间2](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/InsertInterval57.java) |                   排序，遍历插入（双指针）                   |        |
 | 62   |                           不同路径                           |                           动态规划                           | Middle |
 | 63   |                          不同路径II                          |                           动态规划                           | Middle |
+| 64   |                          最小路径和                          |                           动态规划                           |        |
+| 70   |                            爬楼梯                            |                           动态规划                           |        |
 | 94   | [二叉树中序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeInorderTraversal94.java) |                         迭代 ，递归                          |        |
 | 95   | [不同的二叉树搜索树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/UniqueBinarySearchTreesII95.java)ii |                        递归，动态规划                        |        |
 | 96   | [不同的二叉搜索树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/UniqueBinarySearchTrees96.java) |                        递归，动态规划                        |        |
@@ -40,6 +43,7 @@
 | 114  | [二叉树展开为链表](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/FlattenBinaryTreetoLinkedList114.java) |                                                              | Easy   |
 | 116  | [填充每个节点的下一个右侧节点指针](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/PopulatingNextRightPointersinEachNode116.java) |                                                              |        |
 | 117  | [填充每个节点的下一个右侧节点指针2](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/PopulatingNextRightPointersinEachNodeII117.java) |                                                              |        |
+| 120  |                      三角形的最小路径和                      |                           动态规划                           |        |
 | 121  | [卖股票的最佳时机](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/BestTimetoBuyandSellStock121.java) |                             遍历                             |        |
 | 122  | [卖股票的最佳时机II](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/BestTimetoBuyandSellStockII122.java) |                           遍历技巧                           |        |
 | 124  |                     二叉树中的最大路径和                     | [递归](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/solution/shou-hui-tu-jie-hen-you-ya-de-yi-dao-dfsti-by-hyj8/) | Hard   |
@@ -47,8 +51,10 @@
 | 144  | [二叉树前序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreePreorderTraversal144.java) |                                                              |        |
 | 145  | [二叉树的后序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreePostorderTraversal145.java) |                       递归，迭代，翻转                       |        |
 | 173  |                       二叉搜索树迭代器                       |                中序遍历 ，使用栈模拟中序遍历                 |        |
+| 198  |                           打家劫舍                           |                           动态规划                           |        |
 | 199  | [二叉树右视图](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeRightSideView199.java) |                             bfs                              |        |
 | 206  | [反转链表](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/LinkedList/ReverseLinkedList206.java) |                     迭代（双指针），递归                     |        |
+| 231  |                          打家劫舍II                          |                           动态规划                           |        |
 | 222  | [完全二叉树的节点个数](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/CountCompleteTreeNodes.java) |                                                              |        |
 | 226  | [反转二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/InvertBinaryTree226.java) |                      递归（前序/后序）                       |        |
 | 230  |                     二叉树中第K小的元素                      |                         迭代 ，递归                          | Middle |
@@ -68,6 +74,7 @@
 | 876  | [链表中间节点](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/LinkedList/MiddleoftheLinkedList876.java) |                        迭代  ，双指针                        |        |
 | 922  |                      按奇偶数组排序\|\|                      |                  使用额外数组 ，使用双指针                   |        |
 | 946  | [有效的 山脉数组](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/ValidMountainArray946.java) |                            双指针                            |        |
+| 976  |                       三角形的最大周长                       |                             遍历                             | Easy   |
 | 998  | [最大二叉树II](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/MaximumBinaryTreeII998.java) |                             递归                             |        |
 | 1022 |                    从根到叶的二进制数之和                    |                           使用递归                           |        |
 | 1122 |                        数组的相对排序                        |                        常规解法 遍历                         | easy   |
@@ -75,6 +82,7 @@
 | 1207 | [独一无二的出现次数](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/UniqueNumberofOccurrences1207.java) |                           java集合                           |        |
 | 1356 | [按照二进制1的个数排序](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/SortIntegersbyTheNumberof1Bits1356.java) |                        排序，巧妙方法                        |        |
 | 1365 | [有多少小于当前数字的数字](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/HowManyNumbersAreSmallerThantheCurrentNumber1365.java) |                    计数排序，额外数组排序                    |        |
+| 1370 |                        上升下降字符串                        |                                                              |        |
 | 1572 | [矩阵的对角线和](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/MatrixDiagonalSum1572.java) |                       暴力，一次性遍历                       |        |
 
 
@@ -91,11 +99,13 @@
 | 215  | 5601     | 设计有序流                 | easy   |      |
 | 215  | 5603     | 确定两个字符串是否接近     | middle |      |
 
-| 场次 | 题目编号 | 题名   | 难度   | 题解 |
-| ---- | -------- | ------ | ------ | ---- |
-| 38   | 5550     | 踩炸弹 | middle |      |
-|      |          |        |        |      |
-|      |          |        |        |      |
+| 场次 | 题目编号 | 题名           | 难度   | 题解 |
+| ---- | -------- | -------------- | ------ | ---- |
+| 38   | 5550     | 踩炸弹         | middle |      |
+| 40   | 5557     | 最大重复字符串 |        |      |
+| 40   | 5558     | 合并两个链表   |        |      |
+| 40   | 5560     | 设计前中后队列 |        |      |
+| 40   |          |                |        |      |
 
 剑指OFFER
 
