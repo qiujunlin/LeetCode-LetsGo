@@ -12,7 +12,7 @@
   * 👉搜索
     * [深度优先](algorithm/research/dfs/)
     * [广度优先](algorithm/research/bfs/)
-    * [二分查找](algorithm/research/binary-search/)
+    * [二分查找](algorithm/search/search,md)
   * [👉动态规划](algorithm/dp/dp.md)
   * [👉贪心](algorithm/greedy/)
   * [👉位运算](algorithm/bit/)
