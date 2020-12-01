@@ -1,6 +1,6 @@
 package WeeklyContest.T213;
 
-public class CheckArrayFormationThroughConcatenation5554 {
+public class canFormArray {
     public boolean canFormArray(int[] arr, int[][] pieces) {
         for(int j=0;j<pieces.length;j++){
             int index=0;
