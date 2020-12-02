@@ -11,8 +11,11 @@ public class TEST {
 
     public static void main(String[] args) {
 
-
-        System.out.println(new TEST().Probability(2));
+HashMap<String,Integer> map = new HashMap<>();
+map.put("a",1);
+map.put("b",2);
+        System.out.println(map.containsKey("a"));
+       // System.out.println(new TEST().Probability(2));
     }
     public String Probability (int n) {
         // write code here

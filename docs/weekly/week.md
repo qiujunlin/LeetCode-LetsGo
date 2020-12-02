@@ -12,8 +12,6 @@
 
 ### 1640. 能否连接形成数组
 
-
-
 ```java
 public boolean canFormArray(int[] arr, int[][] pieces) {
         for(int j=0;j<pieces.length;j++){
