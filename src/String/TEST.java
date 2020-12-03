@@ -9,12 +9,17 @@ import java.util.*;
 
 public class TEST {
 
-    public static void main(String[] args) {
-
-HashMap<String,Integer> map = new HashMap<>();
-map.put("a",1);
-map.put("b",2);
-        System.out.println(map.containsKey("a"));
+    public static void main(String[] args)
+    {
+        List<List<String>> lists = new ArrayList<>(10);
+        List<String> list = new ArrayList<>(10);
+        list.add("");
+        System.out.println(list);
+        for (String  a:
+             list) {
+            System.out.println(a.length());
+        }
+        //System.out.println(map.containsKey("a"));
        // System.out.println(new TEST().Probability(2));
     }
     public String Probability (int n) {
