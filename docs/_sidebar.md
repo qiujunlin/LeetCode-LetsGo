@@ -10,11 +10,11 @@
 * 📗算法思想
   * 👉排序
   * 👉搜索
-    * [深度优先](algorithm/research/dfs/)
-    * [广度优先](algorithm/research/bfs/)
+    * [DFS/回溯](algorithm/research/dfs/)
+    * [BFS](algorithm/research/bfs/)
     * [二分查找](algorithm/search/search,md)
   * [👉动态规划](algorithm/dp/dp.md)
-  * [👉贪心](algorithm/greedy/)
+  * [👉双指针](algorithm/greedy/)
   * [👉位运算](algorithm/bit/)
   * [👉数学题](algorithm/math/math.md)
   * [✍️其他](algorithm/other/)

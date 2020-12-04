@@ -11,17 +11,64 @@ public class TEST {
 
     public static void main(String[] args)
     {
-        List<List<String>> lists = new ArrayList<>(10);
-        List<String> list = new ArrayList<>(10);
-        list.add("");
-        System.out.println(list);
-        for (String  a:
-             list) {
-            System.out.println(a.length());
-        }
-        //System.out.println(map.containsKey("a"));
-       // System.out.println(new TEST().Probability(2));
+      LinkedList<Integer> linkedList = new LinkedList<>();
+
+        System.out.println(new TEST().string2(10,"acesxd"));
+
     }
+    public int string2 (int k, String s) {
+        // write code here
+        // write code here
+        int maxlength=0;
+        for(int i=0;i<s.length();i++){
+            int length=1;
+            int time=k;
+            int index=i;
+            while(time>0&&index+1<s.length()){
+                int c=s.charAt(index+1)-s.charAt(index);
+                time=time-c;
+                if(time>=0)
+                    length++;
+                index++;
+            }
+            while(time==0&&index+1<s.length()&&s.charAt(index)+1==s.charAt(index+1)) length++;
+            maxlength=Math.max(maxlength,length);
+        }
+        return maxlength;
+    }
+    public int solve (int a, int b, int n) {
+        // write code here
+        int max=0;
+        int i=n;
+        while(i<=n){
+            if(i%a==b) {
+                max=i;
+               break;
+            }else
+            i--;
+        }
+    return max;
+    }
+    //int min=Integer.MAX_VALUE;
+    public int coinChange(int[] coins, int amount) {
+        int dp[] = new int[amount+1];
+        Arrays.fill(dp,amount+1);
+        dp[0]=0;
+        for(int i=1;i<=amount;i++){
+            int res=amount+1;
+            for(int j=0;j<coins.length;j++) {
+                if (i >= coins[j]) {
+                    int a = dp[i - coins[j]];
+                    if (a != amount + 1 && res > a) res = a + 1;
+                }
+            }
+            dp[i]=res==amount+1?amount+1:res                    ;
+        }
+
+        return dp[amount]==amount+1?-1:dp[amount];
+        //return dfs(coins,dp,amount);
+    }
+
     public String Probability (int n) {
         // write code here
         double x=2.0;
