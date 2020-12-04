@@ -3,7 +3,6 @@ import  java.util.*;
 public class BinaryTreeRightSideView199 {
     //解法1 层序遍历
     public List<Integer> rightSideView(TreeNode root) {
-
         Queue<TreeNode> queue= new LinkedList<>();
         List<Integer> res = new LinkedList<>();
         if(root==null) return res;

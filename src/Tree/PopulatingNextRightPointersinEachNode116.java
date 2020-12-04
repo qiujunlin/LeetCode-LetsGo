@@ -48,7 +48,6 @@ public class PopulatingNextRightPointersinEachNode116 {
             }
         }
         return root;
-
     }
     //解法2  性能最好  ！！！！
     public Node connect2(Node root) {

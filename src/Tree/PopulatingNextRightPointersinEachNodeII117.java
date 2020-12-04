@@ -28,6 +28,5 @@ public class PopulatingNextRightPointersinEachNodeII117 {
             }
         }
         return root;
-
     }
 }

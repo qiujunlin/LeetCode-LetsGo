@@ -6,6 +6,7 @@ public class BinaryTreeZigzagLevelOrderTraversal103 {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> lists= new ArrayList();
         if(root==null) return lists;
+
         Queue<TreeNode> queue= new LinkedList<>();
         queue.offer(root);
         int temp=0;
@@ -23,7 +24,6 @@ public class BinaryTreeZigzagLevelOrderTraversal103 {
             }
             lists.add(list);
             temp+=1;
-            //System.out.println(queue);
 
         }
      return  lists;

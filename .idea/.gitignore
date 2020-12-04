@@ -2,7 +2,11 @@
 /shelf/
 /workspace.xml
 # Datasource local storage ignored files
+<<<<<<< HEAD
 /../../../../../:\workspace\IdeaProjects\LeetCode-LetsGo\.idea/dataSources/
+=======
+/../../../../../:\workplace\java\LeetCode-LetsGo\.idea/dataSources/
+>>>>>>> origin/master
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
