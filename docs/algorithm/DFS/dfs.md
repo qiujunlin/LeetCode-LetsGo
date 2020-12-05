@@ -69,6 +69,38 @@
 
 难点在于如何去重，
 
+
+
+解释语句: if cur > begin and candidates[cur-1] == candidates[cur] 是如何避免重复的。摘抄来自[leetcode](https://leetcode-cn.com/problems/combination-sum-ii/solution/hui-su-suan-fa-jian-zhi-python-dai-ma-java-dai-m-3/225211)
+
+```
+这个避免重复当思想是在是太重要了。
+这个方法最重要的作用是，可以让同一层级，不出现相同的元素。即
+                  1
+                 / \
+                2   2  这种情况不会发生 但是却允许了不同层级之间的重复即：
+               /     \
+              5       5
+                例2
+                  1
+                 /
+                2      这种情况确是允许的
+               /
+              2  
+                
+为何会有这种神奇的效果呢？
+首先 cur-1 == cur 是用于判定当前元素是否和之前元素相同的语句。这个语句就能砍掉例1。
+可是问题来了，如果把所有当前与之前一个元素相同的都砍掉，那么例二的情况也会消失。 
+因为当第二个2出现的时候，他就和前一个2相同了。
+                
+那么如何保留例2呢？
+那么就用cur > begin 来避免这种情况，你发现例1中的两个2是处在同一个层级上的，
+例2的两个2是处在不同层级上的。
+在一个for循环中，所有被遍历到的数都是属于一个层级的。我们要让一个层级中，
+必须出现且只出现一个2，那么就放过第一个出现重复的2，但不放过后面出现的2。
+第一个出现的2的特点就是 cur == begin. 第二个出现的2 特点是cur > begin.
+```
+
 代码：
 
 ```java
@@ -138,6 +170,76 @@ public List<List<Integer>> combinationSum2(int[] candidates, int target) {
 
 ## 47. 全排列 II
 
+ 这道题日和46题全排列的区别在于  46题的数组中没有重复的元素，全排列的结果中没有重复值，这道题的数组中有重复值，如果按照46题的方法来做 肯定 会有重复的值。
+
+这道题的难点在于 如何对结果进行去重复。
+
+1. ###### 方法一  使用set去重，set可以对list集合去重 但是效率jid
+
+2. ###### 方法二  使用排序比较的方法。 
+
+   ```
+   if(i>0&&nums[i]==nums[i-1]&&bo[i-1]==false) continue;
+   ```
+
+   这句话 代表的意思是  在在当前的循环内，如果a和b挨着的，且a=b  那么如果访问 a  ，接着访问b是没有问题的。如果访问b，先判断a是否被访问过，如果a没有被访问，那么结果和先访问a的结果是一样的，直接continueb、 剪纸，如果a访问过了，说明顺序是对的，直接访问。这样就可以保证结果是相同的 。 
+
+   这道题  的去重方法可以和组合总和2 的排序方法进行一个比较。加深印象
+
+代码
+
+```java
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        LinkedList<Integer> list = new LinkedList();
+        Arrays.sort(nums);
+        boolean bo[]=new boolean[nums.length];
+        dfs(nums,list, res,bo);
+        return res;
+    }
+    private void dfs(int[] nums,LinkedList<Integer> list, List<List<Integer>> res,boolean bo[]) {
+        if (list.size()==nums.length) {
+            res.add(new ArrayList<>(list));
+            return;
+        }
+        // 重点理解这里从 begin 开始搜索的语意
+        for (int i = 0; i < nums.length; i++) {
+            if(bo[i]==true) continue;
+            if(i>0&&nums[i]==nums[i-1]&&bo[i-1]==false) continue;
+            bo[i]=true;
+            list.offer(nums[i]);
+            dfs(nums,list,res,bo);
+            list.removeLast();
+            bo[i]=false;;
+        }
+    }
+```
+
+
+
 ## 78. 子集
+
+代码：
+
+```java
+  public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> res= new ArrayList();
+        LinkedList<Integer> list = new LinkedList();
+        dfs(nums,0,res,list);
+        return res;
+    }
+    void dfs(int []nums,int left,List<List<Integer>> res,LinkedList<Integer> list){
+           if(list.size()<=nums.length) {
+               res.add(new ArrayList(list));
+           }else return;
+           for(int i=left;i<nums.length;i++){
+                list.offer(nums[i]);
+                dfs(nums,i+1,res,list);
+                list.removeLast();
+           }
+    }
+```
+
+
 
 ## 90.子集 II
