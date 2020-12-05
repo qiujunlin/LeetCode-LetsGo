@@ -106,6 +106,36 @@ public List<List<Integer>> combinationSum2(int[] candidates, int target) {
 
 ## 46. 全排列
 
+这道题的思路就是回溯 ，和组合总和的思路一样，就是把每一个数字都要遍历到，但是遍历的顺序不一样。每个数字的使用次数也只能为1 。
+
+组合总和用来保存遍历状态的方法是使用了排序和下标的操作，有点像零钱兑换，下标的不断增加，这样之前的就遍历过，之后的就没被遍历。而全排列不许要被排序，一个数访问了，它之前的数可能还没有被访问。因此可以使用一个状态数组 Boolean dp[] 来保存，也可以使用一个Set来保存已经遍历过的数字，方法也是一样，不过速度要慢很多。
+
+```java
+ public List<List<Integer>> permute(int[] nums) {
+         List<List<Integer>> res = new ArrayList();
+         LinkedList<Integer> list = new LinkedList();
+         boolean bo[]= new boolean[nums.length+1];
+        dfs(nums,list,res,bo);
+        return res; 
+    }
+    void dfs(int nums[],LinkedList<Integer> list,List<List<Integer>> res, boolean bo[]){
+        if(list.size()==nums.length){
+            res.add(new LinkedList(list));
+            return ;
+        }
+        for(int i=0;i<nums.length;i++){
+            if(bo[i]==true) continue;
+            bo[i]=true;
+            list.offer(nums[i]);
+            dfs(nums,list,res,bo);
+            list.removeLast();
+            bo[i]=false;
+        }
+    }
+```
+
+
+
 ## 47. 全排列 II
 
 ## 78. 子集

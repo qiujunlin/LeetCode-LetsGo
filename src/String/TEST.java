@@ -12,6 +12,7 @@ public class TEST {
     public static void main(String[] args)
     {
       LinkedList<Integer> linkedList = new LinkedList<>();
+        Set<Integer> set  =new HashSet<>();
 
         System.out.println(new TEST().string2(10,"acesxd"));
 

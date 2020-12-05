@@ -12,7 +12,7 @@
 
 
 
-##### 解法一 时间复杂度O(n^2)
+### 解法一 时间复杂度O(n^2)
 
 
 
@@ -37,7 +37,7 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize){
 
 
 
-##### 解法二  时间	O(1)
+### 解法二  时间	O(1)
 
 使用hash表，
 
