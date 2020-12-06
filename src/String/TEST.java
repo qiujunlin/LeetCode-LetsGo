@@ -3,19 +3,64 @@ package String;
 import Tree.TreeNode;
 import org.omg.PortableInterceptor.INACTIVE;
 
+import javax.print.attribute.EnumSyntax;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.text.DecimalFormat;
 import java.util.*;
 
 public class TEST {
 
     public static void main(String[] args)
-    {
-      LinkedList<Integer> linkedList = new LinkedList<>();
-        Set<Integer> set  =new HashSet<>();
+    {  //int a=118505380540;
+        int nums[]=new int[20];
+        nums[0]=1;
+        for(int i=1;i<20;i++){
+            nums[i]=nums[i-1]*2;
+        }
+        System.out.println(new TEST().concatenatedBinary(12));
 
-        System.out.println(new TEST().string2(10,"acesxd"));
+    }
+    public int concatenatedBinary(int n) {
+        String s="";
+        for(int i=1;i<=n;i++){
+            String a=toBinaryString(i);;
+            s+=a;
+            if(a.lastIndexOf(0)=='0') {
+                a=s.substring(0,a.length()-1);
+                a=a+"1";
+                if(i+1<=n) {
+                    s+=a;
+                    i=i+2;
+                }
+            }
+           // System.out.println(s);
+        }
+        int res=0;
 
+        for(int i=s.length()-1,t=1;i>=0;i--,t=t*2%1000000007){
+            char a=s.charAt(i);
+            res= (res+((a-48)*t)%1000000007)%1000000007;
+        }
+        System.out.println(res);
+        return res;
+
+    }
+    String res="";
+    void fun(StringBuilder str,int number){
+          if(number/2==0) return ;
+          else fun(str,number/2);
+          str.append(number%2);
+
+    }
+    String toBinaryString(Integer number) {
+        StringBuilder sb = new StringBuilder();
+        for (int n = number; n > 0 ; n /= 2) {
+            sb.append(n %  2);
+
+        }
+        sb=sb.reverse();
+         return sb.toString();
     }
     public int string2 (int k, String s) {
         // write code here

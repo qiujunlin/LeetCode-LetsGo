@@ -12,6 +12,8 @@
 
 ### 1640. 能否连接形成数组
 
+![image-20201206160721824](images/image-20201206160721824.png)
+
 ```java
 public boolean canFormArray(int[] arr, int[][] pieces) {
         for(int j=0;j<pieces.length;j++){
@@ -60,6 +62,8 @@ public boolean canFormArray(int[] arr, int[][] pieces) {
 ```
 
 ### 1647. 字符频次唯一的最小删除次数
+
+![image-20201206155846298](images\image-20201206155846298.png)
 
 解法一  ：最初的解法，这个解法太辣鸡了，代码简直辣眼睛
 
@@ -129,7 +133,167 @@ public boolean canFormArray(int[] arr, int[][] pieces) {
 
 ### 1656. 设计有序流
 
+难在看题
+
+```java 
+
+    String a[];
+    int ptr=0;
+    public OrderedStream(int n) {
+      a=new String[n];
+    } 
+    public List<String> insert(int id, String value) {
+         List<String> list  = new ArrayList<>();
+         a[id-1]=value;
+         while(ptr<a.length&&a[ptr]!= null){
+           list.add(a[ptr++]);
+         }
+        return list;
+    }
 ```
 
+### 1657. 确定两个字符串是否接近
+
+
+
+这一道题思路
+
+只要满足两个条件就可以：
+
+第一个，word1中出现的字符在word2中都出现。
+
+第二个，字符出现的频次数相等。比如，对于word1中字符出现次数从小到大排序为531，那么word2中字符出现的次数从小到大也必须是531。无需出现的次数对应的字符相同。
+
+
+
+```java
+public boolean closeStrings(String word1, String word2) {
+            int a[]=new int[26];
+          int b[]=new int[26];
+      
+          for(int i=0;i<word1.length();i++){
+            a[word1.charAt(i)-'a']++;
+          }
+          for(int i=0;i<word2.length();i++){
+            b[word2.charAt(i)-'a']++;
+          }
+          for(int i=0;i<26;i++){
+            if((a[i]==0&&b[i]!=0) ||(a[i]!=0&&b[i]==0) )return false;
+               
+          }
+          Arrays.sort(a);
+          Arrays.sort(b);
+               int index=25;
+               while(index>=0){
+                 if(a[index]!=b[index]) return false; 
+                 index--;
+               }
+               
+         return true;
+    }
+
+```
+
+
+
+## week218
+
+### 5617. 设计 Goal 解析器
+
+```java
+   public String interpret(String command) {
+      String res="";
+      
+      for(int i=0;i<command.length();i++){
+        char c=command.charAt(i);
+        if(c=='G'){
+          res+=c;
+        }else {
+           if(command.charAt(i+1)==')'){
+             res=res+"o";
+             i=i+1;
+           }else{
+             res=res+"al";
+             i=i+3;
+           }
+        }
+      }
+      return res;
+    }
+```
+
+### 5618. K 和数对的最大数目
+
+排序+双指针
+
+```
+public int maxOperations(int[] nums, int k) {
+       Arrays.sort(nums);
+      int times=0;
+      for(int i=0,j=nums.length-1;i<j&&i<nums.length&&j>0;){
+           if(nums[i]+nums[j]==k){
+              times++;
+               i++;j--;
+           }else if(nums[i]+nums[j]<k){
+               i++;
+           }else{
+             j--;
+           }
+      }
+          return times;
+ 
+    }
+```
+
+
+
+### 5620. 连接连续二进制数字
+
+没做出来，超时，两个方法都是参考大神的
+
+#### 方法一
+
+```java
+public int concatenatedBinary(int n) {
+         int nums[]=new int[20];
+         nums[0]=1;
+         for(int i=1;i<20;i++){
+          nums[i]=nums[i-1]*2;
+      }
+        int mod=1000000007;
+        long res=0;
+        int len=1;
+        int next=2;
+        for(int i=1;i<=n;i++){
+          if(i==next){
+            len++;
+            next=next*2;
+          }
+          res=(res*nums[len])%mod;
+          res=(res+i)%mod;
+        }
+        return (int)res;
+    }
+```
+
+#### 解法二
+
+解法二 太厉害了  ，实在是太厉害了，[解析在这](https://leetcode-cn.com/problems/concatenation-of-consecutive-binary-numbers/solution/lian-jie-lian-xu-er-jin-zhi-shu-zi-by-ze-t40j/)
+
+```java
+public int concatenatedBinary(int n) {
+        int mod=1000000007;
+        long res=0;
+        int len=0;
+        for(int i=1;i<=n;i++){
+          if(((i&(i-1)))==0){   //
+            len++;
+          }
+          res=((res<<len)%mod+i)%mod;
+        //  res=(res+i)%mod;
+        }
+        return (int)res;
+    }
+}
 ```
 

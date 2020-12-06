@@ -98,3 +98,27 @@ public List<List<Integer>> threeSum(int[] nums) {
     }
 ```
 
+## 118. 杨辉三角
+
+没什么说的,金典题目，有点动态规划的意思。好像也不算
+
+代码：
+
+```java
+ public List<List<Integer>> generate(int numRows) {
+        int nums[][]= new int[numRows+1][numRows+1];
+        List<List<Integer>> res = new ArrayList();   
+        for(int i=1;i<=numRows;i++){
+            List<Integer> list = new ArrayList();
+            for(int j=1;j<=i;j++){
+               if(j==1||j==i) nums[i][j]=1;
+               else
+               nums[i][j]=nums[i-1][j-1]+nums[i-1][j];
+               list.add(nums[i][j]);
+            }
+            res.add(list);
+        }
+        return res;
+    }
+```
+
