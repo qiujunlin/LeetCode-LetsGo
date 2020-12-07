@@ -1,4 +1,7 @@
-* [📕简介](README.md)
+* 📕前言
+  * [简介](README.md)
+  * [刷题技巧](algorithm/注意事项.md)
+  * [发现新东西](algorithm/new.md)
 * [📜小番茄的模板](/模板/算法模板.md)
 * 📚数据结构
   * [ 👉🏻 数组](/data-structure/array/array.md  "array")
@@ -11,9 +14,10 @@
   * 👉排序
   * [👉DFS/回溯](algorithm/DFS/dfs.md)
   * [👉BFS](algorithm/research/bfs/)
-  * [👉二分查找](algorithm/search/search,md)
+  * [👉二分查找](algorithm/二分/二分.md)
   * [👉动态规划](algorithm/dp/dp.md)
-  * [👉双指针](algorithm/greedy/)
+  * [👉双指针](algorithm/双指针/双指针.md)
+  * [👉贪心](algorithm/贪心/贪心.md)
   * [👉滑动窗口](algorithm/滑动/滑动.md)
   * [👉位运算](algorithm/bit/)
   * [👉数学题](algorithm/math/math.md)

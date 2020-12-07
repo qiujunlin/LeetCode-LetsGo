@@ -13,11 +13,25 @@ public class TEST {
 
     public static void main(String[] args)
     {  //int a=118505380540;
-        int nums1[]={};
-        int nums2[]= {0};
+        System.out.println(new TEST().myPow(2.00000,
+                -2147483648));
+        int n=-2147483648;
+       // System.out.println(n>0);
 
-        System.out.println(new TEST().findMedianSortedArrays(nums1,nums2));
-
+    }
+    public double myPow(double x, int n) {
+        int a=n>0?1:-1;
+        long b=n;
+        if(n<0) b=-b;
+        double res=1;
+        while(b>0){
+            if((b&1)==1){
+                res=res*x;
+            }
+            x=x*x;
+            b=b>>1;
+        }
+        return a==1?res:(1.0/res);
     }
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int len=nums1.length+nums2.length;
