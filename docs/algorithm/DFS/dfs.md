@@ -243,3 +243,27 @@ public List<List<Integer>> combinationSum2(int[] candidates, int target) {
 
 
 ## 90.子集 II
+
+这道题跟足额和总和二几乎一模一样
+
+```
+ public List<List<Integer>> subsetsWithDup(int[] nums) {
+        List<List<Integer>> res= new ArrayList();
+        LinkedList<Integer> list = new LinkedList();
+        Arrays.sort(nums);
+        dfs(nums,0,res,list);
+        return res;
+    }
+    void dfs(int []nums,int left,List<List<Integer>> res,LinkedList<Integer> list){
+           if(list.size()<=nums.length) {
+               res.add(new ArrayList(list));
+           }else return;
+           for(int i=left;i<nums.length;i++){
+               if(i>left&&nums[i]==nums[i-1]) continue;
+                list.add(nums[i]);
+                dfs(nums,i+1,res,list);
+                list.removeLast();
+           }
+    }
+```
+

@@ -19,8 +19,12 @@
 | ---- | :----------------------------------------------------------: | :----------------------------------------------------------: | ------ |
 | 1    |                           两数之和                           |                             hash                             | easy   |
 | 3    |                     无重复字符的最长子串                     |                           滑动窗口                           | Middle |
+| 4    |                      寻找正序数组中位数                      |                             二分                             | Hard   |
 | 31   |                          下一个排列                          |                          传统技巧题                          |        |
-| 39   |                           组合总和                           |                                                              |        |
+| 39   |                           组合总和                           |                             回溯                             | Niddle |
+| 40   |                          组合总和II                          |                             回溯                             | Middle |
+| 46   |                            全排列                            |                             回溯                             | Middle |
+| 47   |                            全排列                            |                             回溯                             | Middle |
 | 50   |                           Pow(x,y)                           |                            指数幂                            |        |
 | 53   |                          最大子序和                          |                           动态规划                           | Easy   |
 | 56   | [插入区间](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/MergeIntervals56.java) |                             排序                             |        |
@@ -29,6 +33,8 @@
 | 63   |                          不同路径II                          |                           动态规划                           | Middle |
 | 64   |                          最小路径和                          |                           动态规划                           |        |
 | 70   |                            爬楼梯                            |                           动态规划                           |        |
+| 78   |                             子集                             |                             回溯                             | Middle |
+| 90   |                            子集II                            |                             回溯                             | Middle |
 | 94   | [二叉树中序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeInorderTraversal94.java) |                         迭代 ，递归                          |        |
 | 95   | [不同的二叉树搜索树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/UniqueBinarySearchTreesII95.java)ii |                        递归，动态规划                        |        |
 | 96   | [不同的二叉搜索树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/UniqueBinarySearchTrees96.java) |                        递归，动态规划                        |        |
@@ -69,6 +75,8 @@
 | 234  | [判断是否是回文链表](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/LinkedList/PalindromeLinkedList234.java) |                    双指针，反转+快慢指针                     |        |
 | 235  |                     二叉树的最近公共祖先                     |                                                              |        |
 | 236  | [二叉树最近公共祖先](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/LowestCommonAncestorofaBinaryTree236.java) |                                                              |        |
+| 279  |                          完全平方数                          |                                                              |        |
+| 300  |                        最长上升子序列                        |                           Dp，二分                           | Middle |
 | 322  |                           零钱兑换                           |                           动态规划                           | Middle |
 | 349  | [两个数组交集](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/IntersectionofTwoArrays349.java) |                           双指针，                           |        |
 | 340  | [两个数组的交集\|\|](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/IntersectionofTwoArrays350.java) |                         双指针，map                          |        |
@@ -107,6 +115,9 @@
 | 241  | 1647     | 字符频次唯一的最小删除次数 | middle |      |
 | 215  | 5601     | 设计有序流                 | easy   |      |
 | 215  | 5603     | 确定两个字符串是否接近     | middle |      |
+| 218  | 1678     | 设计Gi、oal解析器          | Easy   |      |
+| 218  | 1679     | K和数对最大数目            | Middle |      |
+| 218  | 1680     | 连接连续二进制数字         | Middle |      |
 
 | 场次 | 题目编号 | 题名           | 难度   | 题解 |
 | ---- | -------- | -------------- | ------ | ---- |

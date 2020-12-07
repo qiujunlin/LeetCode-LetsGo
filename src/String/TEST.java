@@ -13,13 +13,30 @@ public class TEST {
 
     public static void main(String[] args)
     {  //int a=118505380540;
-        int nums[]=new int[20];
-        nums[0]=1;
-        for(int i=1;i<20;i++){
-            nums[i]=nums[i-1]*2;
-        }
-        System.out.println(new TEST().concatenatedBinary(12));
+        int nums1[]={};
+        int nums2[]= {0};
 
+        System.out.println(new TEST().findMedianSortedArrays(nums1,nums2));
+
+    }
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int len=nums1.length+nums2.length;
+        int start1=0,start2=0;
+        int pre=0,next=0;
+        for(int i=0;i<=len/2;i++){
+            pre=next;
+            if(start2>=nums2.length||(start1<nums1.length&&nums1[start1]<nums2[start2])){
+                next=nums1[start1];
+                start1++;
+            }else{
+                next=nums2[start2];
+                start2++;
+
+            }
+            //pre=next;
+        }
+        if(len%2==0) return (pre+next)/2;
+        return next;
     }
     public int concatenatedBinary(int n) {
         String s="";

@@ -50,6 +50,56 @@ $$
 
 ## 213 打家劫舍II
 
+## 279 完全平方数目
+
+[题解](https://leetcode-cn.com/problems/perfect-squares/solution/hua-jie-suan-fa-279-wan-quan-ping-fang-shu-by-guan/)
+
+```java
+public int numSquares(int n) {
+       int dp[]= new int[n+1];
+       dp[1]=1;
+       for(int i=2;i<=n;i++){
+         dp[i]=i;
+         for(int j=0;i-j*j>=0;j++){
+                dp[i]=Math.min(dp[i],dp[i-j*j]+1);
+         }
+       } 
+       return dp[n];
+    }
+```
+
+
+
+## 300 最长上升子序列
+
+### 方法一 动态规划
+
+[题解](https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/zui-chang-shang-sheng-zi-xu-lie-dong-tai-gui-hua-2/)
+
+这道题用 动态规划居然只超过了百分之5    这么慢
+
+```java
+public int lengthOfLIS(int[] nums) {
+        int dp[]= new int[nums.length+1];
+        dp[0]=1;
+        int max=1;
+        for(int  i=1;i<nums.length;i++){
+            dp[i]=1;
+            for(int j=0;j<i;j++){
+                if(nums[j]<nums[i]) {
+                    dp[i]=Math.max(dp[i],dp[j]+1);
+                }
+            }
+            max=Math.max(dp[i],max);
+        }
+        return max;
+    }
+```
+
+### 解法二 二分查找
+
+
+
 ## 322 零钱兑换
 
 ### 解法1 贪心 + dfs，解题思路
