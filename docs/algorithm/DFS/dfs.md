@@ -267,3 +267,88 @@ public List<List<Integer>> combinationSum2(int[] candidates, int target) {
     }
 ```
 
+## 842 将数组拆分成斐波那契序列
+
+写得太恶心了  ，速度太慢，过几天再来从新写一次
+
+```java
+  List<Integer> res;
+    public List<Integer> splitIntoFibonacci(String S) {
+        res = new LinkedList<>();
+        LinkedList list = new LinkedList();
+        dfs(S,S.length()-1,list);
+        Collections.reverse(res);
+        return res;
+    }
+    void dfs(String s,int index,LinkedList<Integer> list){
+        if(res.size()!=0) return;
+        if(index<0) {
+            if(isFb(list)) res=new ArrayList<>(list);
+            return;
+        }
+        for(int i=index;i>=0;i--){
+            if(list.size()>=3&&!isFb(list)) {
+                return;
+            }
+            String  str= s.substring(i,index+1);
+            if(str.length()>1&&str.charAt(0)=='0') continue;
+           long a=Long.valueOf(str);
+            if(a>Integer.MAX_VALUE) break;
+            list.offer((int)a);
+            //剪纸
+            dfs(s,i-1,list);
+            list.removeLast();
+        }
+    }
+    boolean isFb(LinkedList<Integer> list){
+        if(list.size()<3) return false;
+        Integer pre =list.getLast();
+        Integer next=list.get(list.size()-2);
+        for(int i=list.size()-3;i>=0;i--){
+            if(pre+next!=list.get(i)) return false;
+            pre=next;
+            next=list.get(i);
+        }
+        return true;
+    }
+```
+
+改了一下，超过了百分之50 还是慢
+
+```java
+ List<Integer> res;
+    public List<Integer> splitIntoFibonacci(String S) {
+        res = new LinkedList<>();
+        LinkedList list = new LinkedList();
+        dfs(S,0,list);
+       // Collections.reverse(res);
+        return res;
+    }
+    void dfs(String s,int index,LinkedList<Integer> list){
+          if(index==s.length()) {
+              if(list.size()>=3)
+              res=new ArrayList<>(list);
+              return;
+          }
+
+        for(int i=index;i<s.length();i++){
+            String  str= s.substring(index,i+1);
+            if(str.length()>1&&str.charAt(0)=='0') continue;
+
+            long a=Long.valueOf(str);
+            if(a>Integer.MAX_VALUE) break;
+            int num= (int)a;
+
+            if(list.size()>=2) {
+                Integer nums1 = list.getLast();
+                Integer nums2 = list.get(list.size() - 2);
+                if (num > nums1 +nums2) break;
+                else if (num < nums1 + nums2) continue;
+            }
+            list.offer(num);
+            dfs(s,i+1,list);
+            list.removeLast();
+        }
+        }
+```
+

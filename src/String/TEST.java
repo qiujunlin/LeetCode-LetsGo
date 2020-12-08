@@ -13,12 +13,64 @@ public class TEST {
 
     public static void main(String[] args)
     {  //int a=118505380540;
-        System.out.println(new TEST().myPow(2.00000,
-                -2147483648));
-        int n=-2147483648;
-       // System.out.println(n>0);
+        int a[]= {3,5,1};
+        int target=2;
+        System.out.println(new TEST().search(a,2));
 
     }
+    public int search(int[] nums, int target) {
+        int left=0;
+        int right=nums.length-1;
+        while(left<right){
+            int mid =  left + (right - left) / 2 ;
+            if(nums[mid] == target) return mid;
+            else if(nums[mid] < target){
+                if(nums[left]>nums[right]) right=mid-1;
+                else   left=mid+1;
+            }else if(nums[mid]>target){
+                if(nums[left]>nums[right])  left=mid+1;
+                else   right=mid-1;
+            }
+        }
+        if(nums[left]==target)
+            return left;
+        return -1;
+    }
+    List<Integer> res;
+    public List<Integer> splitIntoFibonacci(String S) {
+        res = new LinkedList<>();
+        LinkedList list = new LinkedList();
+        dfs(S,0,list);
+       // Collections.reverse(res);
+        return res;
+    }
+    void dfs(String s,int index,LinkedList<Integer> list){
+          if(index==s.length()) {
+              if(list.size()>=3)
+              res=new ArrayList<>(list);
+              return;
+          }
+
+        for(int i=index;i<s.length();i++){
+            String  str= s.substring(index,i+1);
+            if(str.length()>1&&str.charAt(0)=='0') continue;
+
+            long a=Long.valueOf(str);
+            if(a>Integer.MAX_VALUE) break;
+            int num= (int)a;
+
+            if(list.size()>=2) {
+                Integer nums1 = list.getLast();
+                Integer nums2 = list.get(list.size() - 2);
+                if (num > nums1 +nums2) break;
+                else if (num < nums1 + nums2) continue;
+            }
+            list.offer(num);
+            dfs(s,i+1,list);
+            list.removeLast();
+        }
+    }
+
     public double myPow(double x, int n) {
         int a=n>0?1:-1;
         long b=n;
@@ -77,7 +129,7 @@ public class TEST {
         return res;
 
     }
-    String res="";
+    //String res="";
     void fun(StringBuilder str,int number){
           if(number/2==0) return ;
           else fun(str,number/2);
