@@ -13,10 +13,64 @@ public class TEST {
 
     public static void main(String[] args)
     {  //int a=118505380540;
-        int a[]= {3,5,1};
-        int target=2;
-        System.out.println(new TEST().search(a,2));
+      String a="cbacb";
+        System.out.println(new TEST().Maximumlength(a));
+        //System.out.println(new TEST().isSame(4));
 
+    }
+    public int Maximumlength (String x) {
+       int max=0;
+       for(int i=1;i<x.length()-1;i++){
+           if(x.charAt(i)=='b'){
+             int  lenb=1;
+             int  right=i+1;
+             while(right<x.length()&&x.charAt(right)=='b'){
+                 lenb++;
+                 right++;
+             }
+             int left=i-1;
+             int lenab=0;
+             while(left>=0&&right<x.length()&&x.charAt(left)=='a'&&x.charAt(right)=='c'){
+                 left--;
+                 right++;
+                 lenab++;
+             }
+           //  if(lenb)
+             if(lenb==lenab) max=Math.max(max,lenb);
+             else i=right;
+           }
+       }
+       return  max*3;
+    }
+    String isSame(int len){
+       char s[]= new char[len*3];
+       int i=0;
+        for( i=0;i<len;i++){
+           s[i]='a';
+        } for( ;i<len*2;i++){
+            s[i]='b';
+        }
+        for( ;i<len*3;i++){
+            s[i]='c';
+        }
+
+        return  Arrays.toString(s);
+    }
+    public int countWine (int m, int n) {
+        // write code here
+        int res=0;
+        n=n/m;
+        int a=n;//瓶
+        int b=n;//瓶盖
+
+        while(a>=2||b>=4){
+            res=res+n;
+            n=a/2+b/4;
+
+            a=a%2+n;
+            b=b%4+n;
+        }
+        return res+n;
     }
     public int search(int[] nums, int target) {
         int left=0;
