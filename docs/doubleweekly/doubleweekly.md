@@ -129,3 +129,46 @@ LinkedList<Integer>  list;
     }
 ```
 
+## 1671. 得到山形数组的最少删除次数
+
+思路：dp
+
+进行两次最长上升子序列的做法，然后结合起来，就变成这道题的答案了，。
+
+```java
+ public int minimumMountainRemovals(int[] nums) {
+        int ldp[]=lengthOfLIS1(nums);
+        int rdp[]=lengthOfLIS2(nums);
+        int res=0;
+        for(int i=0;i<nums.length;i++){
+            if(ldp[i]>1&&rdp[i]>1)
+            res=Math.max(ldp[i]+rdp[i]-1,res);
+        }
+        return nums.length-res;
+    }
+    public int[] lengthOfLIS1(int[] nums) {
+        int dp[]= new int[nums.length];
+        for(int  i=0;i<nums.length;i++){
+            dp[i]=1;
+            for(int j=0;j<i;j++){
+                if(nums[j]<nums[i]) {
+                    dp[i]=Math.max(dp[i],dp[j]+1);
+                }
+            }
+        }
+        return dp;
+    }
+    public int[] lengthOfLIS2(int[] nums) {
+        int dp[]= new int[nums.length];
+        for(int  i=nums.length-1;i>=0;i--){
+            dp[i]=1;
+            for(int j=nums.length-1;j>i;j--){
+                if(nums[j]<nums[i]) {
+                    dp[i]=Math.max(dp[i],dp[j]+1);
+                }
+            }
+        }
+        return dp;
+    }
+```
+

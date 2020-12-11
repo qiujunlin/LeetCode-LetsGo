@@ -21,6 +21,8 @@
 | 3    |                     无重复字符的最长子串                     |                           滑动窗口                           | Middle |
 | 4    |                      寻找正序数组中位数                      |                             二分                             | Hard   |
 | 31   |                          下一个排列                          |                          传统技巧题                          |        |
+| 33   |                       搜索旋转排序数组                       |                             二分                             |        |
+| 35   |                         搜索插入位置                         |                             二分                             | easy   |
 | 39   |                           组合总和                           |                             回溯                             | Niddle |
 | 40   |                          组合总和II                          |                             回溯                             | Middle |
 | 46   |                            全排列                            |                             回溯                             | Middle |
@@ -87,6 +89,9 @@
 | 518  |                          零钱兑换II                          |                           动态规划                           | Middle |
 | 637  |                    二叉树的层序遍历平均值                    |                           层序遍历                           | easy   |
 | 654  | [最大二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/MaximumBinaryTree654.java) |                           递归构造                           |        |
+| 704  |                           二分查找                           |                             二分                             | easy   |
+| 821  |                        字符串最短距离                        |                            双指针                            | easy   |
+| 860  |                          柃檬水找零                          |                           贪心模拟                           | easy   |
 | 865  |                 具有所有最深节点的最小子树)                  |                          后序，前序                          | Middle |
 | 876  | [链表中间节点](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/LinkedList/MiddleoftheLinkedList876.java) |                        迭代  ，双指针                        |        |
 | 922  |                      按奇偶数组排序\|\|                      |                  使用额外数组 ，使用双指针                   |        |
@@ -94,6 +99,7 @@
 | 976  |                       三角形的最大周长                       |                             遍历                             | Easy   |
 | 998  | [最大二叉树II](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/MaximumBinaryTreeII998.java) |                             递归                             |        |
 | 1022 |                    从根到叶的二进制数之和                    |                           使用递归                           |        |
+| 1095 |                     山脉数组中查找目标值                     |                             二分                             | HARD   |
 | 1122 |                        数组的相对排序                        |                        常规解法 遍历                         | easy   |
 | 1123 |                   最深叶节点的最近公共祖先                   |                             后序                             | Middle |
 | 1207 | [独一无二的出现次数](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/UniqueNumberofOccurrences1207.java) |                           java集合                           |        |
@@ -119,13 +125,14 @@
 | 218  | 1679     | K和数对最大数目            | Middle |      |
 | 218  | 1680     | 连接连续二进制数字         | Middle |      |
 
-| 场次 | 题目编号 | 题名           | 难度   | 题解 |
-| ---- | -------- | -------------- | ------ | ---- |
-| 38   | 5550     | 踩炸弹         | middle |      |
-| 40   | 5557     | 最大重复字符串 |        |      |
-| 40   | 5558     | 合并两个链表   |        |      |
-| 40   | 5560     | 设计前中后队列 |        |      |
-| 40   |          |                |        |      |
+| 场次 | 题目编号 | 题名                       | 难度   | 题解 |
+| ---- | -------- | -------------------------- | ------ | ---- |
+| 38   | 5550     | 踩炸弹                     | middle |      |
+| 40   | 5557     | 最大重复字符串             |        |      |
+| 40   | 5558     | 合并两个链表               |        |      |
+| 40   | 5560     | 设计前中后队列             |        |      |
+| 40   |          |                            |        |      |
+| 41   | 1671     | 得到山形数组的最少删除次数 | hard   |      |
 
 剑指OFFER
 
