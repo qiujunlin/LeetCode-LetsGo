@@ -13,10 +13,23 @@ public class TEST {
 
     public static void main(String[] args)
     {  //int a=118505380540;
-      String a="cbacb";
-        System.out.println(new TEST().Maximumlength(a));
+     int  a[] = new int[]{3,4,5,0,1,2};
+        System.out.println(new TEST().search1(a,1));
         //System.out.println(new TEST().isSame(4));
 
+    }
+    public int search1(int[] nums, int target) {
+        int left=0;
+        int right=nums.length-1;
+        while (left < right) {
+            int mid = (left + right) >>> 1;
+            if (nums[mid] >  nums[right]) {
+                  ;left=mid;
+            } else {
+                right=mid-1;
+            }
+        }
+        return left;
     }
     public int Maximumlength (String x) {
        int max=0;
