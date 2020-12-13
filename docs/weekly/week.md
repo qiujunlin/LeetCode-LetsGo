@@ -297,3 +297,41 @@ public int concatenatedBinary(int n) {
 }
 ```
 
+## week219
+
+## 5625. 比赛中的配对次数
+
+贪心吧 ，模拟就行了
+
+```java
+ public int numberOfMatches(int n) {
+              int res=0;
+              while(n>1){
+                  res+=n/2;
+                  n=n/2+n%2;
+              }
+              return res;
+    }
+```
+
+
+
+## 5626. 十-二进制数的最少数目
+
+脑筋急转弯？？
+
+![5626](images/5626.png)
+
+这道题想了一下 无从下手 ，最后发现是技巧题 ，只需要求最大的数字就可以了
+
+```java
+ public int minPartitions(String n) {
+                 int max=0;
+                 for(int i=0;i<n.length();i++){
+                      if(n.charAt(i)-'0'>max) max=n.charAt(i)-'0';
+                 }
+                 return max;
+    }
+```
+
+## 5627. 石子游戏 VII

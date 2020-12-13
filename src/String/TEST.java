@@ -13,10 +13,63 @@ public class TEST {
 
     public static void main(String[] args)
     {  //int a=118505380540;
-     int  a[] = new int[]{3,4,5,0,1,2};
-        System.out.println(new TEST().search1(a,1));
-        //System.out.println(new TEST().isSame(4));
+     int  a[] = new int[]{5,3,1,4,2};
+        System.out.println(new TEST().stoneGameVII(a));
+HashMap<Integer,Integer> map = new HashMap<>();
+map.put(1,map.getOrDefault(1,0)+1);
+map.values()
+    }
+    public int stoneGameVII(int[] stones) {
+        LinkedList<Integer> list = new LinkedList();
+        for(int num:stones){
+            list.offer(num);
+        }
+        int ales=0;
+        int bob=0;
+        int flag=0;
+        while(list.size()!=0){
+            int left=list.getFirst();
+            int right=list.getLast();
+            if(left>right) {
+                if(flag==0){
+                    list.removeLast();
+                    ales+=sum(list);
+                    flag=1;
+                }else{
+                    list.removeFirst();
+                    bob=bob+sum(list);
+                    flag=0;
+                }
+            }else{
+                if(flag==0){
+                    list.removeFirst();
+                    ales+=sum(list);
+                    flag=1;
+                }else{
+                    list.removeLast();
+                    bob=bob+sum(list);
+                    flag=0;
+                }
 
+
+            }
+
+          System.out.println("alex"+ales);
+            System.out.println("bob"+bob);
+
+        }
+        int left=list.getFirst();
+        int right=list.getLast();
+        ales=ales+Math.max(left,right);
+        bob=bob+Math.min(left,right);
+        return ales-bob;
+    }
+    int sum(LinkedList<Integer> list) {
+        int sum=0;
+        for(Integer a:list){
+            sum=sum+a;
+        }
+        return sum;
     }
     public int search1(int[] nums, int target) {
         int left=0;

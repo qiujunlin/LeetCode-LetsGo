@@ -71,6 +71,7 @@
 | 206  | [反转链表](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/LinkedList/ReverseLinkedList206.java) |                     迭代（双指针），递归                     |        |
 |      |                                                              |                                                              |        |
 | 213  |                          打家劫舍II                          |                           动态规划                           |        |
+| 217  |                         存在重复元素                         |                                                              | easy   |
 | 222  | [完全二叉树的节点个数](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/CountCompleteTreeNodes.java) |                                                              |        |
 | 226  | [反转二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/InvertBinaryTree226.java) |                      递归（前序/后序）                       |        |
 | 230  |                     二叉树中第K小的元素                      |                         迭代 ，递归                          | Middle |

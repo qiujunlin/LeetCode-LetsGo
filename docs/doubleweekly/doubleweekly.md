@@ -172,3 +172,82 @@ LinkedList<Integer>  list;
     }
 ```
 
+## 41场
+
+## 5609. 统计一致字符串的数目
+
+其实这一道题 可以用boolean数组，都可以吧，简单易
+
+```java
+ public int countConsistentStrings(String allowed, String[] words) {
+       int a[]=new int[26];
+        for(int i=0;i<allowed.length();i++){
+            a[allowed.charAt(i)-'a']=1;
+        }
+        int res=0;
+        for(String s:words){
+            int flag=0;
+            for(int i=0;i<s.length();i++){
+                if(a[s.charAt(i)-'a']==0){
+                     flag=1;
+                    break;
+                }
+            }
+            if(flag==0) res++;
+        }
+        return res;
+        }
+```
+
+
+
+### 5610. 有序数组中差绝对值之和
+
+这道题就是数学题 我曹
+
+* dp数组表示前缀和
+
+后面的绝对值的差就是直接相减，即：
+
+```
+(nums[n - 1] - nums[i]) + (nums[n - 2] - nums[i]) + ... + (nums[i] - nums[i])
+= (nums[0] + ... + nums[n - 1]) - (nums[0] + ... + nums[i-1])- (n - i) * nums[i]
+= dp[n - 1] - dp[i - 1] - (n - i) * nums[i]
+```
+
+对于前面的绝对值的差，即：
+
+```
+(nums[i] - nums[0]) + (nums[i] - nums[1]) + ... + (nums[i] - nums[i - 1])
+= i * nums[i] - dp[i - 1]
+```
+
+两者相加，就是第二个位置开始的结果，即
+
+```
+dp[n - 1] - dp[i - 1] - (n - i) * nums[i]+ i * nums[i] - dp[i - 1]
+
+= dp[n - 1] - 2 * dp[i - 1] - (n - 2 * i) * nums[i]
+```
+
+然后第一位需要单独处理一下
+
+
+
+```java
+ public int[] getSumAbsoluteDifferences(int[] nums) {
+        int dp[]= new int[nums.length];
+         dp[0]=nums[0];
+        for(int i=1;i< nums.length; i ++){
+            dp[i]=dp[i-1]+nums[i];
+        }
+        int res[]= new int[nums.length];
+        
+        for(int i=0;i<nums.length;i++){
+                if(i==0) res[i]=dp[nums.length-1]-(nums.length)*nums[0];
+                else res[i]=dp[nums.length-1]-2*dp[i-1]-(nums.length-2*i)*nums[i];
+        }
+          return res;
+    }
+```
+
