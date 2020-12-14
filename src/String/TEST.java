@@ -13,7 +13,7 @@ public class TEST {
 
     public static void main(String[] args)
     {  //int a=118505380540;
-
+int  a = 2147395599;
 HashMap<String,Integer> map = new HashMap<>();
 map.put("abc",1);
 String s="bac";

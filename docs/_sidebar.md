@@ -9,7 +9,6 @@
   * [ 👉🏻 树](data-structure/tree/tree.md)
   * [ 👉🏻 堆](data-structure/heap/)
   * [👉🏻栈](data-structure/stack/)
-  * [👉🏻哈希表](data-structure/hash/)
 * 📗算法思想
   * 👉排序
   * [👉DFS/回溯](algorithm/DFS/dfs.md)

@@ -20,8 +20,8 @@
 | 1    |                           两数之和                           |                             hash                             | easy   |
 | 3    |                     无重复字符的最长子串                     |                           滑动窗口                           | Middle |
 | 4    |                      寻找正序数组中位数                      |                             二分                             | Hard   |
-| 31   |                          下一个排列                          |                          传统技巧题                          |        |
-| 33   |                       搜索旋转排序数组                       |                             二分                             |        |
+| 31   |                          下一个排列                          |                          传统技巧题                          | Middle |
+| 33   |                       搜索旋转排序数组                       |                             二分                             | Middle |
 | 34   |              寻找排序素组的第一个和最后一个位置              |                             二分                             | middle |
 | 35   |                         搜索插入位置                         |                             二分                             | easy   |
 | 39   |                           组合总和                           |                             回溯                             | Niddle |
@@ -29,37 +29,38 @@
 | 46   |                            全排列                            |                             回溯                             | Middle |
 | 47   |                            全排列                            |                             回溯                             | Middle |
 | 49   |                        字母异位词分组                        |                             hash                             | MIddle |
-| 50   |                           Pow(x,y)                           |                            指数幂                            |        |
+| 50   |                           Pow(x,y)                           |                            指数幂                            | Middle |
 | 53   |                          最大子序和                          |                           动态规划                           | Easy   |
-| 56   | [插入区间](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/MergeIntervals56.java) |                             排序                             |        |
-| 57   | [插入区间2](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/InsertInterval57.java) |                   排序，遍历插入（双指针）                   |        |
+| 56   | [插入区间](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/MergeIntervals56.java) |                             排序                             | Middle |
+| 57   | [插入区间2](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/InsertInterval57.java) |                   排序，遍历插入（双指针）                   | Hard   |
 | 62   |                           不同路径                           |                           动态规划                           | Middle |
 | 63   |                          不同路径II                          |                           动态规划                           | Middle |
-| 64   |                          最小路径和                          |                           动态规划                           |        |
+| 64   |                          最小路径和                          |                           动态规划                           | Middle |
+| 69   |                          x的平方根                           |                           二分查找                           | Easy   |
 | 70   |                            爬楼梯                            |                           动态规划                           |        |
 | 78   |                             子集                             |                             回溯                             | Middle |
 | 90   |                            子集II                            |                             回溯                             | Middle |
-| 94   | [二叉树中序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeInorderTraversal94.java) |                         迭代 ，递归                          |        |
-| 95   | [不同的二叉树搜索树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/UniqueBinarySearchTreesII95.java)ii |                        递归，动态规划                        |        |
-| 96   | [不同的二叉搜索树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/UniqueBinarySearchTrees96.java) |                        递归，动态规划                        |        |
-| 98   |                        验证二叉搜索树                        |                           中序遍历                           |        |
-| 99   |                        恢复二叉搜索树                        |                          迭代，递归                          |        |
-| 100  | [相同的树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/SameTree100.java) |                           递归，BF                           |        |
-| 101  | [对称二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/SymmetricTree101.java) |                          递归，迭代                          |        |
-| 102  | [二叉树的层序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeLevelOrderTraversal102.java) |                          递归，迭代                          |        |
-| 103  | [二叉树锯齿遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeZigzagLevelOrderTraversal.java) |                             BFS                              |        |
-| 104  | [二叉树的最大深度](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/MaximumDepthofBinaryTree104.java) |                          递归。迭代                          |        |
-| 105  | [前序遍历与中序遍历构造二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/ConstructBinaryTreefromPreorderandInorderTraversal105.java) |                             递归                             |        |
-| 106  | [中序遍历与后序遍历构造二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/ConstructBinaryTreefromInorderandPostorderTraversal106.java) |                             递归                             |        |
-| 107  | [二叉树层序遍历2](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeLevelOrderTraversalII107.java) |                             BFS                              |        |
-| 108  | [将有序数组转化为二叉搜索树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/ConvertSortedArraytoBinarySearchTree108.java) |                             递归                             |        |
-| 110  | [平衡二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BalancedBinaryTree.java) |                                                              |        |
-| 111  |                       二叉树的最小深度                       | [递归](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/solution/li-jie-zhe-dao-ti-de-jie-shu-tiao-jian-by-user7208/) |        |
-| 112  | [路径总和](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/PathSum112.java) |                                                              |        |
-| 113  | [路径总和2](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/PathSumII113.java) |                                                              |        |
+| 94   | [二叉树中序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeInorderTraversal94.java) |                         迭代 ，递归                          | Middle |
+| 95   | [不同的二叉树搜索树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/UniqueBinarySearchTreesII95.java)ii |                        递归，动态规划                        | Middle |
+| 96   | [不同的二叉搜索树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/UniqueBinarySearchTrees96.java) |                        递归，动态规划                        | Middle |
+| 98   |                        验证二叉搜索树                        |                           中序遍历                           | Middle |
+| 99   |                        恢复二叉搜索树                        |                          迭代，递归                          | Middle |
+| 100  | [相同的树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/SameTree100.java) |                           递归，BF                           | Middle |
+| 101  | [对称二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/SymmetricTree101.java) |                          递归，迭代                          | Middle |
+| 102  | [二叉树的层序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeLevelOrderTraversal102.java) |                          递归，迭代                          | Middle |
+| 103  | [二叉树锯齿遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeZigzagLevelOrderTraversal.java) |                             BFS                              | Middle |
+| 104  | [二叉树的最大深度](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/MaximumDepthofBinaryTree104.java) |                          递归。迭代                          | Middle |
+| 105  | [前序遍历与中序遍历构造二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/ConstructBinaryTreefromPreorderandInorderTraversal105.java) |                             递归                             | Middle |
+| 106  | [中序遍历与后序遍历构造二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/ConstructBinaryTreefromInorderandPostorderTraversal106.java) |                             递归                             | Middle |
+| 107  | [二叉树层序遍历2](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeLevelOrderTraversalII107.java) |                             BFS                              | Middle |
+| 108  | [将有序数组转化为二叉搜索树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/ConvertSortedArraytoBinarySearchTree108.java) |                             递归                             | Middle |
+| 110  | [平衡二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BalancedBinaryTree.java) |                                                              | Middle |
+| 111  |                       二叉树的最小深度                       | [递归](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/solution/li-jie-zhe-dao-ti-de-jie-shu-tiao-jian-by-user7208/) | Middle |
+| 112  | [路径总和](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/PathSum112.java) |                                                              | Middle |
+| 113  | [路径总和2](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/PathSumII113.java) |                                                              | Middle |
 | 114  | [二叉树展开为链表](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/FlattenBinaryTreetoLinkedList114.java) |                                                              | Easy   |
-| 116  | [填充每个节点的下一个右侧节点指针](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/PopulatingNextRightPointersinEachNode116.java) |                                                              |        |
-| 117  | [填充每个节点的下一个右侧节点指针2](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/PopulatingNextRightPointersinEachNodeII117.java) |                                                              |        |
+| 116  | [填充每个节点的下一个右侧节点指针](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/PopulatingNextRightPointersinEachNode116.java) |                                                              | Middle |
+| 117  | [填充每个节点的下一个右侧节点指针2](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/PopulatingNextRightPointersinEachNodeII117.java) |                                                              | Middle |
 | 120  |                      三角形的最小路径和                      |                           动态规划                           |        |
 | 121  | [卖股票的最佳时机](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/BestTimetoBuyandSellStock121.java) |                             遍历                             |        |
 | 122  | [卖股票的最佳时机II](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/BestTimetoBuyandSellStockII122.java) |                           遍历技巧                           |        |
@@ -67,6 +68,8 @@
 | 129  | [求根到叶子节点数字之和](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/SumRoottoLeafNumbers129.java) |                                                              |        |
 | 144  | [二叉树前序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreePreorderTraversal144.java) |                                                              |        |
 | 145  | [二叉树的后序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreePostorderTraversal145.java) |                       递归，迭代，翻转                       |        |
+| 153  |                  寻找旋转排序数组中的最小值                  |                             二分                             | Middle |
+| 154  |                寻找旋转排序数组中的最小值 II                 |                             二分                             | Hard   |
 | 173  |                       二叉搜索树迭代器                       |                中序遍历 ，使用栈模拟中序遍历                 |        |
 | 198  |                           打家劫舍                           |                           动态规划                           |        |
 | 199  | [二叉树右视图](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeRightSideView199.java) |                             bfs                              |        |
@@ -128,15 +131,29 @@
 | 218  | 1678     | 设计Gi、oal解析器          | Easy   |      |
 | 218  | 1679     | K和数对最大数目            | Middle |      |
 | 218  | 1680     | 连接连续二进制数字         | Middle |      |
+| 219  | 5625     | 比赛中的配对次数           | Easy   |      |
+| 219  | 5626     | 十二进制数的最少数目       | Middle |      |
+| 219  | 5627     | 石头游戏VII                | Middle |      |
+
+
+
+
+
+
+
+
+
+
 
 | 场次 | 题目编号 | 题名                       | 难度   | 题解 |
 | ---- | -------- | -------------------------- | ------ | ---- |
 | 38   | 5550     | 踩炸弹                     | middle |      |
-| 40   | 5557     | 最大重复字符串             |        |      |
-| 40   | 5558     | 合并两个链表               |        |      |
-| 40   | 5560     | 设计前中后队列             |        |      |
-| 40   |          |                            |        |      |
-| 41   | 1671     | 得到山形数组的最少删除次数 | hard   |      |
+| 40   | 5557     | 最大重复字符串             | easy   |      |
+| 40   | 5558     | 合并两个链表               | Middle |      |
+| 40   | 5560     | 设计前中后队列             | Middle |      |
+| 40   | 1671     | 得到山形数组的最少删除次数 | hard   |      |
+| 41   | 5609     | 统计一致字符串数目         | Easy   |      |
+| 41   | 5610     | 有序数组中差绝对值之和     | Middle |      |
 
 剑指OFFER
 
