@@ -299,7 +299,7 @@ public int concatenatedBinary(int n) {
 
 ## week219
 
-## 5625. 比赛中的配对次数
+### 5625. 比赛中的配对次数
 
 贪心吧 ，模拟就行了
 
@@ -316,7 +316,7 @@ public int concatenatedBinary(int n) {
 
 
 
-## 5626. 十-二进制数的最少数目
+### 5626. 十-二进制数的最少数目
 
 脑筋急转弯？？
 
@@ -334,4 +334,4 @@ public int concatenatedBinary(int n) {
     }
 ```
 
-## 5627. 石子游戏 VII
+### 5627. 石子游戏 VII

@@ -13,11 +13,15 @@ public class TEST {
 
     public static void main(String[] args)
     {  //int a=118505380540;
-     int  a[] = new int[]{5,3,1,4,2};
-        System.out.println(new TEST().stoneGameVII(a));
-HashMap<Integer,Integer> map = new HashMap<>();
-map.put(1,map.getOrDefault(1,0)+1);
-map.values()
+
+HashMap<String,Integer> map = new HashMap<>();
+map.put("abc",1);
+String s="bac";
+        char chs[] = s.toCharArray();
+        Arrays.sort(chs);
+        String s1= String.valueOf(chs);
+        System.out.println(s1);
+        System.out.println(map.containsKey(s1));
     }
     public int stoneGameVII(int[] stones) {
         LinkedList<Integer> list = new LinkedList();

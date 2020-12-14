@@ -22,11 +22,13 @@
 | 4    |                      寻找正序数组中位数                      |                             二分                             | Hard   |
 | 31   |                          下一个排列                          |                          传统技巧题                          |        |
 | 33   |                       搜索旋转排序数组                       |                             二分                             |        |
+| 34   |              寻找排序素组的第一个和最后一个位置              |                             二分                             | middle |
 | 35   |                         搜索插入位置                         |                             二分                             | easy   |
 | 39   |                           组合总和                           |                             回溯                             | Niddle |
 | 40   |                          组合总和II                          |                             回溯                             | Middle |
 | 46   |                            全排列                            |                             回溯                             | Middle |
 | 47   |                            全排列                            |                             回溯                             | Middle |
+| 49   |                        字母异位词分组                        |                             hash                             | MIddle |
 | 50   |                           Pow(x,y)                           |                            指数幂                            |        |
 | 53   |                          最大子序和                          |                           动态规划                           | Easy   |
 | 56   | [插入区间](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/MergeIntervals56.java) |                             排序                             |        |
@@ -83,6 +85,7 @@
 | 322  |                           零钱兑换                           |                           动态规划                           | Middle |
 | 349  | [两个数组交集](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/IntersectionofTwoArrays349.java) |                           双指针，                           |        |
 | 340  | [两个数组的交集\|\|](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/IntersectionofTwoArrays350.java) |                         双指针，map                          |        |
+| 376  |                           摆动序列                           |                           dp，贪心                           | middle |
 | 450  |                     在二叉搜索树种删节点                     |                          递归，迭代                          |        |
 | 508  |                   出现次数最多的子树元素和                   | [递归排序](https://leetcode-cn.com/problems/most-frequent-subtree-sum/solution/java-liang-ge-90xiao-ji-qiao-by-qiujunlin/) | Middle |
 | 509  |                           斐波那契                           |             动态规划，递归（由上到下，由下到上）             | Easy   |
