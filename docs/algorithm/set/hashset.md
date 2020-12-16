@@ -77,3 +77,27 @@ public List<List<String>> groupAnagrams(String[] strs) {
 }
 ```
 
+## 290  单词规律
+
+
+
+```java
+  public boolean wordPattern(String pattern, String s) {
+        Map<Character,String> map  =  new HashMap();
+        String strs[] = s.split(" ");
+        if(strs.length!=pattern.length()) return false;
+        for(int i=0;i<pattern.length();i++){
+           Character c = pattern.charAt(i);
+           String   str = strs[i];
+           if(map.containsKey(c)){
+               if(!map.get(c).equals(str)) return false;
+           }else {
+               if(map.containsValue(str)) return false;
+               map.put(c,str);
+           }
+        }
+        return true;
+
+    }
+```
+
