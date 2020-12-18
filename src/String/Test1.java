@@ -9,13 +9,25 @@ import java.util.*;
  */
 public class Test1 {
     public static void main(String[] args) {
-        int a[] = new int[]{2, 2, 2,1,3};
-   Arrays.s
-
-
-
+     String  s1 =    "abcd";
+        String s2 = "abcde";
+        System.out.println( new Test1().findTheDifference(s1,s2));
     }
 
+    public char findTheDifference(String s, String t) {
+        int len=s.length();
+        int  hash1[]=new int[26];
+        int hash2[]= new int[26];
+        for(int  i =0;i<len;i++){
+            hash1[s.charAt(i)-'a']++;
+            hash2[t.charAt(i)-'a']++;
+        }
+        hash2[t.charAt(len)-'a']++;
+        for(int i=0;i<26;i++){
+            if(hash1[i]!=hash2[i]) return (char)(i+'a');
+        }
+        return 'a';
+    }
     int max = Integer.MIN_VALUE;
     int min = Integer.MAX_VALUE;
 
