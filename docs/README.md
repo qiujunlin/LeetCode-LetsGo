@@ -71,6 +71,7 @@
 | 153  |                  寻找旋转排序数组中的最小值                  |                             二分                             | Middle |
 | 154  |                寻找旋转排序数组中的最小值 II                 |                             二分                             | Hard   |
 | 173  |                       二叉搜索树迭代器                       |                中序遍历 ，使用栈模拟中序遍历                 |        |
+| 174  |                          地下城游戏                          |                              dp                              | Hard   |
 | 198  |                           打家劫舍                           |                           动态规划                           |        |
 | 199  | [二叉树右视图](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeRightSideView199.java) |                             bfs                              |        |
 | 206  | [反转链表](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/LinkedList/ReverseLinkedList206.java) |                     迭代（双指针），递归                     |        |
@@ -134,6 +135,8 @@
 | 219  | 5625     | 比赛中的配对次数           | Easy   |      |
 | 219  | 5626     | 十二进制数的最少数目       | Middle |      |
 | 219  | 5627     | 石头游戏VII                | Middle |      |
+| 220  |          |                            |        |      |
+| 220  | 5630     | 删除子数组的最大得分       | Middle |      |
 
 
 

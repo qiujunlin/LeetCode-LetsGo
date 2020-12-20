@@ -1,4 +1,4 @@
-package String;
+package Test;
 
 import java.util.*;
 
@@ -9,9 +9,8 @@ import java.util.*;
  */
 public class Test1 {
     public static void main(String[] args) {
-     String  s1 =    "abcd";
-        String s2 = "abcde";
-        System.out.println( new Test1().findTheDifference(s1,s2));
+        int a=0;
+        System.out.println(a=1);
     }
 
     public char findTheDifference(String s, String t) {

@@ -335,3 +335,95 @@ public int concatenatedBinary(int n) {
 ```
 
 ### 5627. 石子游戏 VII
+
+## week220
+
+### 5629. 重新格式化电话号码
+
+![](images/5629.png)
+
+
+
+```java
+    public String reformatNumber(String number) {
+          number = number.replaceAll(" ","");
+          number =number.replaceAll("-","");
+          StringBuilder  builder = new StringBuilder();
+          int len=number.length()-1;
+          int index=0;
+          while(index<len-3){
+            builder.append(number.substring(index,index+3));
+            builder.append("-");
+            index+=3;
+          }
+          System.out.print(index);
+          if(len-index==3) {
+          builder.append(number.substring(index,index+2));
+          builder.append("-");
+          index+=2;
+          builder.append(number.substring(index,index+2));
+          }else if(len-index==2) {builder.append(number.substring(index,index+3));}
+          else if(len-index==1){ builder.append(number.substring(index,index+2));}
+          return builder.toString();
+    }
+```
+
+
+
+### 5630. 删除子数组的最大得分
+
+这道题的解题思路和第三题一样
+
+![](images/5630.png)
+
+#### 第一次 滑动窗口
+
+```java
+ public int maximumUniqueSubarray(int[] nums) {
+             int left=0;
+             int right=0;
+             int max=0;
+              Map<Integer,Integer> map = new HashMap<>();
+             for(int i=0;i<nums.length;i++){
+                  if(map.containsKey(nums[i])){
+                    left=Math.max(left,map.get(nums[i])+1);
+                  }
+                 max= Math.max(max,sum(left,i,nums));
+                  map.put(nums[i],i);  
+             }
+             return max;
+    }
+    int sum(int left,int right,int[] nums){
+      int res=0;
+      for(int i=left;i<=right;i++){
+res+=nums[i];
+      }
+      return res;
+    }
+```
+
+#### 第二次 滑动窗口 +前缀和
+
+速度快了15倍
+
+```java
+    public int maximumUniqueSubarray(int[] nums) {
+             int pre[]= new int[nums.length];
+             pre[0]=nums[0];
+             for(int i=1;i<nums.length;i++){
+               pre[i]=pre[i-1]+nums[i];
+             }
+             int left=0;
+             int max=0;
+              Map<Integer,Integer> map = new HashMap<>();
+             for(int i=0;i<nums.length;i++){
+                  if(map.containsKey(nums[i])){
+                    left=Math.max(left,map.get(nums[i])+1);
+                  }
+                  max= Math.max(max,pre[i]-pre[left]+nums[left]);
+                  map.put(nums[i],i);  
+             }
+             return max;
+    }
+```
+

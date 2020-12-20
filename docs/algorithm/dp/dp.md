@@ -46,6 +46,51 @@ $$
 
 ## 139 单词拆分
 
+## 174 地下城游戏
+
+### 解法一：Dp
+
+[官方题解不错](https://leetcode-cn.com/problems/dungeon-game/solution/di-xia-cheng-you-xi-by-leetcode-solution/)
+
+```JAVA 
+  public int calculateMinimumHP(int[][] dungeon) {
+      int m = dungeon[0].length;//kuan
+      int n = dungeon.length;//gao
+      int dp[][]= new int[n][m];
+      dp[n-1][m-1]=Math.max(1-dungeon[n-1][m-1],1);
+      for(int i=n-2;i>=0;i--)  dp[i][m-1]=Math.max(dp[i+1][m-1]-dungeon[i][m-1],1);
+      for(int i=m-2;i>=0;i--) dp[n-1][i]=Math.max(dp[n-1][i+1]-dungeon[n-1][i],1);
+      for(int i=n-2;i>=0;i--){
+          for(int j=m-2;j>=0;j--){       
+          dp[i][j]=Math.min(Math.max(dp[i+1][j]-dungeon[i][j],1),Math.max(dp[i][j+1]-dungeon[i][j],1));
+          }
+      }
+      return dp[0][0];
+    }
+```
+
+### 解法二 ：DFS
+
+[甜姨的解法不错](https://leetcode-cn.com/problems/dungeon-game/solution/jian-dan-dfskan-yi-yan-jiu-ming-bai-e-by-sweetiee/)
+
+最近崇尚这种极简写法  不错 
+
+```
+    public int calculateMinimumHP(int[][] dungeon) {
+          return dfs(dungeon,0,0,dungeon.length,dungeon[0].length,new int[dungeon.length][dungeon[0].length]);
+    }
+    int dfs(int[][] dungeon,int i,int j,int m,int n,int[][] dp){
+      if(i==m-1&&j==n-1) return Math.max(1-dungeon[i][j],1);
+      if(dp[i][j]!=0) return dp[i][j];
+      if(i==m-1)  return Math.max(dfs(dungeon,i,j+1,m,n,dp)-dungeon[i][j],1);
+      if(j==n-1)  return Math.max(dfs(dungeon,i+1,j,m,n,dp)-dungeon[i][j],1);
+      int num = Math.max(Math.min(dfs(dungeon,i,j+1,m,n,dp),dfs(dungeon,i+1,j,m,n,dp))-dungeon[i][j],1);
+      return dp[i][j]=num;
+    }
+```
+
+
+
 ## 198 打家劫色
 
 ## 213 打家劫舍II

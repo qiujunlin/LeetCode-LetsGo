@@ -54,49 +54,37 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize){
     }
 ```
 
+## 48 旋转图像
 
+很有意思的一道题，需要自己去对坐标进行慢慢的分析。
 
-## 15. 三数之和
-
-##### 解法：排序加双指针
-
-1. 对数组排序
-
-2. 遍历数组
-   -  以每一个下标作为第一个节点，用双指针遍历节点后面的元素。
-   - 如果  nums[i]>0 说明当前节点以及后面的节点都不能满足要求
-   - 如果当前节点和前面一个节点相同，跳过当前接节点，因为题目要求结果不能相同
-     -  nums[i]+nums[L]+nums[R]==nums[i]+nums[L]+nums[R]，加入结果。判断左界和右界是否和下一位置重复，将指针移动到不重复的位置。
-     - 如果和大于0，右指针左移
-     - 如果和小于0，左指针右移
+### 解法一 原地旋转
 
 ```java
-public List<List<Integer>> threeSum(int[] nums) {
- List<List<Integer>> res= new ArrayList<>();
-           Arrays.sort(nums);
-           for(int i=0;i<nums.length;i++){
-                int j=i+1,k=nums.length-1;
-                if(nums[i]>0) break;
-                if(i>=1&&nums[i]==nums[i-1]) continue;
-                while(j<k){
-                    if(nums[i]+nums[j]+nums[k]==0){
-                        List<Integer> list = new ArrayList<>();
-                        list.add(nums[i]);
-                        list.add(nums[j]);
-                        list.add(nums[k]);
-                        res.add(list);
-                        while(j<k&&nums[j+1]==nums[j])j++;
-                        while(j<k&&nums[k]==nums[k-1]) k--;
-                        j++;
-                        k--;
-                    }
-                    else if(nums[j]+nums[k]+nums[i]>0)k--;
-                    else if(nums[i]+nums[j]+nums[k]<0) j++;
-                }  
+ public void rotate(int[][] matrix) {
+        int m=matrix.length;
+         for(int i=0;i<(m+1)/2;i++){
+           for(int j=0;j<m/2;j++){
+               int temp = matrix[i][j];
+               matrix[i][j]=matrix[m-j-1][i];//(0,1),(2,0)
+               matrix[m-j-1][i]=matrix[m-i-1][m-j-1];//(2,0).(3,2)
+               matrix[m-i-1][m-j-1]=matrix[j][m-i-1]; 
+               matrix[j][m-i-1]=temp;//（0,1）,(1,3),(0,2),(2,3),(1,2),(2,2)
            }
-           return res;
+         }
+
     }
 ```
+
+### 解法二  翻转
+
+
+
+翻转的方法其实就是利用了矩阵的性质，先对矩阵进行左下   右上   的交换，然后进行水平翻转。
+
+代码以后再写
+
+
 
 ## 118. 杨辉三角
 

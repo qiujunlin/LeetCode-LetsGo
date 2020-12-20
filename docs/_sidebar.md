@@ -19,7 +19,7 @@
   * [👉贪心](algorithm/贪心/贪心.md)
   * [👉滑动窗口](algorithm/滑动/滑动.md)
   * [👉Hashet](algorithm/set/hashset.md)
-  * [👉位运算](algorithm/bit/)
+  * [👉位运算](algorithm/位运算/位运算.md)
   * [👉数学题](algorithm/math/math.md)
   * [✍️其他](algorithm/other/)
 * [📘周赛](/weekly/week.md)
