@@ -37,8 +37,9 @@
 | 63   |                          不同路径II                          |                           动态规划                           | Middle |
 | 64   |                          最小路径和                          |                           动态规划                           | Middle |
 | 69   |                          x的平方根                           |                           二分查找                           | Easy   |
-| 70   |                            爬楼梯                            |                           动态规划                           |        |
+| 70   |                            爬楼梯                            |                           动态规划                           | Easy   |
 | 78   |                             子集                             |                             回溯                             | Middle |
+| 81   |                     搜索旋转排序数组 II                      |                             二分                             | Middle |
 | 90   |                            子集II                            |                             回溯                             | Middle |
 | 94   | [二叉树中序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeInorderTraversal94.java) |                         迭代 ，递归                          | Middle |
 | 95   | [不同的二叉树搜索树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/UniqueBinarySearchTreesII95.java)ii |                        递归，动态规划                        | Middle |
@@ -75,7 +76,7 @@
 | 198  |                           打家劫舍                           |                           动态规划                           |        |
 | 199  | [二叉树右视图](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeRightSideView199.java) |                             bfs                              |        |
 | 206  | [反转链表](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/LinkedList/ReverseLinkedList206.java) |                     迭代（双指针），递归                     |        |
-|      |                                                              |                                                              |        |
+| 209  |                        长度最小子数组                        |                           滑动窗帘                           |        |
 | 213  |                          打家劫舍II                          |                           动态规划                           |        |
 | 217  |                         存在重复元素                         |                                                              | easy   |
 | 222  | [完全二叉树的节点个数](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/CountCompleteTreeNodes.java) |                                                              |        |
@@ -85,19 +86,23 @@
 | 235  |                     二叉树的最近公共祖先                     |                                                              |        |
 | 236  | [二叉树最近公共祖先](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/LowestCommonAncestorofaBinaryTree236.java) |                                                              |        |
 | 279  |                          完全平方数                          |                                                              |        |
+| 290  |                           单词规律                           |                             hash                             |        |
 | 300  |                        最长上升子序列                        |                           Dp，二分                           | Middle |
 | 322  |                           零钱兑换                           |                           动态规划                           | Middle |
 | 349  | [两个数组交集](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/IntersectionofTwoArrays349.java) |                           双指针，                           |        |
 | 340  | [两个数组的交集\|\|](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/IntersectionofTwoArrays350.java) |                         双指针，map                          |        |
 | 376  |                           摆动序列                           |                           dp，贪心                           | middle |
-| 450  |                     在二叉搜索树种删节点                     |                          递归，迭代                          |        |
+| 389  |                            找不同                            |                            位运算                            | Easy   |
+| 450  |                     在二叉搜索树种删节点                     |                          递归，迭代                          | Middle |
 | 508  |                   出现次数最多的子树元素和                   | [递归排序](https://leetcode-cn.com/problems/most-frequent-subtree-sum/solution/java-liang-ge-90xiao-ji-qiao-by-qiujunlin/) | Middle |
 | 509  |                           斐波那契                           |             动态规划，递归（由上到下，由下到上）             | Easy   |
 | 513  |                        找树左下角的值                        |                                                              |        |
 | 518  |                          零钱兑换II                          |                           动态规划                           | Middle |
+| 611  |                       有效的三角形个数                       |                                                              |        |
 | 637  |                    二叉树的层序遍历平均值                    |                           层序遍历                           | easy   |
 | 654  | [最大二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/MaximumBinaryTree654.java) |                           递归构造                           |        |
 | 704  |                           二分查找                           |                             二分                             | easy   |
+| 738  |                        单调递增的数字                        |                                                              |        |
 | 821  |                        字符串最短距离                        |                            双指针                            | easy   |
 | 860  |                          柃檬水找零                          |                           贪心模拟                           | easy   |
 | 865  |                 具有所有最深节点的最小子树)                  |                          后序，前序                          | Middle |

@@ -44,6 +44,8 @@ $$
 
 ## 121 买股票的最佳时机
 
+
+
 ## 139 单词拆分
 
 ## 174 地下城游戏
@@ -286,6 +288,26 @@ public int fib(int N) {
         if(N==1) return 1;
         if(N==0) return 0;
         else return fib(N-1)+fib(N-2);
+    }
+```
+
+## 746. 使用最小花费爬楼梯
+
+
+
+状态转移方程是：
+
+`dp[i] = min(dp[i-2], dp[i-1]) + cost[i]`
+
+```Java
+    public int minCostClimbingStairs(int[] cost) {
+         int  dp[] = new int[cost.length];
+         dp[0]=cost[0];
+         dp[1]=cost[1];
+         for(int i=2;i<cost.length;i++){
+             dp[i]=Math.min(dp[i-1],dp[i-2])+cost[i];
+         }
+         return Math.min(dp[cost.length-1],dp[cost.length-2]);
     }
 ```
 
