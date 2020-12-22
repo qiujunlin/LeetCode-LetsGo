@@ -9,8 +9,10 @@ import java.util.*;
  */
 public class Test1 {
     public static void main(String[] args) {
-        int a=0;
-        System.out.println(a=1);
+     ArrayList<Integer> l  =  new ArrayList<>();
+     l.add(0,1);
+        System.out.println(l);
+        Arrays.binarySearch()
     }
 
     public char findTheDifference(String s, String t) {

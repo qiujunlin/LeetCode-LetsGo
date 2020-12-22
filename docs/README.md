@@ -20,6 +20,7 @@
 | 1    |                           两数之和                           |                             hash                             | easy   |
 | 3    |                     无重复字符的最长子串                     |                           滑动窗口                           | Middle |
 | 4    |                      寻找正序数组中位数                      |                             二分                             | Hard   |
+| 5    |                         最长回文子串                         |                       dp（？）,双指针                        |        |
 | 31   |                          下一个排列                          |                          传统技巧题                          | Middle |
 | 33   |                       搜索旋转排序数组                       |                             二分                             | Middle |
 | 34   |              寻找排序素组的第一个和最后一个位置              |                             二分                             | middle |
@@ -38,6 +39,7 @@
 | 64   |                          最小路径和                          |                           动态规划                           | Middle |
 | 69   |                          x的平方根                           |                           二分查找                           | Easy   |
 | 70   |                            爬楼梯                            |                           动态规划                           | Easy   |
+| 74   |                         搜搜二维矩阵                         |                             二分                             | Middle |
 | 78   |                             子集                             |                             回溯                             | Middle |
 | 81   |                     搜索旋转排序数组 II                      |                             二分                             | Middle |
 | 90   |                            子集II                            |                             回溯                             | Middle |
@@ -86,6 +88,7 @@
 | 235  |                     二叉树的最近公共祖先                     |                                                              |        |
 | 236  | [二叉树最近公共祖先](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/LowestCommonAncestorofaBinaryTree236.java) |                                                              |        |
 | 279  |                          完全平方数                          |                                                              |        |
+| 287  |                         寻找重复数字                         |                             二分                             | Middle |
 | 290  |                           单词规律                           |                             hash                             |        |
 | 300  |                        最长上升子序列                        |                           Dp，二分                           | Middle |
 | 322  |                           零钱兑换                           |                           动态规划                           | Middle |
@@ -103,6 +106,7 @@
 | 654  | [最大二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/MaximumBinaryTree654.java) |                           递归构造                           |        |
 | 704  |                           二分查找                           |                             二分                             | easy   |
 | 738  |                        单调递增的数字                        |                                                              |        |
+| 746  |                      使用最小花费爬楼梯                      |                              DP                              | Easy   |
 | 821  |                        字符串最短距离                        |                            双指针                            | easy   |
 | 860  |                          柃檬水找零                          |                           贪心模拟                           | easy   |
 | 865  |                 具有所有最深节点的最小子树)                  |                          后序，前序                          | Middle |

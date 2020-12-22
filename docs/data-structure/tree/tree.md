@@ -18,6 +18,38 @@
 
 ## 103  二叉树锯齿遍历
 
+套模板，增加一个值判断层数是否需要倒过来遍历。利用LinkedList 的 addFirst和addLast方法
+
+这道题递归也可以做。
+
+```java
+public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+     List<List<Integer>>  res = new LinkedList();
+    if(root==null) return res;
+     Queue<TreeNode> queue  = new LinkedList();
+     queue.offer(root);
+     boolean flag=true;
+     while(queue.size()!=0){
+         int  len=queue.size();
+         LinkedList<Integer> list = new LinkedList();
+         while(len!=0){
+             TreeNode node = queue.poll();
+             if(flag) list.addLast(node.val);
+             else  list.addFirst(node.val);
+             if(node.left!=null) queue.offer(node.left);
+             if(node.right!=null) queue.offer(node.right);
+             len--;
+         }
+         res.add(list);
+         flag=!flag;
+     
+    }
+    return res;
+    }
+```
+
+
+
 ## 95不同的二叉树搜索树ii
 
 ## 96不同的二叉搜索树
