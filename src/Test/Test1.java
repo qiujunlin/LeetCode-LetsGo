@@ -9,10 +9,24 @@ import java.util.*;
  */
 public class Test1 {
     public static void main(String[] args) {
-     ArrayList<Integer> l  =  new ArrayList<>();
-     l.add(0,1);
-        System.out.println(l);
-        Arrays.binarySearch()
+       int a[] = new int[]{1,0,2};
+        System.out.println(new Test1().candy(a));
+    }
+    public int candy(int[] ratings) {
+        int left[] = new int[ratings.length];
+        Arrays.fill(left,1);
+        for(int i=1;i<ratings.length;i++){
+            if(ratings[i]>ratings[i-1]) left[i]+=left[i-1];
+            else left[i] = 1;
+        }
+        int right=1,res=0;
+        for(int i=ratings.length-1;i>0;i++){
+            System.out.print(i);
+            if(ratings[i]>ratings[i-1]) right++;
+            else right=1;
+            res+=Math.max(right,left[i]);
+        }
+        return res;
     }
 
     public char findTheDifference(String s, String t) {

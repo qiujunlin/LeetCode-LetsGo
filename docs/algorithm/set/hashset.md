@@ -101,3 +101,28 @@ public List<List<String>> groupAnagrams(String[] strs) {
     }
 ```
 
+## 387. 字符串中的第一个唯一字符
+
+> 给定一个字符串，找到它的第一个不重复的字符，并返回它的索引。如果不存在，则返回 -1。
+
+这道题没什么好说的
+
+遇见统计 就hash
+
+```java
+ public int firstUniqChar(String s) {
+       char ch[] =s.toCharArray();
+       int hash[] = new int[26];
+     //  int pre=ch.length-1;
+       for(int i=ch.length-1;i>=0;i--){
+          hash[ch[i]-'a']++;
+       }
+      for(int i=0;i<=ch.length-1;i++){
+          if(hash[ch[i]-'a']==1) return  i; 
+      }
+      return -1;
+    }
+```
+
+[]()
+

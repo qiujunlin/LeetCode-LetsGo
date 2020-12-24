@@ -69,6 +69,7 @@
 | 122  | [卖股票的最佳时机II](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/BestTimetoBuyandSellStockII122.java) |                           遍历技巧                           |        |
 | 124  |                     二叉树中的最大路径和                     | [递归](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/solution/shou-hui-tu-jie-hen-you-ya-de-yi-dao-dfsti-by-hyj8/) | Hard   |
 | 129  | [求根到叶子节点数字之和](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/SumRoottoLeafNumbers129.java) |                                                              |        |
+| 135  |                            发糖果                            |                             贪心                             | Hard   |
 | 144  | [二叉树前序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreePreorderTraversal144.java) |                                                              |        |
 | 145  | [二叉树的后序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreePostorderTraversal145.java) |                       递归，迭代，翻转                       |        |
 | 153  |                  寻找旋转排序数组中的最小值                  |                             二分                             | Middle |
@@ -84,6 +85,7 @@
 | 222  | [完全二叉树的节点个数](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/CountCompleteTreeNodes.java) |                                                              |        |
 | 226  | [反转二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/InvertBinaryTree226.java) |                      递归（前序/后序）                       |        |
 | 230  |                     二叉树中第K小的元素                      |                         迭代 ，递归                          | Middle |
+| 240  |                         搜索二维矩阵                         |                             二分                             | Middle |
 | 234  | [判断是否是回文链表](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/LinkedList/PalindromeLinkedList234.java) |                    双指针，反转+快慢指针                     |        |
 | 235  |                     二叉树的最近公共祖先                     |                                                              |        |
 | 236  | [二叉树最近公共祖先](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/LowestCommonAncestorofaBinaryTree236.java) |                                                              |        |
@@ -95,6 +97,7 @@
 | 349  | [两个数组交集](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/IntersectionofTwoArrays349.java) |                           双指针，                           |        |
 | 340  | [两个数组的交集\|\|](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/IntersectionofTwoArrays350.java) |                         双指针，map                          |        |
 | 376  |                           摆动序列                           |                           dp，贪心                           | middle |
+| 387  |                   字符串中的第一个唯一字符                   |                                                              |        |
 | 389  |                            找不同                            |                            位运算                            | Easy   |
 | 450  |                     在二叉搜索树种删节点                     |                          递归，迭代                          | Middle |
 | 508  |                   出现次数最多的子树元素和                   | [递归排序](https://leetcode-cn.com/problems/most-frequent-subtree-sum/solution/java-liang-ge-90xiao-ji-qiao-by-qiujunlin/) | Middle |
