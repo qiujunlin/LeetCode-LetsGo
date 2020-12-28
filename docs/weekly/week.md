@@ -427,3 +427,40 @@ res+=nums[i];
     }
 ```
 
+## week221
+
+### 5638 吃苹果最大数目
+
+![2](images/5638.png)
+
+
+
+优先队列+贪心  优先吃快要腐烂的苹果
+
+```java
+ public int eatenApples(int[] apples, int[] days) {
+        PriorityQueue<int []> queue= new PriorityQueue<>((a,b)->(a[1]-b[1]));
+        int eat =0; 
+        for(int i=0;i<apples.length||queue.size()!=0;i++){
+            //添加
+            if(i<apples.length)
+            queue.offer(new int[]{apples[i],days[i]+i-1});//减一是因为days[i]算一天，从今天开始算起
+            //清除过期
+            while(queue.size()!=0){
+                int []temp = queue.peek();
+                if(temp[1]<i) queue.poll();
+                else  break;
+            }
+            //吃东西了
+            int  temp[] = queue.peek();
+            if(temp!=null&&temp[0]>0) {
+                temp[0]--;
+                eat++;
+                if(temp[0]==0) queue.poll();
+            }
+        }
+        return eat;
+        
+    }
+```
+

@@ -9,8 +9,21 @@ import java.util.*;
  */
 public class Test1 {
     public static void main(String[] args) {
-       int a[] = new int[]{1,0,2};
-        System.out.println(new Test1().candy(a));
+       int arr[] = new int[]{1,2};
+        int arr2[] = new int[]{1,3};
+        int arr3[] = new int[]{1,0};
+        int arr4[] = new int[]{1,1};
+        PriorityQueue<int []> queue= new PriorityQueue<>((a,b)->(a[1]-b[1]));
+       queue.add(arr);
+       queue.add(arr2);
+       queue.add(arr3);
+       queue.add(arr4);
+       queue.poll();
+        for (int []c:queue) {
+            System.out.println(c[1]);
+        }
+
+       // System.out.println(new Test1().candy(a));
     }
     public int candy(int[] ratings) {
         int left[] = new int[ratings.length];
