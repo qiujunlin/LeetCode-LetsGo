@@ -90,6 +90,33 @@ public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
 
 ## 222  完全二叉树的节点个数
 
+两种解法，第一种解法，就是通过遍历来统计个数，很容易想到的方法。
+
+这道题只需要了解完全二叉树的一些性质：完全二叉树除最后一层之外其他的层都是满的，最后一层如果不满的话，所有的节点都靠左，紧密靠左。
+
+**思路：**
+
+果满二叉树的层数为h，则总节点数为：2^h - 1.对 root 节点的左右子树进行高度统计，分别记为 left 和 right，有以下两种结果：
+
+* left == right。这说明，左子树一定是满二叉树，因为节点已经填充到右子树了，左子树必定已经填满了。所以左子树的节点总数我们可以直接得到，是 2^left - 1，加上当前这个 root 节点，则正好是 2^left。再对右子树进行递归统计。
+* left != right。说明此时最后一层不满，但倒数第二层已经满了，可以直接得到右子树的节点个数。同理，右子树节点 +root 节点，总数为 2^right。再对左子树进行递归查找。
+
+```java
+ public int countNodes(TreeNode root) {
+      if(root==null) return 0;
+      int left=depth(root.left);
+      int right=depth(root.right);
+      if(left==right) return  (int)Math.pow(2,left)+countNodes(root.right);
+       else return (int)Math.pow(2,right)+countNodes(root.left);
+    }
+    public int depth(TreeNode root){
+        if(root==null) return 0;
+        return depth(root.left)+1;
+    }
+```
+
+
+
 ## 230  二叉树中第K小的元素
 
 ## 235  二叉树的最近公共祖先
