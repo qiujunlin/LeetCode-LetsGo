@@ -84,6 +84,46 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize){
 
 代码以后再写
 
+## 31 下一个排列
+
+技巧题目  这个解析特别清楚
+
+[这个](https://leetcode-cn.com/problems/next-permutation/solution/xia-yi-ge-pai-lie-suan-fa-xiang-jie-si-lu-tui-dao-/)
+
+综合思路就是 ：见注解
+
+```java
+   public void nextPermutation(int[] nums) {
+//步骤1. 从后往前寻找第一个升序的连个节点
+     int low =0;int high=0;
+    for(int i = nums.length-2 ;i>=0 ; i-- ){
+        if(nums[i]<nums[i+1]){
+             low = i;
+             high=i+1;
+             break;
+        }
+    }
+     int uper=-1;
+ //步骤2：寻找第一个大于low的数字，这里可以使用二分查找
+    for(int i=nums.length-1;i>=high;i--){
+        if(nums[i]>nums[low]){
+            uper=i;
+            break;
+        }
+    }
+    //步骤3：交换顺序
+    if(left!=-1){
+    int temp=nums[low];
+    nums[low]= nums[left];
+    nums[left] = temp;
+     }
+    //步骤4: 对后面的结果进行排序排序
+    Arrays.sort(nums,high,nums.length);
+     }
+```
+
+
+
 
 
 ## 118. 杨辉三角

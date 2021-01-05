@@ -4,19 +4,36 @@ import org.omg.PortableInterceptor.INACTIVE;
 
 import java.util.*;
 
-/**
- * @Description:
- * @Author: qiujunlin
- * @Date: 2020/12/15
- */
-public class Test1 {
+class Test{
     public static void main(String[] args) {
-     PriorityQueue<Integer> queue = new PriorityQueue<>((a,b)->b-a);
 
-     queue.offer(1);
-     queue.offer(1);
-        System.out.println(queue);
     }
+
+    int mod= 1000000007;
+    public int countPairs(int[] deliciousness) {
+        int count =0;
+        int dp[]=new int[10000000];
+        int d=1;
+        for(int i =1;i<=21;i++){
+            d=d*2;
+            dp[d]=1;
+            System.out.println(d);
+        }
+        for(int i=0;i<deliciousness.length;i++){
+            for(int j=i+1;j<deliciousness.length;j++){
+                int sum=deliciousness[i]+deliciousness[j];
+                if(isPowerOfTwo(sum)) {
+                    System.out.println(sum);
+                    count=(count+1)%mod;
+                }
+            }
+        }
+        return count%mod;
+    }
+    public boolean isPowerOfTwo(int n) {
+        return n > 0 && (n & (n - 1)) == 0;
+    }
+
     public int candy(int[] ratings) {
         int left[] = new int[ratings.length];
         Arrays.fill(left,1);
