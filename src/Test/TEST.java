@@ -15,6 +15,8 @@ public class TEST {
     {
         int a[] = new int[]{1,2,3,5,6,4,2,3,3,5,6,1};
       Arrays.sort(a,6,a.length-1);
+
+
         for (int c:
              a) {
             System.out.println(c);
