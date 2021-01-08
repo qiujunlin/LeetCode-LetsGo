@@ -27,13 +27,17 @@
 | 35   |                         搜索插入位置                         |                             二分                             | easy   |
 | 39   |                           组合总和                           |                             回溯                             | Niddle |
 | 40   |                          组合总和II                          |                             回溯                             | Middle |
+| 41   |                       缺失的第一个正数                       |                           原地Hash                           | Hard   |
 | 46   |                            全排列                            |                             回溯                             | Middle |
 | 47   |                            全排列                            |                             回溯                             | Middle |
 | 49   |                        字母异位词分组                        |                             hash                             | MIddle |
 | 50   |                           Pow(x,y)                           |                            指数幂                            | Middle |
 | 53   |                          最大子序和                          |                           动态规划                           | Easy   |
+| 54   |                           螺旋矩阵                           |                             模拟                             | Middle |
 | 56   | [插入区间](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/MergeIntervals56.java) |                             排序                             | Middle |
 | 57   | [插入区间2](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/InsertInterval57.java) |                   排序，遍历插入（双指针）                   | Hard   |
+| 58   |                      最后一个单词的长度                      |                          String API                          | Easy   |
+| 59   |                          螺旋矩阵II                          |                             模拟                             | Middle |
 | 62   |                           不同路径                           |                           动态规划                           | Middle |
 | 63   |                          不同路径II                          |                           动态规划                           | Middle |
 | 64   |                          最小路径和                          |                           动态规划                           | Middle |
@@ -74,8 +78,10 @@
 | 145  | [二叉树的后序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreePostorderTraversal145.java) |                       递归，迭代，翻转                       |        |
 | 153  |                  寻找旋转排序数组中的最小值                  |                             二分                             | Middle |
 | 154  |                寻找旋转排序数组中的最小值 II                 |                             二分                             | Hard   |
+| 162  |                           寻找峰值                           |                             二分                             | Middle |
 | 173  |                       二叉搜索树迭代器                       |                中序遍历 ，使用栈模拟中序遍历                 |        |
 | 174  |                          地下城游戏                          |                              dp                              | Hard   |
+| 189  |                           旋转数组                           |                                                              | Middle |
 | 198  |                           打家劫舍                           |                           动态规划                           |        |
 | 199  | [二叉树右视图](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreeRightSideView199.java) |                             bfs                              |        |
 | 206  | [反转链表](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/LinkedList/ReverseLinkedList206.java) |                     迭代（双指针），递归                     |        |
@@ -85,6 +91,7 @@
 | 222  | [完全二叉树的节点个数](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/CountCompleteTreeNodes.java) |                                                              |        |
 | 226  | [反转二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/InvertBinaryTree226.java) |                      递归（前序/后序）                       |        |
 | 230  |                     二叉树中第K小的元素                      |                         迭代 ，递归                          | Middle |
+| 239  |                       滑动窗口的最大值                       |                           双向队列                           | Hard   |
 | 240  |                         搜索二维矩阵                         |                             二分                             | Middle |
 | 234  | [判断是否是回文链表](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/LinkedList/PalindromeLinkedList234.java) |                    双指针，反转+快慢指针                     |        |
 | 235  |                     二叉树的最近公共祖先                     |                                                              |        |
@@ -99,11 +106,13 @@
 | 376  |                           摆动序列                           |                           dp，贪心                           | middle |
 | 387  |                   字符串中的第一个唯一字符                   |                                                              |        |
 | 389  |                            找不同                            |                            位运算                            | Easy   |
+| 436  |                          寻找右区间                          |                             Map                              | Middle |
 | 450  |                     在二叉搜索树种删节点                     |                          递归，迭代                          | Middle |
 | 508  |                   出现次数最多的子树元素和                   | [递归排序](https://leetcode-cn.com/problems/most-frequent-subtree-sum/solution/java-liang-ge-90xiao-ji-qiao-by-qiujunlin/) | Middle |
 | 509  |                           斐波那契                           |             动态规划，递归（由上到下，由下到上）             | Easy   |
 | 513  |                        找树左下角的值                        |                                                              |        |
 | 518  |                          零钱兑换II                          |                           动态规划                           | Middle |
+| 605  |                           种花问题                           |                             模拟                             | Easy   |
 | 611  |                       有效的三角形个数                       |                                                              |        |
 | 637  |                    二叉树的层序遍历平均值                    |                           层序遍历                           | easy   |
 | 654  | [最大二叉树](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/MaximumBinaryTree654.java) |                           递归构造                           |        |

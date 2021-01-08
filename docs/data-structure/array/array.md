@@ -150,3 +150,69 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize){
     }
 ```
 
+## 189  旋转数组
+
+## 解法一  暴力
+
+暴力算法 就是一次移动一个，将最后一个变量保存 ，然后将前面length-1个数向后移动，在吧刚刚保存的数字放在第一位。循环K次  就成功了。
+
+​     是原地算法  不难  
+
+```java 
+ public void rotate(int[] nums, int k) {
+        for(int i=1;i<=k;i++){
+            int temp=nums[nums.length-1];
+            int j=0;
+            for( j=nums.length-1;j>0;j--){
+                nums[j]=nums[j-1];
+            }
+            nums[j]=temp;
+        
+    }
+
+```
+
+### 解法二 使用额外数组
+
+这个方法 其实就是遍历一遍 把所有的数字放在他该在的位置上。不过需要另外开辟一个数组，使用了额外的空间。
+
+```java 
+ public void rotate(int[] nums, int k) {
+       int a[] = new int[nums.length];
+       for(int i=0;i<nums.length;i++){
+           a[i]=nums[i];
+       }
+       for(int i=0;i<nums.length;i++){
+              nums[(i+k)%(nums.length)]=a[i];
+       }
+    }
+```
+
+### 解法三  原地交换
+
+这个应该算是一种技巧性的方法。
+
+* 先翻转整个数组
+* 翻转前k个数
+* 翻转后面**nums,length-k**个数 
+
+```java
+ public void rotate(int[] nums, int k) {
+           k=k%nums.length;
+           reverse(nums,0,nums.length-1);
+           reverse(nums,0,k-1);
+           reverse(nums,k,nums.length-1);
+
+    }
+    void reverse(int nums[],int left ,int right){
+        while(left<right){
+            int temp =  nums[left];
+            nums[left]=nums[right];
+            nums[right]=temp;
+            left++;
+            right--;
+        }
+    }
+```
+
+#### 解法四   
