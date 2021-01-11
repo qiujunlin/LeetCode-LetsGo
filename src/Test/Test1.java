@@ -6,6 +6,8 @@ import java.util.*;
 
 class Test{
     public static void main(String[] args) {
+        int a = 4; //分别执行以下五种情况
+   a++=a++;
 
     }
 

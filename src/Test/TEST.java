@@ -11,17 +11,19 @@ import java.util.*;
 
 public class TEST {
 
-    public static void main(String[] args)
-    {
-        int a[] = new int[]{1,2,3,5,6,4,2,3,3,5,6,1};
+    public static void main(String[] args) {
 
-        Collections.reverse();
-
-        for (int c:
-             a) {
-            System.out.println(c);
+        int a[] = new int[]{1, 2, 3, 4,5};
+        int index = 0;
+        int b[] = new int[5];
+        for(int i=0;i<a.length;i++){
+            b[index++]=a[index];
+        }
+        for(int i=0;i<b.length;i++){
+            System.out.print(b[i]+" ");
         }
     }
+
 
     public int stoneGameVII(int[] stones) {
         LinkedList<Integer> list = new LinkedList();
