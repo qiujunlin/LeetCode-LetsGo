@@ -9,19 +9,20 @@ import java.math.BigInteger;
 import java.text.DecimalFormat;
 import java.util.*;
 
-public class TEST {
+public class TEST2 {
 
     public static void main(String[] args) {
-
-        int a[] = new int[]{1, 2, 3, 4,5};
-        int index = 0;
-        int b[] = new int[5];
-        for(int i=0;i<a.length;i++){
-            b[index++]=a[index];
-        }
-        for(int i=0;i<b.length;i++){
-            System.out.print(b[i]+" ");
-        }
+         LinkedList<Integer> l = new LinkedList<Integer>();
+         l.add(1);
+         l.add(2);
+         l.add(2);
+         l.add(6);
+         l.con
+        System.out.println(l);
+        l.removeFirstOccurrence(2);
+        System.out.println(l);
+        Map<Integer,Integer> map = new HashMap<>();
+        map.
     }
 
 

@@ -21,6 +21,7 @@
   * [👉Hashet](algorithm/set/hashset.md)
   * [👉位运算](algorithm/位运算/位运算.md)
   * [👉数学题](algorithm/math/math.md)
+  * [👉并查集](algorithm/并查集/bingcha.md)
   * [👉经典问题](algorithm/经典问题/classic.md)
   * [✍️其他](algorithm/other/)
 * [📘周赛](/weekly/week.md)
