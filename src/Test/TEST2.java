@@ -8,22 +8,23 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.DecimalFormat;
 import java.util.*;
-
+class Edge{
+    int price;
+    int ed[];
+    public Edge(int price,int x,int y ){
+        this.price=price;
+        this.ed= new int[]{x, y};
+    }
+}
 public class TEST2 {
 
     public static void main(String[] args) {
-         LinkedList<Integer> l = new LinkedList<Integer>();
-         l.add(1);
-         l.add(2);
-         l.add(2);
-         l.add(6);
-         l.con
-        System.out.println(l);
-        l.removeFirstOccurrence(2);
-        System.out.println(l);
-        Map<Integer,Integer> map = new HashMap<>();
-        map.
+       ArrayList<Edge> list = new ArrayList<>();
+       list.sort((a,b)->a.ed[0]-b.price);
+
     }
+
+
 
 
     public int stoneGameVII(int[] stones) {

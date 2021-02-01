@@ -12,7 +12,8 @@
 * 📗算法思想
   * 👉排序
   * [👉DFS/回溯](algorithm/DFS/dfs.md)
-  * [👉BFS](algorithm/research/bfs/)
+  * [👉BFS](algorithm/search/search.md)
+  * [👉图论](algorithm/图论/图论.md)
   * [👉二分查找](algorithm/二分/二分.md)
   * [👉动态规划](algorithm/dp/dp.md)
   * [👉双指针](algorithm/双指针/双指针.md)

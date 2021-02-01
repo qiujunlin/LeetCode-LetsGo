@@ -137,6 +137,12 @@
 | 1365 | [有多少小于当前数字的数字](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/HowManyNumbersAreSmallerThantheCurrentNumber1365.java) |                    计数排序，额外数组排序                    |        |
 | 1370 |                        上升下降字符串                        |                                                              |        |
 | 1572 | [矩阵的对角线和](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/MatrixDiagonalSum1572.java) |                       暴力，一次性遍历                       |        |
+| 1579 |                      保证图的课完全遍历                      |                            并查集                            |        |
+| 1722 |                 执行交换操作后的最小汉明距离                 |                            并查集                            |        |
+
+
+
+
 
 
 
