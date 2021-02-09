@@ -8,6 +8,31 @@
 | 15   | 三数之和 | 双指针 | middle |
 |      |          |        |        |
 
+## ##7. 整数反转
+
+这道题有个要求 就是不能用long型去存储
+
+思路就是每次循环 都判断是否越界  以及 下次是否 越界 排除法
+
+```java
+  public int reverse(int x) {
+       int res = 0;
+       while(x!=0){
+         int temp = x%10;
+         if(res>Integer.MAX_VALUE/10||(res*10==Integer.MAX_VALUE&&temp>7)){
+           return 0;
+         }
+         if(res<Integer.MIN_VALUE/10||(res*10==Integer.MIN_VALUE&&temp<-8)){
+          return 0;
+         }
+         x=x/10;
+         res=res*10+temp;
+       }  
+    
+    return res;
+    }
+```
+
 
 
 ## 1.1 50. Pow(x, n)

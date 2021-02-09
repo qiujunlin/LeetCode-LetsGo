@@ -8,122 +8,6 @@
 | 15   | 三数之和 | 双指针 | middle |
 |      |          |        |        |
 
-## 1.两数之和
-
-
-
-### 解法一 时间复杂度O(n^2)
-
-
-
-很简单 ，暴力循环、这里贴下我一年前第一次刷题 ，使用C语言做的第一道题代码，当时只想到暴力解决，甚是怀念。
-
-```c
-int* twoSum(int* nums, int numsSize, int target, int* returnSize){
-         int i,j;
-         static int a[2];
-         for(i=0;i<numsSize;i++){
-             for(j=i+1;j<numsSize;j++){
-                 if((nums[i]+nums[j])==target){
-                     a[0]=i;
-                     a[1]=j;
-                     *returnSize=2;
-                 }
-             }
-         }
-         return  a;
-}
-```
-
-
-
-### 解法二  时间	O(1)
-
-使用hash表，
-
-```java
-   public int[] twoSum(int[] nums, int target) {
-         Map<Integer,Integer> map = new HashMap<>();
-         for(int i=0;i<nums.length;i++){
-           if(map.containsKey(target-nums[i])){
-             return new int[]{map.get(target-nums[i]),i};
-           }
-           map.put(nums[i],i);
-         }
-         return new int[2];
-    }
-```
-
-## 48 旋转图像
-
-很有意思的一道题，需要自己去对坐标进行慢慢的分析。
-
-### 解法一 原地旋转
-
-```java
- public void rotate(int[][] matrix) {
-        int m=matrix.length;
-         for(int i=0;i<(m+1)/2;i++){
-           for(int j=0;j<m/2;j++){
-               int temp = matrix[i][j];
-               matrix[i][j]=matrix[m-j-1][i];//(0,1),(2,0)
-               matrix[m-j-1][i]=matrix[m-i-1][m-j-1];//(2,0).(3,2)
-               matrix[m-i-1][m-j-1]=matrix[j][m-i-1]; 
-               matrix[j][m-i-1]=temp;//（0,1）,(1,3),(0,2),(2,3),(1,2),(2,2)
-           }
-         }
-
-    }
-```
-
-### 解法二  翻转
-
-
-
-翻转的方法其实就是利用了矩阵的性质，先对矩阵进行左下   右上   的交换，然后进行水平翻转。
-
-代码以后再写
-
-## 31 下一个排列
-
-技巧题目  这个解析特别清楚
-
-[这个](https://leetcode-cn.com/problems/next-permutation/solution/xia-yi-ge-pai-lie-suan-fa-xiang-jie-si-lu-tui-dao-/)
-
-综合思路就是 ：见注解
-
-```java
-   public void nextPermutation(int[] nums) {
-//步骤1. 从后往前寻找第一个升序的连个节点
-     int low =0;int high=0;
-    for(int i = nums.length-2 ;i>=0 ; i-- ){
-        if(nums[i]<nums[i+1]){
-             low = i;
-             high=i+1;
-             break;
-        }
-    }
-     int uper=-1;
- //步骤2：寻找第一个大于low的数字，这里可以使用二分查找
-    for(int i=nums.length-1;i>=high;i--){
-        if(nums[i]>nums[low]){
-            uper=i;
-            break;
-        }
-    }
-    //步骤3：交换顺序
-    if(left!=-1){
-    int temp=nums[low];
-    nums[low]= nums[left];
-    nums[left] = temp;
-     }
-    //步骤4: 对后面的结果进行排序排序
-    Arrays.sort(nums,high,nums.length);
-     }
-```
-
-
-
 
 
 ## 118. 杨辉三角
@@ -215,4 +99,36 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize){
     }
 ```
 
-#### 解法四   
+#### 解法四
+
+## 6.Z字变换
+
+使用一个标志flag 来标志遍历的方向
+
+```java
+public String convert(String s, int numRows) {
+      if(numRows==1) return s;
+       List<StringBuilder> list = new ArrayList();
+       for(int i =0;i<numRows;i++){
+         list.add(new StringBuilder());
+       }
+       char ch[] =  s.toCharArray();
+       int flag =1;
+       int index =-1 ;
+       for(char  c : ch){
+          index =index+flag;
+          list.get(index).append(c);
+          if(index==numRows-1){
+              flag =-1;
+          }else if(index ==0){
+              flag =1;
+          }
+       }
+       StringBuilder res = new StringBuilder();
+       for(StringBuilder st :list){
+            res.append(st);
+       }
+        return res.toString();
+     }
+```
+

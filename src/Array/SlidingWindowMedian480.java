@@ -59,7 +59,6 @@ class DualHeap {
                 prune(large);
             }
         }
-        makeBalance();
     }
 
     // 不断地弹出 heap 的堆顶元素，并且更新哈希表
@@ -97,9 +96,5 @@ public class SlidingWindowMedian480 {
         Collections.reverseOrder();
     }
 
-    public double[] medianSlidingWindow(int[] nums, int k) {
-
-
-    }
 
 }
