@@ -7,12 +7,19 @@ import java.util.*;
 
 
 class Test1 {
+    static Integer a[] =null;
+
     public static void main(String[] args) {
-       String s1= "pxezla";
-       String s2= "loewbi";
-       int A[]= new int[]{10,5,2,6};
-        System.out.println(new Test1().numSubarrayProductLessThanK(A,100));
-        //25
+        //int a[][] = new int[][];
+        Integer a[] =  new Integer[]{};
+
+        System.out.println(a);
+        System.out.println(a.length);
+
+
+
+
+
     }
     public int numSubarrayProductLessThanK(int[] nums, int k) {
         int left=0;

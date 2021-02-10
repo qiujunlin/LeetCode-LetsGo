@@ -1,5 +1,61 @@
  回溯算法 
 
+## 17 电话号码的字母组合
+
+!![](image/17.png)
+
+[题解](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/solution/dian-hua-hao-ma-de-zi-mu-zu-he-by-leetcode-solutio/)
+
+```java
+  public List<String> letterCombinations(String digits) {
+        List<String> list = new ArrayList();
+        if(digits.length()==0) return  list;
+        String strs[] = {"abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+        StringBuilder str = new StringBuilder();
+        dfs(strs,list,str,digits,0);
+        return list;
+    }
+    void dfs(String strs[],List<String> list,StringBuilder s,String digits,int depth){
+      if(depth==digits.length()){
+         list.add(s.toString());
+         return;
+      }
+      String temp = strs[digits.charAt(depth)-'0'-2];
+      for(int i=0;i<temp.length();i++){
+        dfs(strs,list,s.append(temp.charAt(i)),digits,depth+1);
+        s.deleteCharAt(s.length()-1);
+      }
+    }
+```
+
+## 22 括号生成
+
+递归
+
+[题解](https://leetcode-cn.com/problems/generate-parentheses/solution/hui-su-suan-fa-by-liweiwei1419/)
+
+```java
+public List<String> generateParenthesis(int n) {
+       List<String> list = new ArrayList();
+       dfs(list,"",0,0,n);
+       return list;
+
+    }
+    void dfs(List<String> list, String s, int left , int right,int n){
+      if(left==n&&right==n) {
+        list.add(s);
+        return;
+      }
+      if(left<right) return;
+      if(left>n||right>n) return;
+      dfs(list,s+"(",left+1,right,n);
+      dfs(list,s+")",left,right+1,n);
+     
+    }
+```
+
+
+
 ## 39. 组合总和
 
 #### 回溯算法 + 剪枝

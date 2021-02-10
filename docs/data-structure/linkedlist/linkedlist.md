@@ -45,3 +45,35 @@ class Solution {
 }
 ```
 
+## 23 合并K个升序链表
+
+[题解](https://leetcode-cn.com/problems/merge-k-sorted-lists/solution/he-bing-kge-pai-xu-lian-biao-by-leetcode-solutio-2/)
+
+使用优先队列
+
+```java
+ public ListNode mergeKLists(ListNode[] lists) {
+         if(lists==null||lists.length==0) return null;
+        // if(lists[0]==null) return null;
+        // System.out.print(lists[0]==null);
+          ListNode head =  new ListNode(0);
+          ListNode cur = head;
+          PriorityQueue<ListNode> queue = new PriorityQueue<>((node1,node2)->(node1.val-node2.val));
+          for(ListNode node  : lists){
+            if(node==null) continue;
+            queue.offer(node);
+          }
+          while(!queue.isEmpty()){
+            ListNode node  = queue.poll();
+            cur.next = node;
+            cur = cur.next;
+            node=node.next;
+            if(node!=null){
+              queue.offer(node);
+            } 
+          }
+          return head.next;
+
+    }
+```
+
