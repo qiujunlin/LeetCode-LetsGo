@@ -1,6 +1,106 @@
 并查集
 
-## 547 省份数量  
+## 399 除法求值
+
+[题解](https://leetcode-cn.com/problems/evaluate-division/solution/399-chu-fa-qiu-zhi-nan-du-zhong-deng-286-w45d/)
+
+
+
+这道题有点难   思路有并查集  floyd 和dfs算法  其他两种没有搞懂 ，后面再来看。
+
+这道题的解法并查集。
+
+难点在于如何保存边的值 ，解法汇总使用了一个wight数组，用来保存该节点到其父节点的值。
+
+难点在于：
+
+* 构建无向图 及其含义
+* 如何更新边的值 在路径压缩的同时要维护权值的变化
+* 如何计算 不通联通分支合并的试试权值的计算
+
+```java
+ public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
+      HashMap<String,Integer> map = new HashMap();
+      //取出所有的字符串
+      int id = 0;
+      for(List<String> list :  equations){
+        String a = list.get(0);
+        String b = list.get(1);
+        if(!map.containsKey(a)){
+          map.put(a,id++);
+        }
+        if(!map.containsKey(b)){
+          map.put(b,id++);
+        }
+      }
+      Union u =  new Union(id);
+      for(int i = 0;i< equations.size();i++){
+        int a = map.get(equations.get(i).get(0));
+        int b = map.get(equations.get(i).get(1));
+        u.merge(a,b,values[i]);
+      }
+      double res[] =  new double[queries.size()];
+      for(int i = 0;i< queries.size();i++){
+        String a = queries.get(i).get(0);
+        String b = queries.get(i).get(1);
+        if(!map.containsKey(a)||!map.containsKey(b)){
+          res[i] = -1.0;
+          continue;
+        }
+        res[i] = u.get(map.get(a),map.get(b));
+      }
+      return res;
+
+      
+      //Union u  = new Union()
+    }
+}
+class Union{
+  int parent[];
+  int count;
+  double weight[];
+  public Union(int len){
+     this.parent= new int[len];
+     this.count=len;
+     this.weight= new double[len];
+     for(int i=0;i<len;i++){
+       parent[i] = i;
+       weight[i]=1.0;
+     }
+  }
+  public double connect(int x,int y){
+     return 1.0;
+  }
+
+  public double get(int x,int y){
+      int fx = find(x);
+      int fy = find(y);
+      if(fx ==  fy){
+        return weight[x]/weight[y];
+      }
+      return -1.0;
+  }
+
+  public void merge(int x,int y ,double val ){
+      int fx =  find(x);
+      int fy = find(y);
+      if(fx==fy) return;
+      parent[fx] = fy;
+      weight[fx] = weight[y]*val/weight[x];
+  }
+  public int  find(int x){
+     if(x != parent[x]){
+       int pre = parent[x];
+       parent[x] = find(parent[x]);
+       weight[x] = weight[x] * weight[pre];
+     }
+     return  parent[x];
+  }
+```
+
+
+
+## 547 省份数量
 
 ![1](image/547.png)
 
@@ -271,6 +371,271 @@ s思路不多说  [官方题解](https://leetcode-cn.com/problems/swim-in-rising
   }
 ```
 
+## 959 由斜杠划分区域
+
+![](image/959.png)
+
+这道题就是把区域抽象为图中的节点
+
+
+
+[题解](https://leetcode-cn.com/problems/regions-cut-by-slashes/solution/you-xie-gang-hua-fen-qu-yu-by-leetcode-67xb/)
+
+```java
+class Solution {
+       public int regionsBySlashes(String[] grid) {
+        int len  = grid.length;
+        int count =  4*len*len;
+        Union u = new Union(count);
+        //遍历每个方格
+        for(int i = 0 ;i < len; i++){
+            char ch[] =  grid[i].toCharArray();
+            int k = 0;
+            for(int j = 0; j < len ; j++){
+                //计算ch的下标
+                int index = i*len*4 + j*4;//计算每个小方格的下标
+                if(ch[k] == ' '){
+                    u.merge(index,index+1);
+                    u.merge(index+1,index+2);
+                    u.merge(index+2,index+3);
+                    u.merge(index+3,index);
+                }else if(ch[k] == '/'){
+                   u.merge(index,index+1);
+                   u.merge(index+2,index+3);
+                }else if(ch[k] == '\\'){
+                    u.merge(index+1,index+2);
+                    u.merge(index+3,index);
+                }
+                if(i!=len-1){
+                    u.merge(index+3,index+len*4+1);
+                }
+                if(j!=len-1){
+                    u.merge(index+2,index+4);
+                }
+                k++;
+            }
+        }
+    return u.count;
+          }
+}
+class Union{
+    int parent[];
+    int count;
+    int rank[];
+    public  Union(int len){
+        parent = new int[len];
+        for(int i = 0; i < parent.length; i++){
+            parent[i] = i;
+        }
+        count  = len;
+        rank = new int[len];
+    }
+
+    public  void merge(int x,int y){
+        int fx = find(x);
+        int fy = find(y);
+        if(fx != fy) {
+           if(rank[fx]>rank[fy]){
+             int temp = fx;
+             fx = fy;
+             fy = temp;
+           }
+            count--;
+        }
+        if(rank[fx] == rank[fy]) rank[fx]++; 
+        parent[fx] = fy;
+    }
+    public int find(int x){
+        return x == parent[x]?x : (parent[x] = find(parent[x]));
+    }
+
+}
+```
+
+
+
+## 990  等式方程的可满足性质
+
+思路其实就是判断不应该在一个联通分支里面的数 是否在联通分支里，如果在就返false
+
+[题解](https://leetcode-cn.com/problems/satisfiability-of-equality-equations/solution/deng-shi-fang-cheng-de-ke-man-zu-xing-by-leetcode-/)
+
+```java
+class Solution {
+    public boolean equationsPossible(String[] equations) {
+        Union u = new Union();
+        for(String s  : equations){
+          char a =  s.charAt(0);
+          char b = s.charAt(3);
+          char c  = s.charAt(1);
+          if(c=='=') u.merge(a-'a',b-'a');
+        }
+        for(String s  : equations){
+          char a =  s.charAt(0);
+          char b = s.charAt(3);
+          char c  = s.charAt(1);
+          if(c=='!') {
+            if(u.connect(a-'a',b-'a')){
+              return false;
+            }
+          }
+        }
+        return true;
+
+    }
+}
+class Union{
+  int parent[];
+  public Union(){
+  parent =  new int[26];
+  for(int i = 0; i < parent.length; i++){
+    parent[i] = i;
+  }
+  }
+  public void merge(int x, int y){
+      int mx = find(x);
+      int my  = find(y);
+      if(mx == my) return ;
+     // System.out.println(mx+" "+ my);
+      parent[mx] = my; 
+  }
+  public boolean connect(int x , int  y){
+   // System.out.println(find(x)+" "+find(y));
+    return find(x)==find(y);
+  }
+  public int  find(int x){
+     return x==parent[x]?x:(parent[x]=find(parent[x]));
+  }
+   
+}
+```
+
+
+
+## 1202 交换字符串中的元素
+
+[题解](https://leetcode-cn.com/problems/smallest-string-with-swaps/solution/1202-jiao-huan-zi-fu-chuan-zhong-de-yuan-wgab/)
+
+这道题的思路和第1722题差不多  都是遍历一个联通分支里面的数。基本上需要使用ahshmap去存储  。
+
+```java
+public String smallestStringWithSwaps(String s, List<List<Integer>> pairs) {
+        HashMap<Integer,PriorityQueue<Character>> map = new HashMap();
+        Union u = new Union(s.length());
+        boolean visit[] = new boolean[s.length()];
+        for(int i=0;i<pairs.size();i++){
+            int a = pairs.get(i).get(0);
+            int b = pairs.get(i).get(1);
+            u.merge(a,b);
+        }
+        char ch[] = s.toCharArray();
+        for(int i=0;i<ch.length;i++){
+            map.computeIfAbsent(u.find(i),(key)->new PriorityQueue<Character>()).offer(ch[i]);
+        }
+        StringBuilder str = new StringBuilder();
+        for(int i = 0;i <  s.length();i++){
+          str.append(map.get(u.find(i)).poll());
+        }
+        return str.toString();
+    }
+}
+class Union{
+  int parent[];
+  int rank[];
+  public Union(int len){
+    parent=new int[len];
+    for(int i=0;i<parent.length;i++){
+      parent[i] = i;
+    }
+    rank= new int[len];
+  }
+  public boolean isconnected(int x,int y){
+ return find(x)==find(y);
+  }
+  public void merge(int x ,int y){
+    int fx = find(x);
+    int fy =find(y);
+    if(fx != fy){
+       if(rank[fx]>rank[fy]){
+         int temp = fx;
+         fx=fy;
+         fy=temp;
+       }
+    }  
+    if(rank[fx]==rank[y]) rank[fy]++;
+    parent[fx] = fy; 
+  }
+  public int find(int x){
+    return x==parent[x]?x:(parent[x]=find(parent[x]));
+  }
+```
+
+## 1584 连接所有节点的最小费用
+
+![](image/1584.png)
+
+kruskal [算法](https://leetcode-cn.com/problems/min-cost-to-connect-all-points/solution/lian-jie-suo-you-dian-de-zui-xiao-fei-yo-kcx7/)
+
+```java
+class Solution {
+    public int minCostConnectPoints(int[][] points) {
+      Union  u = new Union(points.length);
+        PriorityQueue<int []> que = new  PriorityQueue<>(((o1, o2) -> o1[0]-o2[0]));
+        for(int i  = 0 ;i<points.length;i++){
+            for(int j = i+1;j<points.length;j++){
+                int a[] = points[i];
+                int b[] = points[j];
+                int len = Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
+                que.offer(new int[]{len,i,j});                   
+            }
+        }
+        int res  = 0;
+        while(!que.isEmpty()){
+           int a[] = que.poll();
+           if(u.isconnect(a[1],a[2])) continue;
+           u.merge(a[1],a[2]);
+           res +=  a[0];
+           if(u.count==1) return  res; 
+        }
+        return  res;
+    }
+}
+class Union{
+    int parent[];
+    int count;
+    int rank[];
+    public  Union(int len){
+        parent = new int[len];
+        for(int i = 0; i < parent.length; i++){
+            parent[i] = i;
+        }
+        count  = len;
+        rank = new int[len];
+    }
+    public  boolean isconnect(int x ,int y ){
+        return  find(x) == find(y);
+    }
+    public  void merge(int x,int y){
+        int fx = find(x);
+        int fy = find(y);
+        if(fx != fy) {
+           if(rank[fx]>rank[fy]){
+             int temp = fx;
+             fx = fy;
+             fy = temp;
+           }
+            count--;
+        }
+        if(rank[fx] == rank[fy]) rank[fx]++; 
+        parent[fx] = fy;
+    }
+    public int find(int x){
+        return x == parent[x]?x : (parent[x] = find(parent[x]));
+    }
+
+}
+```
+
 
 
 ## 1631 最小体力消耗路径
@@ -446,7 +811,52 @@ class Solution {
 }
 ```
 
+## 1319 联通网络的操作次数
 
+其实就是联通网络  使之成为简单图。就是树 没有回路的图
+
+[题解](https://leetcode-cn.com/problems/number-of-operations-to-make-network-connected/solution/lian-tong-wang-luo-de-cao-zuo-ci-shu-by-leetcode-s/)
+
+```java
+class Solution {
+    public int makeConnected(int n, int[][] connections) {
+        Union u =  new Union(n);
+        int res=0;
+        for(int con[]:connections){
+          if(! u.add(con[0],con[1])){
+            res++;
+          }
+        }
+        int count = u.count;
+        int len = connections.length;
+        if(count-1<=res) return count-1;
+        return -1; 
+    }
+}
+class Union{
+  int parent[];
+  int count ;
+  public Union(int n){
+    parent = new int[n+1];
+    this.count=n;
+    for(int i=1;i<=n;i++){
+      parent[i]=i;
+    }
+  }
+  public boolean add(int x ,int y){
+       int a = find(x);
+       int b =find(y);
+       if(a==b) return false;
+       parent[a]=b;
+       count--;
+       return true;
+  }
+  public int find(int x){
+    //关键一步状态压缩  ！！！！！
+    return parent[x]==x?x:(parent[x]=find(parent[x]));
+  }
+}
+```
 
 
 

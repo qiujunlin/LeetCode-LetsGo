@@ -65,6 +65,79 @@
 
 ## 摆动序列问题
 
+### 53 最大子序和
+
+#### 解法一 DP
+
+这类问题的基础
+
+应该叫动态规划
+
+维护一个变化最大值，并不断更结果
+
+```java
+ public int maxSubArray(int[] nums) {
+         int max  = 0;
+         int res  =Integer.MIN_VALUE ;
+         for(int i=0;i<nums.length;i++){
+            max = Math.max(max+nums[i],nums[i]);
+            res =  Math.max(res,max);
+         }
+         return res;
+    }
+```
+
+#### 解法二 分治
+
+[官方题解](https://leetcode-cn.com/problems/maximum-subarray/solution/zui-da-zi-xu-he-by-leetcode-solution/)
+
+分治法 有点难
+
+```java
+class Solution {
+  
+    public int maxSubArray(int[] nums) {
+       return getInfo(nums,0,nums.length-1).mSum;
+    }
+    
+    public Status getInfo(int[] a, int l, int r) {
+        if (l == r) {
+            return new Status(a[l], a[l], a[l], a[l]);
+        }
+        int m = (l + r) >> 1;
+        Status lSub = getInfo(a, l, m);
+        Status rSub = getInfo(a, m + 1, r);
+       // System.out.println();
+        Status s =  pushUp(lSub, rSub);
+
+        return  s;
+     }
+
+    public Status pushUp(Status l, Status r) {
+        int iSum = l.iSum + r.iSum;
+        int lSum = Math.max(l.lSum, l.iSum + r.lSum);
+        int rSum = Math.max(r.rSum, r.iSum + l.rSum);
+        int mSum = Math.max(Math.max(l.mSum, r.mSum), l.rSum + r.lSum);
+
+        Status  s =  new Status(lSum, rSum, mSum, iSum);
+       // System.out.println(s);
+        return  s;
+    }
+}
+class Status {
+        public int lSum, rSum, mSum, iSum;
+
+        public Status(int lSum, int rSum, int mSum, int iSum) {
+            this.lSum = lSum;
+            this.rSum = rSum;
+            this.mSum = mSum;
+            this.iSum = iSum;
+        }
+    }
+```
+
+
+
 ### 376  摆动序列
 
 ![](images/376.png)

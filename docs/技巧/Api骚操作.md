@@ -34,3 +34,21 @@ List<String> colors = Stream.of("blue", "red", "yellow").collect(toList());
 ```
 Arrays.equals(arrayA, arrayB);
 ```
+
+## HashMap
+
+computeIfAbsent() 方法对 hashMap 中指定 key 的值进行重新计算，如果不存在这个 key，则添加到 hasMap 中。
+
+computeIfAbsent() 方法的语法为：
+
+```
+hashmap.computeIfAbsent(K key, Function remappingFunction)
+```
+
+getOrDefault：仅仅是返回值，如果不存在返回指定的默认值，不修改map的结构
+  putIfAbsent：key不存在时，塞一个值，不应该关心返回值
+  computeIfAbsent：获取key对应的value，不存在时塞一个并返回
+
+## String
+
+1. trim() 去除两边空格

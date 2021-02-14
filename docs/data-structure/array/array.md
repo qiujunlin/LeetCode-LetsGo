@@ -34,6 +34,32 @@
     }
 ```
 
+## 119杨辉三角2
+
+跟上面一题差不多吧  思路可以使用二维数组  最好使用一纬数组，因为节省空间
+
+
+
+```java
+    public List<Integer> getRow(int rowIndex) {
+        ArrayList<Integer> list  = new ArrayList();
+        int  a[] = new int[rowIndex+1];
+        for(int i  = 0; i<=rowIndex; i++){
+          //if(i==0||i==1) a[i][0]
+          for(int j=i;j>=0;j--){
+            if(j == i ||j ==0) a[j]=1;
+            else a[j]=a[j]+a[j-1];
+          }
+        }
+        for(int i=0;i<rowIndex+1;i++){
+          list.add(a[i]);
+        }
+        return list;
+    }
+```
+
+
+
 ## 189  旋转数组
 
 ## 解法一  暴力
