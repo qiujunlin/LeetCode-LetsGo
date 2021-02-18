@@ -456,6 +456,8 @@ class Union{
 
 ## 990  等式方程的可满足性质
 
+![](image/990.png)
+
 思路其实就是判断不应该在一个联通分支里面的数 是否在联通分支里，如果在就返false
 
 [题解](https://leetcode-cn.com/problems/satisfiability-of-equality-equations/solution/deng-shi-fang-cheng-de-ke-man-zu-xing-by-leetcode-/)
