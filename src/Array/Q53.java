@@ -58,18 +58,42 @@ public class Q53 {
        // System.out.println(s);
         return  s;
     }
+    public List<Integer> findSubstring(String s, String[] words) {
+        List<Integer> res = new ArrayList<>();
+        HashMap<String,Integer> hashMap = new HashMap<>();
+        for(String ss : words){
+            hashMap.put(ss,hashMap.getOrDefault(s,0)+1);
+        }
+        int len = words.length;
+        int stride  =words[0].length();
+        for(int i = 0;i< s.length()-len*stride;i++){
+            for(int j = i;j<s.length()-len*stride;j+=stride){
+                HashMap<String,Integer> hashMap1 = new HashMap<>();
+                for(int k =0;k<len;k++) {
+                    String sub = s.substring(j+k*stride,j+(k+1)*stride);
+                    hashMap1.put(sub,hashMap1.getOrDefault(0,1)+1);
+                }
+                System.out.println(hashMap1);
+                if(hashMap1.equals(hashMap)){
+                    res.add(j);
+                }
+            }
+        }
+        return  res;
 
+    }
     public static void main(String[] args) {
-        int mod = 1000000007;
-        long a = 100000;
-        long b = a*(a+1)/2%mod;
-        long e = a*a;
-        long c = a*(a+1)/2;
-        long d = c%mod;
-        System.out.println(e);
-        System.out.println(c);
-        System.out.println(d);
-        System.out.println(b);
+        HashMap<String,Integer> hashMap = new HashMap<>();
+        hashMap.put("word",1);
+        hashMap.put("best",1);
+        hashMap.put("good",2);
+        HashMap<String,Integer> hashMap2 = new HashMap<>();
+        hashMap.put("word",1);
+        hashMap.put("best",1);
+        hashMap.put("good",2);
+        System.out.println(hashMap.equals(hashMap2));
+        hashMap.size()
+        System.out.println(hashMap.get("aaa"));
        // System.out.println(new Q53().maxSubArray(a));
     }
 }
