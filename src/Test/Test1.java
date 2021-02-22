@@ -5,95 +5,193 @@ import org.omg.PortableInterceptor.INACTIVE;
 import java.util.*;
 
 
-
 class Test1 {
-    static Integer a[] =null;
+    static Integer a[] = null;
 
     public static void main(String[] args) {
-        //int a[][] = new int[][];
-        Integer a[] =  new Integer[]{};
-
-        System.out.println(a);
-        System.out.println(a.length);
-
-
-
+        int a[] = new int[]{8, 2};
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        map.put(1, 2);
+        map.put(10, 2);
+        map.put(5, 2);
+        map.put(9, 2);
+        map.put(0, 2);
+        System.out.println(map.firstKey());
+        System.out.println(map.lastKey());
 
 
     }
+
+    public int longestSubarray(int[] nums, int limit) {
+        TreeMap<Integer, Integer> map = new TreeMap<>(Collections.reverseOrder());
+        int left = 0;
+        int res = 0;
+        for (int i = 0; i < nums.length; i++) {
+            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+            while (map.lastKey() - map.firstKey() > limit) {
+                map.put(nums[left], map.get(nums[left]) - 1);
+                if (map.get(nums[left]) == 0) map.remove(nums[left]);
+                left++;
+            }
+            res = Math.max(res, i - left + 1);
+        }
+        return res;
+    }
+
+    public int longestSubarray2(int[] nums, int limit) {
+        PriorityQueue<int[]> min = new PriorityQueue<>((o1, o2) -> o1[0] - o2[0]);
+        PriorityQueue<int[]> max = new PriorityQueue<>((o1, o2) -> o2[0] - o1[0]);
+        int res = 0;
+        int left = 0;
+        for (int i = 0; i < nums.length; i++) {
+            max.offer(new int[]{nums[i], i});
+            min.offer(new int[]{nums[i], i});
+            while (!max.isEmpty() && !min.isEmpty() && Math.abs(max.peek()[0] - min.peek()[0]) > limit) {
+                if (max.peek()[1] <= left) max.poll();
+                if (min.poll()[1] <= left) min.poll();
+            }
+            res = Math.max(i - left + 1, res);
+        }
+        return res;
+
+    }
+
+    public int longestSubarray3(int[] nums, int limit) {
+        Deque<Integer> max = new LinkedList<>();
+        Deque<Integer> min = new LinkedList<>();
+        int left = 0;
+        int res = 0;
+        for (int i = 0; i < nums.length; i++) {
+            while (!max.isEmpty() && nums[max.getLast()] < nums[i]) {
+                max.removeLast();
+            }
+            while (!min.isEmpty() && nums[min.getLast()] > nums[i]) {
+                min.removeLast();
+            }
+            max.offerLast(nums[i]);
+            min.offerLast(nums[i]);
+            while (!max.isEmpty() && !min.isEmpty() && nums[max.peek()] - nums[min.peek()] > limit) {
+                if (max.peek() <= left) max.poll();
+                if (min.peek() <= left) min.peek();
+                left++;
+            }
+            res = Math.max(res, i - left + 1);
+
+        }
+        return res;
+    }
+
+    public String mergeAlternately(String word1, String word2) {
+        StringBuilder stringBuilder = new StringBuilder();
+        int len = word1.length();
+        int len2 = word2.length();
+        int a = 0;
+        if (len < len2) {
+            a = len;
+        } else {
+            a = len2;
+        }
+        for (int i = 0; i < a; i++) {
+            stringBuilder.append(word1.charAt(i));
+            stringBuilder.append(word2.charAt(i));
+        }
+        if (len < len2)
+            stringBuilder.append(word2.substring(len, word2.length()));
+        if (len > len2)
+            stringBuilder.append(word1.substring(len, word1.length()));
+
+        return stringBuilder.toString();
+    }
+
+    public int[] minOperations(String boxes) {
+        char ch[] = boxes.toCharArray();
+        int res[] = new int[boxes.length()];
+
+        for (int i = 0; i < res.length; i++) {
+            for (int j = 0; j < res.length; j++) {
+                if (ch[j] == '1' && j != i) {
+                    res[i] += j - i;
+                }
+            }
+        }
+        return res;
+    }
+
     public int numSubarrayProductLessThanK(int[] nums, int k) {
-        int left=0;
-        int right=0;
+        int left = 0;
+        int right = 0;
         int len = nums.length;
-        int count =1;
-        int res =0;
-        while(right<len){
-            count*=nums[right];
-            while(count>=k){
-                count/=nums[left];
+        int count = 1;
+        int res = 0;
+        while (right < len) {
+            count *= nums[right];
+            while (count >= k) {
+                count /= nums[left];
                 left++;
                 res++;
             }
             res++;
             right++;
         }
-        res+=len-left;
+        res += len - left;
         return res;
     }
+
     public int subarraysWithKDistinct(int[] A, int K) {
-        int left =0;
-        int right=0;
-        int count =0;
+        int left = 0;
+        int right = 0;
+        int count = 0;
         int len = A.length;
-        int  res=0;
-        HashMap<Integer,Integer> map = new HashMap();
-        while(left<len){
-            if(right!=0){
-                if(map.get(A[left])>1){
-                    map.put(A[left],map.get(A[left])-1);
+        int res = 0;
+        HashMap<Integer, Integer> map = new HashMap();
+        while (left < len) {
+            if (right != 0) {
+                if (map.get(A[left]) > 1) {
+                    map.put(A[left], map.get(A[left]) - 1);
                     //res++;
-                }else{
+                } else {
                     map.remove(A[left]);
                     count--;
                 }
                 left++;
-                if(count==K) res++;
+                if (count == K) res++;
             }
-            while(right<len&&(count<K||map.containsKey(A[right]))){
-                map.put(A[right],map.getOrDefault((A[right]),0)+1);
-                if(map.get(A[right])==1){
+            while (right < len && (count < K || map.containsKey(A[right]))) {
+                map.put(A[right], map.getOrDefault((A[right]), 0) + 1);
+                if (map.get(A[right]) == 1) {
                     count++;
                 }
-                if(count==K) {
+                if (count == K) {
                     res++;
                 }
                 right++;
-                if(right<len&&count==K&&!map.containsKey(A[right])) break;
+                if (right < len && count == K && !map.containsKey(A[right])) break;
             }
-          //  left++;
+            //  left++;
         }
         return res;
 
     }
+
     public int equalSubstring(String s, String t, int maxCost) {
-        int left =0,right=0;
-        int count =0;
+        int left = 0, right = 0;
+        int count = 0;
         int res = 0;
         int dp[] = new int[s.length()];
-        for(int i=0;i<s.length();i++){
-            dp[i]=Math.abs(s.charAt(i)-t.charAt(i));
-            System.out.print(dp[i]+" ");
+        for (int i = 0; i < s.length(); i++) {
+            dp[i] = Math.abs(s.charAt(i) - t.charAt(i));
+            System.out.print(dp[i] + " ");
         }
-        while(left<s.length()){
-            if(left!=0){
-                count-=dp[left-1];
+        while (left < s.length()) {
+            if (left != 0) {
+                count -= dp[left - 1];
             }
-            while(right<s.length()&&count+dp[right]<=maxCost){
-                count+=dp[right];
+            while (right < s.length() && count + dp[right] <= maxCost) {
+                count += dp[right];
                 right++;
             }
-            System.out.print(right+" "+left);
-            res=Math.max(res,right-left);
+            System.out.print(right + " " + left);
+            res = Math.max(res, right - left);
             left++;
         }
         return res;

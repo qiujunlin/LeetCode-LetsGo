@@ -285,3 +285,56 @@ class Solution {
     }
 ```
 
+## 原地hash
+
+### 41 缺失的第一个正数
+
+第一个思路就是排序+查找
+
+最佳方法  原地hash  不使用额外数组
+
+```java
+ public int firstMissingPositive(int[] nums) {
+      if(nums.length==0) return 1;
+        for(int i =0 ;i<nums.length;i++){
+         while(nums[i]>0&&nums[i]<nums.length&&nums[i]!=nums[nums[i]-1]){
+          // if(nums[nums[i]-1]==nums[i]) break;
+           int temp =  nums[nums[i]-1];
+           nums[nums[i]-1] = nums[i];
+           nums[i] = temp;
+         }
+        }
+        for(int i = 0;i<nums.length;i++){
+           if(nums[i]!=i+1) return i+1;
+        }
+        return nums[nums.length-1]+1;
+    }
+```
+
+
+
+#### 442. 数组中重复的数据
+
+查找数组中重复的数组  数据的范围在1-n n为数组长度
+
+```java
+ public List<Integer> findDuplicates(int[] nums) {
+      
+      for(int i =0;i<nums.length;i++){
+        while(nums[i]!=nums[nums[i]-1]){
+          int temp = nums[i];
+          nums[i] = nums[nums[i]-1];
+          nums[temp-1] = temp;
+        }
+      }
+      List<Integer> res  = new ArrayList();
+      for(int i = 0 ;i<nums.length;i++){
+        if(nums[i]!=i+1){
+          res.add(nums[i]);
+        }
+      }
+      return res ;
+
+    }
+```
+

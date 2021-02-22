@@ -82,6 +82,45 @@ public class Q53 {
         return  res;
 
     }
+    public int[][] highestPeak(int[][] isWater) {
+          //BFS
+       int a[][]={{1,-1},{1,1},{-1,1},{-1,-1}};
+
+       Queue<int[]> queue = new LinkedList<>();
+       for(int i=0;i<isWater.length;i++){
+           for(int j=0;j<isWater[0].length;j++){
+               if(isWater[i][j]==1){
+                   queue.offer(new int[]{i,j});
+               }
+           }
+       }
+       int m = isWater.length;
+       int n=isWater[0].length;
+       int count=1;
+       int size=queue.size();
+       int pre=0;
+       while(!queue.isEmpty()){
+           int arr[] = queue.poll();
+           pre++;
+           for(int i=0;i<= 4;i++) {
+               int newx = arr[0] + a[i][0];
+               int newy = arr[1] + a[i][1];
+               if (newx >= n || newy >= m||newx<0||newy<0) continue;
+               if (isWater[newx][newy] == 0) {
+                   isWater[newx][newy] = count;
+               }
+               queue.offer(new int[]{newx, newy});
+           }
+           if(pre==size){
+               count++;
+               size=queue.size();
+               pre=0;
+           }
+       }
+ return isWater;
+
+    }
+
     public static void main(String[] args) {
         HashMap<String,Integer> hashMap = new HashMap<>();
         hashMap.put("word",1);
@@ -92,7 +131,6 @@ public class Q53 {
         hashMap.put("best",1);
         hashMap.put("good",2);
         System.out.println(hashMap.equals(hashMap2));
-        hashMap.size()
         System.out.println(hashMap.get("aaa"));
        // System.out.println(new Q53().maxSubArray(a));
     }

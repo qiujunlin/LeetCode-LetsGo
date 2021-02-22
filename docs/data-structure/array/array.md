@@ -158,3 +158,49 @@ public String convert(String s, int numRows) {
      }
 ```
 
+## 31下一个排列
+
+![1](image/31.png)
+
+这道题记住思路就可以了
+
+* 首先从后向前查找第一个顺序对 (i,i+1)(i,i+1)，满足 a[i] < a[i+1]a[i]<a[i+1]。这样「较小数」即为 a[i]a[i]。此时 [i+1,n)[i+1,n) 必然是下降序列。
+
+* 如果找到了顺序对，那么在区间 [i+1,n)[i+1,n) 中从后向前查找第一个元素 jj 满足 a[i] < a[j]a[i]<a[j]。这样「较大数」即为 a[j]a[j]。
+
+* 交换 a[i]a[i] 与 a[j]a[j]，此时可以证明区间 [i+1,n)[i+1,n) 必为降序。我们可以直接使用双指针反转区间 [i+1,n)[i+1,n) 使其变为升序，而无需对该区间进行排序。
+
+[
+
+```java
+ public void nextPermutation(int[] nums) {
+       //寻找第一个小于
+       int a = -1;
+       for(int i = nums.length-2 ; i >= 0; i--){
+         if(nums[i] < nums[i+1]) {
+           a = i;
+           break;
+          }
+       }
+       //寻找第一个大于
+       if(a==-1) {
+        Arrays.sort(nums);
+       return ;
+       }
+       int b  = 0;
+       for(int i = nums.length-1; i > a ;i--){
+         if(nums[i]>nums[a]){
+            b = i;
+            break;
+         }
+       }
+       //交换
+       int temp = nums[a];
+       nums[a] = nums[b];
+       nums[b] = temp;
+       //排序
+     //  System.out.print(a);
+       Arrays.sort(nums,a+1,nums.length);
+    }
+```
+
