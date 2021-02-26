@@ -275,25 +275,107 @@ public List<List<Integer>> combinationSum2(int[] candidates, int target) {
 
 ## 78. 子集
 
+这道题太太太具有代表性了！！！！！
+
+### 解法一 ：DFS 金典算法
+
 代码：
 
 ```java
-  public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> res= new ArrayList();
-        LinkedList<Integer> list = new LinkedList();
-        dfs(nums,0,res,list);
+ class Solution {
+   public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>>  res = new ArrayList<>();
+        dfs(0,res,new ArrayList<Integer>(),nums);
+         res.add(new ArrayList<>());
         return res;
+
     }
-    void dfs(int []nums,int left,List<List<Integer>> res,LinkedList<Integer> list){
-           if(list.size()<=nums.length) {
-               res.add(new ArrayList(list));
-           }else return;
-           for(int i=left;i<nums.length;i++){
-                list.offer(nums[i]);
-                dfs(nums,i+1,res,list);
-                list.removeLast();
-           }
+    public void  dfs(int index,List<List<Integer>> res,List<Integer> list,int nums[]){
+   //  System.out.println(index);
+      for(int j =index;j<nums.length;j++){
+      list.add(nums[j]);
+      res.add(new ArrayList(list));
+      dfs(j+1,res,list,nums);
+      list.remove(list.size()-1);
+      }
+
     }
+ }
+```
+
+### 解法二 位运算！！
+
+解题思路
+第二次接触到通过二进制枚举子集，上一道题是1178，也是枚举子集
+这次主要是把这道题的这种解法梳理一下，当然还有递归等常规解法。就不记录了。
+
+首先这道题求解的是整数数组的所有子集，由于元素互不相同，也就是求每个所有数的一个组合，长度在0-nums.length,
+包括[],不难得结果的大小应该为
+
+1. 枚举2^nums.length种结果
+举例说明:
+nums=[1,2,3]
+枚举所有二进制位，有
+0=[000],1=[001],2=[010],3=[011],4=[100],5=[101],6=[110],7=[111]
+每个二进制代表是否取当前位置的数，其中0代表不取当前位置的值，1代表取当前位置的值。
+二进制位怎么枚举呢，其实就通过for循环，从[000]到[111]，即i从0到2^nums.length-1
+2. 遍历每一个子集，接下来就是如何取当前子集位置为1的数，所有子集的结果就是答案
+  用一个循环，j的值从0-nums.length-1，判断当前位置是否是1，是1就加到当前子集的结果集里。
+  方法：这里使用了位运算，将当前子集向右移，每次移动j位，然后判断最后一位是否是1（与1相与，是1 结果是1，最后一位是0 结果是0）是1就讲当前位置的值加入结果。
+  比如:101，十进制为5,
+  j=0,5>>0=101 最后一位为 1，结果加上当前位置nums[0]=1,结果集[1]
+  j=1,5>>1=010,最后一位为0，结果不加上当前位置
+  j=2,5>>2==001,最后一位为1 ，结果加上当我位置，nums[2]=3,结果集[1,3]
+  将[1,3]加入最终结果集。
+
+```java
+class Solution {
+    public List<List<Integer>> subsets(int[] nums) {
+      List<List<Integer>> res = new ArrayList();
+            for(int i=0;i<(1<<nums.length);i++){
+                List<Integer> list = new ArrayList<>();
+                for(int j =0;j<nums.length;j++){
+                    if(((i>>j)&1)==1) list.add(nums[j]);
+                }
+                res.add(list);
+            }
+            return  res;
+    }
+    }
+
+```
+
+
+
+### 解法三
+
+遍历数组，每次遍历都将结果集遍历一遍，并把结果集加上当前遍历的数，在加入到结果集，是新创建的。
+
+```java
+ List<List<Integer>> res = new ArrayList();
+        res.add(new ArrayList<>());
+        for(int a : nums){
+            List<List<Integer>> list = new ArrayList<>();
+            for(List<Integer> list1:res){
+                ArrayList<Integer> newarraylist = new ArrayList<>(list1);
+                newarraylist.add(a);
+                list.add(newarraylist);
+            }
+            res.addAll(list);
+        }
+        return res;
+
+```
+
+python更简洁：
+
+```python
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+      res = [[]]
+      for i in nums:
+        res= res+[j+[i] for j in res]
+      return res
 ```
 
 

@@ -10,19 +10,23 @@ import java.util.*;
  */
 public class    Q480 {
     public static void main(String[] args) {
-         int a[] = {1,3,-1,-3,5,3,6,7};
-        /* TreeSet<int[]> set = new TreeSet<>((o1,o2)->o1[0]-o2[0]);
-         set.add(new int[]{1,2});
-         set.add(new int[]{2,3});
-         set.add(new int[]{3,4});
-         set.add(new int[]{1,2});
-         System.out.println(set);
-         set.remove(new int[]{1,2});
-         System.out.println(set);*/
-        //System.out.println(new Q480().medianSlidingWindow(a,3));
-        int b=2147483647;
-        double c = (b+b)/2.0;
-        System.out.println(c);
+         TreeSet<int[]> set1 = new TreeSet<>((o1,o2)->o1[0]-o2[0]);
+//         set.add(new int[]{3,4});
+//         set.add(new int[]{1,2});
+//         set.add(new int[]{1,2});
+//         //set.remove(new int[]{1,2});
+//         System.out.println(set);
+//        PriorityQueue<int[]>  queue= new PriorityQueue<>((o1,o2)->o1[0]-o2[0]);
+//        queue.offer((new int[]{1,2}));
+//        queue.offer(new int[]{3,4});
+//        queue.remove(new int[]{1,2});
+//        System.out.println(queue);
+        HashSet<int[]> set = new HashSet();
+        set.add(new int[]{3,4});
+        set.add(new int[]{1,2});
+        System.out.println(set);
+        set.remove(new int[]{1,2});
+        System.out.println(set);
     }
     public double[] medianSlidingWindow(int[] nums, int k) {
          TreeSet<int[]>  set = new TreeSet<>((o1,o2)->o1[0]==o2[0]?o1[1]-o2[1]:o1[0]-o2[0]);
