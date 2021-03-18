@@ -1,7 +1,10 @@
 * 📕前言
   * [简介](README.md)
-  * [刷题技巧](algorithm/注意事项.md)
-  * [发现新东西](algorithm/new.md)
+  * [刷题技巧](技巧/注意事项.md)
+  * [数据机构](技巧/数据机构.md)
+  * [Api骚操作](技巧/Api骚操作.md)
+  * [发现新东西](技巧/new.md)
+  * [奇奇怪怪的题](技巧/智力题.md)
 * [📜小番茄的模板](/模板/算法模板.md)
 * 📚数据结构
   * [ 👉🏻 数组](/data-structure/array/array.md  "array")
@@ -12,7 +15,8 @@
 * 📗算法思想
   * 👉排序
   * [👉DFS/回溯](algorithm/DFS/dfs.md)
-  * [👉BFS](algorithm/research/bfs/)
+  * [👉BFS](algorithm/search/search.md)
+  * [👉图论](algorithm/图论/图论.md)
   * [👉二分查找](algorithm/二分/二分.md)
   * [👉动态规划](algorithm/dp/dp.md)
   * [👉双指针](algorithm/双指针/双指针.md)
@@ -21,6 +25,8 @@
   * [👉Hashet](algorithm/set/hashset.md)
   * [👉位运算](algorithm/位运算/位运算.md)
   * [👉数学题](algorithm/math/math.md)
+  * [👉并查集](algorithm/并查集/bingcha.md)
+  * [👉回文](algorithm/回文/回文.md)
   * [👉经典问题](algorithm/经典问题/classic.md)
   * [✍️其他](algorithm/other/)
 * [📘周赛](/weekly/week.md)

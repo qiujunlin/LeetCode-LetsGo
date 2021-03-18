@@ -13,47 +13,14 @@ public class TEST {
 
     public static void main(String[] args)
     {
-        String s  = "cdbcbbaaabab";
-        System.out.println(new TEST().maximumGain(s,4,5));
+        int a[] = new int[]{1,2,3,5,6,4,2,3,3,5,6,1};
 
-    }
-    public int maximumGain(String s, int x, int y) {
-        int res=0;
-        Stack<Character> stack = new Stack();
-        if(x<y) {
-            int temp = x;
-            x=y;
-            y=temp;
-            s=new StringBuilder(s).reverse().toString();
+        Collections.reverse();
+
+        for (int c:
+             a) {
+            System.out.println(c);
         }
-        System.out.println(s);
-        for(int i=0;i<s.length();i++){
-            char a = s.charAt(i);
-            if(a != 'a') stack.push(a);
-            else {
-                if(!stack.isEmpty()&&stack.peek()=='b') {
-                    res+=x;
-                    stack.pop();
-                }else{
-                    stack.push(a);
-                }
-            }
-        }
-        s=s.toString();
-        stack.clear();
-        for(int i=0;i<s.length();i++){
-            char a = s.charAt(i);
-            if(a != 'b') stack.push(a);
-            else {
-                if(!stack.isEmpty()&&stack.peek()=='a') {
-                    res+=y;
-                    stack.pop();
-                }else{
-                    stack.push(a);
-                }
-            }
-        }
-        return res;
     }
 
     public int stoneGameVII(int[] stones) {
