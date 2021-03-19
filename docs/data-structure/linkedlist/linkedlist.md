@@ -77,3 +77,98 @@ class Solution {
     }
 ```
 
+## 反转链表 II
+
+![](img/92.png)
+
+两种解法 ：
+
+官方题解和不错
+
+[题解](https://leetcode-cn.com/problems/reverse-linked-list-ii/solution/fan-zhuan-lian-biao-ii-by-leetcode-solut-teyq/)
+
+### 解法一  截取出来翻转
+
+```java
+
+/**
+ * @Classname Q92
+ * @Description:
+ * @Date 2021/3/19 20:24
+ * @Created by qiujunlin
+ */
+
+public class Solution {
+    public  void reverse(ListNode node){
+        //ListNode head  = null;
+        ListNode cur = node;
+        ListNode head = null;
+        while (cur!=null){
+           ListNode temp = cur.next;
+           cur.next= head;
+           head =cur;
+           cur = temp;
+        }
+    }
+    public ListNode reverseBetween(ListNode head, int left, int right) {
+        ListNode sentry =  new ListNode();
+        sentry.next =head;
+        ListNode pre = null;
+        ListNode first = null,last =null,reversefirst = null,reverselast =null;
+        ListNode cur  = sentry;
+        pre =sentry;
+        //寻找左边节点
+        for(int i= 0;i<left;i++){
+           pre =cur;
+            cur = cur.next;
+           
+        }
+        first = pre;
+        first.next = null;
+        reversefirst = cur;
+
+        for(int i = 0 ;i < right-left;i++){
+            pre = cur;
+            cur = cur.next;
+           
+        }
+        last =  cur.next;
+        reverselast = cur;
+        reverselast.next = null;
+        reverse(reversefirst);
+        
+        first.next  =  reverselast;
+        reversefirst.next = last;
+        return  sentry.next;
+}
+}
+```
+
+
+
+### 解法二  一次遍历翻转
+
+
+
+```java
+    public ListNode reverseBetween(ListNode head, int left, int right) {
+        ListNode sentry =  new ListNode();
+        sentry.next =  head;
+        ListNode cur  = sentry;
+        //寻找左边节点
+        for(int i= 0;i<left-1;i++){
+            cur = cur.next;  
+        }
+        ListNode  first = cur;
+        cur =cur.next;
+        for(int i = 0 ;i < right-left;i++) {
+            ListNode temp = cur.next;
+            cur.next=temp.next;
+            temp.next = first.next;
+            first.next=temp;
+            //cur=cur.next;
+        }
+        return  sentry.next;
+    }
+```
+
