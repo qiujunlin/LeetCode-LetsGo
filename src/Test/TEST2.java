@@ -8,24 +8,20 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.DecimalFormat;
 import java.util.*;
-class Edge{
-    int price;
-    int ed[];
-    public Edge(int price,int x,int y ){
-        this.price=price;
-        this.ed= new int[]{x, y};
+
+public class TEST {
+
+    public static void main(String[] args)
+    {
+        int a[] = new int[]{1,2,3,5,6,4,2,3,3,5,6,1};
+
+        Collections.reverse();
+
+        for (int c:
+             a) {
+            System.out.println(c);
+        }
     }
-}
-public class TEST2 {
-
-    public static void main(String[] args) {
-       ArrayList<Edge> list = new ArrayList<>();
-       list.sort((a,b)->a.ed[0]-b.price);
-
-    }
-
-
-
 
     public int stoneGameVII(int[] stones) {
         LinkedList<Integer> list = new LinkedList();
