@@ -9,13 +9,13 @@ import java.math.BigInteger;
 import java.text.DecimalFormat;
 import java.util.*;
 
-public class TEST {
+class TEST {
 
     public static void main(String[] args)
     {
         int a[] = new int[]{1,2,3,5,6,4,2,3,3,5,6,1};
 
-        Collections.reverse();
+        //Collections.reverse();
 
         for (int c:
              a) {
