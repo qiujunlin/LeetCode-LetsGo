@@ -3,9 +3,7 @@ package WeeklyContest.T233;
 import java.util.*;
 
 public class t233 {
-    public static void main(String[] args) {
-        System.out.printf("jaja");
-    }
+
 
     public int maxAscendingSum(int[] nums) {
         int dp[] = new int[1];
@@ -76,34 +74,51 @@ public class t233 {
     }
 
 
-    public int maxValue(int n, int index, int maxSum) {
-        int left = 0;
-        int right = maxSum - n + 1;
-        int a[] = new int[n];
-        while (left < right) {
-            int mid = left + (right - left + 1) / 2;
-            a[index] = mid;
-            if (judge(a, mid, maxSum)) {
-                left = mid;
-            } else {
-                right = mid - 1;
-            }
-            Arrays.fill(a, 0);
+
+
+    boolean judge( int n,int index, int maxSum,int mid) {
+      //
+        int left = index ;
+        int right  = n-index-1;
+        int leftsum =0;
+        int rightsum =0;
+        if(left<=mid-1){
+            int a1 = mid-1-left+1;
+            leftsum = (a1+mid-1)*left/2;
+        }else{
+            leftsum = (mid-1+1)*(mid-1)/2;
+            leftsum+=left-mid+1;
         }
-        return left;
+        if(right<=mid-1){
+            int a1 = mid-1-right+1;
+            rightsum= (a1+mid-1)*right/2;
+        }else{
+            rightsum = (mid-1+1)*(mid-1)/2;
+            rightsum+=right-mid+1;
+        }
+        int sum = mid+leftsum+rightsum;
+        return  sum<=maxSum;
+
+    }
+    public int maxValue(int n, int index, int maxSum) {
+      int left =1;
+      int right  = maxSum;
+      while (left<right){
+          int mid  = left+(right-left+1)/2;
+          if(judge(n,index,maxSum,mid)){
+              left=mid;
+          }else{
+              right =mid-1;
+
+          }
+      }
+      return  left;
     }
 
-    boolean judge(int a[], int index, int maxSum) {
-        int lenleft = index;
-        int lenright = a.length - 1 - index;
-        int maxleft = (lenleft - 1) * lenleft / 2;
-        int maxright = (lenright - 1) * lenright / 2;
-        if (maxSum - lenleft - lenright >= 0 && maxSum <= maxleft + maxright) {
-            return true;
-        } else {
-            return false;
-        }
+    public static void main(String[] args) {
+        System.out.println(new t233().maxValue(5,0,28));
     }
+
 }
 
 
