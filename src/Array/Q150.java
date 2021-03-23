@@ -37,7 +37,7 @@ public class    Q150 {
             }
             return  stack.peek();
         }
-
+return 0;
 
     }
 }
