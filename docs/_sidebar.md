@@ -27,6 +27,7 @@
   * [👉数学题](algorithm/math/math.md)
   * [👉并查集](algorithm/并查集/bingcha.md)
   * [👉回文](algorithm/回文/回文.md)
+  * [👉单调队列](algorithm/单调队列/dandiao.md)
   * [👉经典问题](algorithm/经典问题/classic.md)
   * [✍️其他](algorithm/other/)
 * [📘周赛](/weekly/week.md)

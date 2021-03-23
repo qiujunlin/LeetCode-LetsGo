@@ -76,6 +76,7 @@
 | 135  |                            发糖果                            |                             贪心                             | Hard   |
 | 144  | [二叉树前序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreePreorderTraversal144.java) |                                                              |        |
 | 145  | [二叉树的后序遍历](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/BinaryTreePostorderTraversal145.java) |                       递归，迭代，翻转                       |        |
+| 150  | [逆波兰表达式求值](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/) |                              栈                              | Middle |
 | 153  |                  寻找旋转排序数组中的最小值                  |                             二分                             | Middle |
 | 154  |                寻找旋转排序数组中的最小值 II                 |                             二分                             | Hard   |
 | 162  |                           寻找峰值                           |                             二分                             | Middle |
@@ -123,12 +124,14 @@
 | 821  |                        字符串最短距离                        |                            双指针                            | easy   |
 | 860  |                          柃檬水找零                          |                           贪心模拟                           | easy   |
 | 865  |                 具有所有最深节点的最小子树)                  |                          后序，前序                          | Middle |
+| 867  | [867. 转置矩阵](https://leetcode-cn.com/problems/transpose-matrix/) |                             模拟                             | easy   |
 | 876  | [链表中间节点](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/LinkedList/MiddleoftheLinkedList876.java) |                        迭代  ，双指针                        |        |
 | 922  |                      按奇偶数组排序\|\|                      |                  使用额外数组 ，使用双指针                   |        |
 | 946  | [有效的 山脉数组](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/ValidMountainArray946.java) |                            双指针                            |        |
 | 976  |                       三角形的最大周长                       |                             遍历                             | Easy   |
 | 998  | [最大二叉树II](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Tree/MaximumBinaryTreeII998.java) |                             递归                             |        |
 | 1022 |                    从根到叶的二进制数之和                    |                           使用递归                           |        |
+| 1052 | [1052. 爱生气的书店老板](https://leetcode-cn.com/problems/grumpy-bookstore-owner/) |                             滑动                             | Middle |
 | 1095 |                     山脉数组中查找目标值                     |                             二分                             | HARD   |
 | 1122 |                        数组的相对排序                        |                        常规解法 遍历                         | easy   |
 | 1123 |                   最深叶节点的最近公共祖先                   |                             后序                             | Middle |
