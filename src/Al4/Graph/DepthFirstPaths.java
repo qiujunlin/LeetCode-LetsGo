@@ -46,7 +46,8 @@ public class DepthFirstPaths
 
     public static void main(String[] args) {
         Graph g = new Graph(new In(args[0]));
-        DepthFirstPaths depthFirstPaths  =new DepthFirstPaths(g,Integer.valueOf(args[1]));
-        System.out.println(depthFirstPaths.pathTo(4));
+       // DepthFirstPaths depthFirstPaths  =new DepthFirstPaths(g,Integer.valueOf(args[1]));
+        BreadthFirstPaths breadthFirstPaths =  new BreadthFirstPaths(g,Integer.parseInt(args[1]));
+        System.out.println(breadthFirstPaths.pathTo(5));
     }
 }
