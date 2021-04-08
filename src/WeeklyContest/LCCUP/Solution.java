@@ -45,11 +45,7 @@ int mod=1000000007;
         return  0;
 
     }
-    public int orchestraLayout2(int num, int xPos, int yPos) {
 
-
-
-    }
         public List<Integer> spiralOrder(int[][] matrix) {
             //for(int i=0;i<m/2)
             List<Integer> list = new ArrayList<>();
