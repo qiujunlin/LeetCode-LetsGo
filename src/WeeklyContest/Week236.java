@@ -62,7 +62,7 @@ public class Week236 {
         }
         int res  = Integer.MAX_VALUE;
         for(int i=1;i<=3;i++){
-            res = Math.min(dp[len-1][i]);
+            res = Math.min(dp[len-1][i],res);
 
         }
         return  res;
