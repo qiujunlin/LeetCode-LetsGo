@@ -11,11 +11,12 @@ import  edu.princeton.cs.algs4.*;
  */
 public class Test3 {
     public static void main(String[] args) {
-        int arr[] = {1,2,3};
-        int arr2[] = {1,2,3};
-        arr=arr2;
-
-        System.out.println("haha");
+     Integer a  = new Integer(12222);
+         new Test3().aa(a);
+        System.out.println(a);
+    }
+    void aa(Integer a){
+        a=3333;
     }
 
 }
