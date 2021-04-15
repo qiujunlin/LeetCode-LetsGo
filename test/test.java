@@ -1,10 +1,11 @@
+import Al4.Graph.KruskalMST;
+import edu.princeton.cs.algs4.Edge;
+import edu.princeton.cs.algs4.EdgeWeightedGraph;
 import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.StdOut;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class test {
     @Test
@@ -28,5 +29,25 @@ public class test {
         System.out.println(list4);
 
 
+    }
+    @Test
+    public void test2(){
+        int a[]= new int[100000000];
+        List<Integer> list = new ArrayList<>();
+        for(int i=a.length-1;i>=0;i--) {
+            a[i]=i;
+            list.add(i);
+        }
+
+       // Collections.addAll(list,a);
+        long startTime = System.currentTimeMillis();     //获取开始时间
+        Arrays.sort(a);
+        long overTime = System.currentTimeMillis();      //获取结束时间
+        System.out.println("程序运行时间为："+(overTime-startTime)+"毫秒");
+         startTime = System.currentTimeMillis();     //获取开始时间
+       // Arrays.sort(a);
+        PriorityQueue<Integer> queue = new PriorityQueue<>(list);
+         overTime = System.currentTimeMillis();      //获取结束时间
+        System.out.println("程序运行时间为："+(overTime-startTime)+"毫秒");
     }
 }

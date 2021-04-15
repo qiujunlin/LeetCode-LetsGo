@@ -27,6 +27,10 @@ List<String> numbers = new ArrayList<>(Arrays.asList("1", "2", "3"));
 List<String> colors = Stream.of("blue", "red", "yellow").collect(toList());
 ```
 
+集合的拷贝方式
+
+
+
 ## 数组比较
 
 数组相等的条件不仅要求数组元素的个数必须相等，而且要求对应位置的元素也相等。Arrays 类提供了 equals() 方法比较整个数组。语法如下：
