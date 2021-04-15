@@ -77,4 +77,25 @@ public class Djis {
         }
         return dist;
     }
+    void gooddijiskra(int node[][],int v,String vs[]){
+       PriorityQueue<int[]> queue  = new PriorityQueue<>((a,b)->a[1]-b[1]);
+       int len =  node.length;
+       int MAX =  100000;
+       int dist[] = new int[len];
+       int pre[] = new int[len];
+       Arrays.fill(dist,1000000);
+       dist[v] =0;
+       queue.offer(new int[]{1,0});
+       while (!queue.isEmpty()){
+           int a[] = queue.poll();
+           int from =  a[0];
+           for(int i=0;i<len;i++){
+               if(node[from][i]!=MAX&&dist[i]>dist[from]+node[from][i]){
+                   dist[i] =  dist[from]+node[from][i];
+                   pre[i] = from;
+
+               }
+           }
+       }
+    }
 }
