@@ -18,16 +18,10 @@ interface GreetingService
 public class Test3 {
 
     public static void main(String[] args) {
-        GreetingService tes = (mes)->System.out.println("speak:"+mes);
-        //tes.sayMessage("卧槽");
-
-     //Integer a  = new Integer(12222);
-       //  new Test3().aa(a);
-        //System.out.println(a);
-    HashMap<Integer,HashMap<Integer,Integer>> map = new HashMap<>();
-    HashMap<Integer,Integer>  m = map.computeIfAbsent(1,q->new HashMap<>());
-    m.put(2,3);
-      //  System.out.println(map);
+     TreeSet<Integer> set= new TreeSet<>();
+     set.add(1);
+     set.add(1);
+        System.out.println(set);
     }
     void aa(Integer a){
         a=3333;
