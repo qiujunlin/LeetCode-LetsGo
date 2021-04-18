@@ -18,10 +18,7 @@ interface GreetingService
 public class Test3 {
 
     public static void main(String[] args) {
-     TreeSet<Integer> set= new TreeSet<>();
-     set.add(1);
-     set.add(1);
-        System.out.println(set);
+        PriorityQueue<int[]> queu = new PriorityQueue<int[]>((a,b)->a[1]-b[1]);
     }
     void aa(Integer a){
         a=3333;
