@@ -32,7 +32,7 @@ public class test {
     }
     @Test
     public void test2(){
-        int a[]= new int[100000000];
+        int a[]= new int[100000];
         List<Integer> list = new ArrayList<>();
         for(int i=a.length-1;i>=0;i--) {
             a[i]=i;

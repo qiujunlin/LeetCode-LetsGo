@@ -47,10 +47,10 @@ public class TopM {
     public static void main(String[] args) {
         int m = Integer.parseInt(args[0]); 
         MinPQ<Transaction> pq = new MinPQ<Transaction>(m+1);
-
-        while (StdIn.hasNextLine()) {
+        In in = new In(args[1]);
+        while (in.hasNextLine()) {
             // Create an entry from the next line and put on the PQ. 
-            String line = StdIn.readLine();
+            String line = in.readLine();
             Transaction transaction = new Transaction(line);
             pq.insert(transaction); 
 
