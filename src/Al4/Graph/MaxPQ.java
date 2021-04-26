@@ -12,12 +12,20 @@ public class MaxPQ<Key extends Comparable<Key>>
 {
     private Key[] pq; // 基于堆的完全二叉树
     private int N = 0; // 存储于pq[1..N]中，pq[0]没有使用
-    public MaxPQ(int maxN)
-    { pq = (Key[]) new Comparable[maxN+1]; }
-    public boolean isEmpty()
-    { return N == 0; }
-    public int size()
-    { return N; }
+    private Comparator<? super  Key> comparator;
+    public MaxPQ(int maxN) {
+        this.pq = (Key[]) new Comparable[maxN+1];
+    }
+    public  MaxPQ(Comparator<? super Key> comparator){
+        this.pq = (Key[]) new Comparable[100+1];
+        this.comparator =  comparator;
+    }
+    public boolean isEmpty() {
+        return N == 0;
+    }
+    public int size() {
+        return N;
+    }
     public void insert(Key v)
     {
         pq[++N] = v;
@@ -31,9 +39,13 @@ public class MaxPQ<Key extends Comparable<Key>>
         sink(1); // 恢复堆的有序性
         return max;
     }
-    // 辅助方法的实现请见本节前面的代码框
     private boolean less(int i, int j){
-      return  pq[i].compareTo(pq[j])<0;
+        if (comparator == null) {
+            return  pq[i].compareTo(pq[j]) < 0;
+        }
+        else {
+            return comparator.compare(pq[i], pq[j]) < 0;
+        }
     }
     private void exch(int i, int j){
         Key t = pq[i]; pq[i] = pq[j]; pq[j] = t;
@@ -51,6 +63,16 @@ public class MaxPQ<Key extends Comparable<Key>>
             if(!less(k,j)) break;
             exch(k,j);
             k=j;
+        }
+    }
+
+    public static void main(String[] args) {
+        MaxPQ<Integer> pq = new MaxPQ<>((a,b)->b-a);
+        for(int i=0;i<100;i++){
+             pq.insert(i);
+        }
+        for(int i=0;i<10;i++){
+            System.out.println(pq.delMax());
         }
     }
 }
