@@ -277,6 +277,196 @@ public int change(int amount, int[] coins) {
    
 ```
 
+## 338 比特位计数
+
+![](images/338.png)
+
+### 解法一 暴力
+
+```java
+class Solution {
+ //解法一 暴力统计
+    public int[] countBits(int num) {
+           int res[] = new int[num+1];
+           for(int i=0;i<=num;i++){
+               res[i] = count(i);
+           }
+           return res;
+    }
+    public int count(int num){
+        int res = 0;
+        while(num!=0){
+            res++;
+            num=num&(num-1);
+        }
+        return res;
+    }
+}
+```
+
+### 解法二 最低有效位 
+
+```java
+class Solution {
+    public int[] countBits(int num) {
+         int dp[] =  new int[num+1];
+         for(int i=0;i<=num;i++){
+            dp[i]=dp[i>>1]+(i&1);
+         }
+         return dp;
+    }
+}
+```
+
+### 解法三 动态规划
+
+```java
+class Solution {
+    public int[] countBits(int num) {
+         int dp[] =  new int[num+1];
+         for(int i=1;i<=num;i++){
+           dp[i] = dp[i&(i-1)]+1;
+         }
+         return dp;
+    }
+}
+```
+
+## 354 俄罗斯信封套娃
+
+![](images/354.png)
+
+这道题很金典  ！！！！
+
+### 解法一  dp  类似于最长上升子序列
+
+解法一的思路很简单，就是排序，然后比较长宽，寻找最长的能套住的信封
+
+```java
+class Solution {
+    public int maxEnvelopes(int[][] envelopes) {
+        Arrays.sort(envelopes,(a,b)->a[0]==b[0]?a[1]-b[1]:a[0]-b[0]);
+        int dp[] = new int[envelopes.length];
+        Arrays.fill(dp,1);
+        for(int i=1;i<envelopes.length;i++){
+            for(int j=0;j<i;j++){
+                if(envelopes[i][0]>envelopes[j][0]&&envelopes[i][1]>envelopes[j][1]){
+                    dp[i] = Math.max(dp[j]+1,dp[i]);
+                }
+            }
+        }
+        int max =0;
+        for(int n:dp){
+            max = Math.max(max,n);
+        }
+        return max;
+    }
+}
+```
+
+### 解法二 排序优化 
+
+在这里只需要比较第二维，比较他的高度是否合适。
+
+```java
+class Solution {
+    public int maxEnvelopes(int[][] envelopes) {
+        Arrays.sort(envelopes,(a,b)->a[0]==b[0]?b[1]-a[1]:a[0]-b[0]);
+        int dp[] = new int[envelopes.length];
+        Arrays.fill(dp,1);
+        for(int i=1;i<envelopes.length;i++){
+            for(int j=0;j<i;j++){
+                //如果大于，则宽肯定是大于的 因为这是规定
+                if(envelopes[i][1]>envelopes[j][1]){
+                    dp[i] = Math.max(dp[j]+1,dp[i]);
+                }
+            }
+        }
+        int max =0;
+        for(int n:dp){
+            max = Math.max(max,n);
+        }
+        return max;
+    }
+}
+```
+
+## 1691 堆叠长方体的最大高度
+
+这道题的思路和俄罗斯套娃的思路一样
+
+这一道题的长方体是可以旋转的，解决思路就是把所有的长方体都旋转 然后加进去排序，在进行最长上升自己序列的时候，不能使用同一个长方体旋转形成的新长方体
+
+```java
+class Solution {
+    public int maxHeight(int[][] cuboids) {
+        int len = cuboids.length;
+        int arr[][] = new int[len*6][4];
+        for(int i=0;i<len;i++){
+            int a = cuboids[i][0];
+            int b=  cuboids[i][1];
+            int c = cuboids[i][2];
+            int a1[] = {a,b,c,i};
+            int a2[] ={a,c,b,i};
+            int a3[]={b,a,c,i};
+            int a4[]={b,c,a,i};
+            int a5[]={c,a,b,i};
+            int a6[]={c,b,a,i};
+            arr[6*i]=a1;
+            arr[6*i+1]=a2;
+            arr[6*i+2]=a3;
+            arr[6*i+3]=a4;
+            arr[6*i+4]=a5;
+            arr[6*i+5]=a6;
+        }
+        Arrays.sort(arr,(a,b)->(a[0]==b[0]?(a[1]==b[1]?a[2]-b[2]:a[1]-b[1]):a[0]-b[0]));
+        int dp[] = new int[len*6];
+        for(int i=0;i<len*6;i++) dp[i] = arr[i][2];
+        for(int i=1;i<len*6;i++){
+            for(int j=0;j<i;j++ ){
+                if(arr[i][0]>=arr[j][0]&&arr[i][1]>=arr[j][1]&&arr[i][2]>=arr[j][2]&&arr[i][3]!=arr[j][3])
+                 dp[i] =Math.max(dp[i],dp[j]+arr[i][2]);
+            }
+        }
+        int res=0;
+        for(int a:dp) res=Math.max(a,res);
+        return res;
+
+    }
+}
+```
+
+## 面试题 08.13. 堆箱子
+
+阶梯思路和租场上升子序列一样 和俄罗斯套娃问题有点像
+
+```java
+class Solution {
+    public int pileBox(int[][] box) {
+        Arrays.sort(box,(a,b)->a[0]-b[0]);
+        int dp[] =new int[box.length];
+        //Arrays.fill(box,1);\
+        for(int i=0;i<box.length;i++)
+        dp[i] = box[i][2];
+        for(int i=1;i<box.length;i++){
+            for(int j=0;j<i;j++){
+                if(box[i][0]>box[j][0]&&box[i][1]>box[j][1]&&box[i][2]>box[j][2]){
+                    dp[i] = Math.max(dp[i],dp[j]+box[i][2]);
+                }
+            }
+        }
+        int res=0;
+        for(int num:dp){
+            res= Math.max(res,num);
+        }
+        return res;
+
+    }
+}
+```
+
+
+
 ## 509. 斐波那契数
 
 ### 解法一 暴力递归  
