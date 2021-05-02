@@ -66,6 +66,7 @@ public class DoubleWeek51 {
                 }
             }
         }
+        return res;
     }
 
     private int get(int[][] rooms, int query) {
