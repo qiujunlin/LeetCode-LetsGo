@@ -34,6 +34,7 @@ public class KruskalMST {
             StdOut.println(e);
         }
         //StdOut.printf("%.5f\n", mst.weight());
+
         long overTime = System.currentTimeMillis();      //获取结束时间
         System.out.println("程序运行时间为："+(overTime-startTime)+"毫秒");
     }
