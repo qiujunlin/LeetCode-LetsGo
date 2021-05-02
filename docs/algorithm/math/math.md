@@ -1,12 +1,66 @@
 ## 已解决题目列表
 
+## 进制转换：
+
+### n>n 万能方法:
+
+```
+BigInteger bigint=new BigInteger(hexs, 16);//hexs  :String 类型数据
+int numb=bigint.toString(hexs));
+```
+
+### 10->n 万能 
+
+```
+Integer.toString(num,hexs); 
+```
+
+### N->10 万能
+
+```
+Integer.parseInt("1001",2)
+```
+
+### n->2   
+
+```
+1.取余法
+
+2.使用移位操作
+
+3.Integer.toBinaryString(n);
+```
+
+### 10->8
+
+```
+Integer.toOctalString(int i)   //返回i的八进制的字符串表示
+```
+
+### 10>16
+
+```
+Integer.toHexString(i)
+```
 
 
-| 题目 | 名称     | 解法   | 难度   |
-| ---- | -------- | ------ | ------ |
-| 1    | 两数之和 | hash   | easy   |
-| 15   | 三数之和 | 双指针 | middle |
-|      |          |        |        |
+
+### 16->2 
+
+```
+map
+```
+
+
+
+### 16->8
+
+```
+1. 16->2 and 2->10
+2. 16->10 and 10->2 
+```
+
+
 
 ## ##7. 整数反转
 
