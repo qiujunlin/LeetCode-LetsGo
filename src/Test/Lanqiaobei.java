@@ -68,12 +68,69 @@ public static  int H(){
 
 }
 
+ static class Node{
+        double k;
+        double b;
 
+     public Node(double k, double b) {
+         this.k = k;
+         this.b = b;
+     }
+
+     @Override
+     public boolean equals(Object o) {
+         if (this == o) return true;
+         if (o == null || getClass() != o.getClass()) return false;
+         Node node = (Node) o;
+         return Double.compare(node.k, k) == 0 &&
+                 Double.compare(node.b, b) == 0;
+     }
+
+     @Override
+     public int hashCode() {
+         return Objects.hash(k, b);
+     }
+ }
+ public  static   void  Zhi(){
+   int m =20;
+   int n=21;
+   int points[][]=  new int[420][2];
+   int index =0;
+   for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            points[index][0] =i;
+            points[index][1] =j;
+            index++;
+        }
+    }
+    Set<Node> set = new HashSet<>();
+    for(int i=0;i<points.length;i++){
+        int point1[] = points[i];
+        for(int j =i;j<points.length;j++){
+            int point2[] =points[j];
+            if(point1[0]!=point2[0]&&point1[1]!=point2[1]){
+                double x1=point1[0];
+                double y1=point1[1];
+                double x2=point2[0];
+                double y2=point2[1];
+                double k =(y1-y2)/(x1-x2);
+                double b= (y1*x2-y2*x1)/(x2-x1);
+                set.add(new Node(k,b));
+            }
+        }
+    }
+    int res =   m+n+set.size();
+     System.out.println(res);
+
+    }
     public static void main(String[] args) {
       //  System.out.println(420*420);
         Random random = new Random();
         long start =System.currentTimeMillis();
-        H();
+        //Zhi();
+        double b = 1;
+        double c= 1;
+        System.out.println(c==b);
         long end  =System.currentTimeMillis();
         System.out.println("运行时间:"+(end-start)+" 毫秒");
     }
