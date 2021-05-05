@@ -83,7 +83,7 @@ public static  int H(){
          if (o == null || getClass() != o.getClass()) return false;
          Node node = (Node) o;
          return Double.compare(node.k, k) == 0 &&
-                 Double.compare(node.b, b) == 0;
+                 node.b-b< 0.1;
      }
 
      @Override
@@ -114,7 +114,7 @@ public static  int H(){
                 double x2=point2[0];
                 double y2=point2[1];
                 double k =(y1-y2)/(x1-x2);
-                double b= (y1*x2-y2*x1)/(x2-x1);
+                double b= y2-k*x2;
                 set.add(new Node(k,b));
             }
         }
@@ -127,10 +127,8 @@ public static  int H(){
       //  System.out.println(420*420);
         Random random = new Random();
         long start =System.currentTimeMillis();
-        //Zhi();
-        double b = 1;
-        double c= 1;
-        System.out.println(c==b);
+        Zhi();
+
         long end  =System.currentTimeMillis();
         System.out.println("运行时间:"+(end-start)+" 毫秒");
     }

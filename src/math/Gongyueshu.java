@@ -5,17 +5,16 @@ import java.util.List;
 
 public class Gongyueshu {
     public static void main(String[] args) {
-        Integer a = Integer.valueOf(args[0]);
-        System.out.println(new Gongyueshu().getPrime(a));
+       // Integer a = Integer.valueOf(args[0]);
+        System.out.println(new Gongyueshu().GCD(3,100));
 
     }
 
     /**
      * 最小公倍数 =  x*y /  最大公约数
-     * @param x
-     * @param y
-     * @return
      */
+    //递归写法
+    int gcd(int a, int b){return b == 0 ? a: gcd(b, a%b);}
  public int LCM(int x ,int y){
         return  x*y/GCD(x,y);
  }
