@@ -36,6 +36,8 @@ S=sqrt[p(p-a)(p-b)(p-c)]
 
 
 
+**即某一自然数的约数个数是它各质因数的次数分别加1相乘的积！！！**
+
 ## 求组合数
 
 [组合数和杨辉三角](https://blog.csdn.net/bell041030/article/details/88911180)
