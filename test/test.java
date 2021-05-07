@@ -50,4 +50,11 @@ public class test {
          overTime = System.currentTimeMillis();      //获取结束时间
         System.out.println("程序运行时间为："+(overTime-startTime)+"毫秒");
     }
+    @Test
+    public void test3(){
+        Random random = new Random();
+        for(int i=0;i<10;i++){
+            System.out.println(random.nextInt(1000));
+        }
+    }
 }

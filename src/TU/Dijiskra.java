@@ -24,8 +24,8 @@ public class Dijiskra {
            {
                int node[] =que.poll();
                int from=  node[0];
-               int wiiht = node[1];
                if(vis[from]) continue;
+               vis[from] = true;
                HashMap<Integer, Integer>  edges = map.get(from);
                for(int to : edges.keySet()) {
                    if (dist[to] > dist[from] + edges.get(to)) {
