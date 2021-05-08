@@ -1,7 +1,10 @@
 package math;
 
+import java.util.Scanner;
+
 public class KuaiShuMI {
     public static void main(String[] args) {
+
 
     }
     public static  int[][] matrix_pow(int a[][],int n){
