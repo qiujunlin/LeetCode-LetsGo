@@ -5,8 +5,9 @@ import java.util.List;
 
 public class Gongyueshu {
     public static void main(String[] args) {
-       // Integer a = Integer.valueOf(args[0]);
-        System.out.println(new Gongyueshu().GCD(3,100));
+        Integer a = Integer.valueOf(args[0]);
+
+       prims(a);
 
     }
 
@@ -72,5 +73,25 @@ public class Gongyueshu {
       list.add(num);
       return  list;
     }
-
+    static  void prims(int num){
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
+        for (int i=2;i*i<=num;i++){
+            if(num%i==0){
+                list1.add(i);
+                int count =0;
+                while (num%i==0){
+                    num=num/i;
+                    count++;
+                }
+                list2.add(count);
+            }
+        }
+        if(num>1) {
+            list1.add(num);
+            list2.add(1);
+        }
+        System.out.println(list1);
+        System.out.println(list2);
+  }
 }

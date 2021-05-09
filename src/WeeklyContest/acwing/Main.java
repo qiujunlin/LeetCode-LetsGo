@@ -11,14 +11,18 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        long num= scanner.nextLong();
-        long day =  24*60*60*1000;
-        long a = num%day/1000;
-        long h = a/(60*60);
-        long min= a%(60*60);
-        long m = min/(60);
-        long sec = min%(60);
+        long N=  scanner.nextLong();
+        long k =scanner.nextLong();
+        long pre[]=  new long[(int) (N+1)];
+        long dp []= new long[(int) k];
+        long res =0;
+        for(int i=0;i<N;i++){
+            long num =  scanner.nextLong();
+            pre[i+1]= pre[i]+num;
+            res+=dp[(int) (pre[i+1]%k)];
+            dp[(int) (pre[i+1]%k)]++;
+        }
+        System.out.println(res+dp[0]);
 
-        System.out.println(h+":"+min+":"+sec);
     }
 }

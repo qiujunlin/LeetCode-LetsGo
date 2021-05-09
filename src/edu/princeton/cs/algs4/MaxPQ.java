@@ -210,8 +210,8 @@ public class MaxPQ<Key> implements Iterable<Key> {
     }
 
    /***************************************************************************
-    * Helper functions for compares and swaps.
-    ***************************************************************************/
+    * Helper functions for compares and swaps.**************************************************************************
+    */
     private boolean less(int i, int j) {
         if (comparator == null) {
             return ((Comparable<Key>) pq[i]).compareTo(pq[j]) < 0;

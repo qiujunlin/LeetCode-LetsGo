@@ -11,22 +11,43 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        int m = scanner.nextInt();
-        int num[] = new int[n+1];
-        int w[] =new int[n+1];
-        for(int i=1;i<=n;i++){
-            num[i] = scanner.nextInt();
-            w[i] = scanner.nextInt();
+        while (scanner.hasNext()) {
+            int n = scanner.nextInt();
+            int m = scanner.nextInt();
+            int p = scanner.nextInt();
+            long mart[][] = {{1, 1}, {1, 0}};
+            long fm =1;
+            long res=1;
+            for(int i=2;i<=n;i++){
+               long c = matrix_pow(mart, i - 1)[0][0];
+               if(i==m) fm =c;
+               res+=c;
+            }
+
+            System.out.println((res % fm)% p);
         }
-        int dp[]= new int[n+1];
-        for(int i=1;i<=n;i++){
-            for (int j=m;j>=num[i];j--){
-                dp[j] =Math.max(dp[j],dp[j-num[i]]+w[i]);
+    }
+    public static  long[][] matrix_pow(long a[][],long n){
+        long res[][] = {{1,0},{0,1}};
+        while (n>0) {
+            if (n % 2 == 1) res = matrix_multiply(res, a);
+            n = n >> 1;
+            a = matrix_multiply(a, a);
+        }
+        return  res;
+    }
+    public static  long[][] matrix_multiply(long[][] a,long [][] b){
+        int m = a.length;
+        int n = a[0].length;
+        int p =b[0].length;
+        long res[][] = new long[m][p];
+        for(int i=0;i<m;i++){
+            for(int j=0;j<p;j++){
+                for(int k=0;k<n;k++){
+                    res[i][j] += a[i][k] * b[k][j];
+                }
             }
         }
-        int res =0;
-        for(int a:dp) res=Math.max(res,a);
-        System.out.println(res);
+        return  res;
     }
 }
