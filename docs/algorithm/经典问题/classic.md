@@ -338,3 +338,61 @@ class Solution {
     }
 ```
 
+## 差分数组
+
+### 995  K连续位最小翻转次数
+
+![](images/995.png)
+
+### 解法一 差分数组
+
+[题解](https://leetcode-cn.com/problems/minimum-number-of-k-consecutive-bit-flips/solution/k-lian-xu-wei-de-zui-xiao-fan-zhuan-ci-s-bikk/)
+
+```java
+class Solution {
+    public int minKBitFlips(int[] A, int K) {
+      int len = A.length;
+      int dif[] = new int[len+1];
+      int change =0;
+      int res =0;
+      for(int i=0;i<len;i++){
+          change+=dif[i];
+          if((change+A[i])%2==0){
+              //当前位置需要被翻转
+              if(i+K-1>len-1) return -1;  //说明翻转不了K个了
+              change++; //当前位置需要改变的次数加一，这里的change包括之前改变的，加一 表示之后的K-1需要翻转的次数 都加一。
+              dif[i+K]--;//表示当前位置 后面的k-1个需要改变位置，当前位置后面的第k个位置起 ，就不受当期那位置翻转的影响。需要减一，
+              res++;
+          }
+      }
+      return res;
+    }
+}
+```
+
+### 解法二  滑动窗口
+
+使用队列来模拟窗口，[题解](https://leetcode-cn.com/problems/minimum-number-of-k-consecutive-bit-flips/solution/hua-dong-chuang-kou-shi-ben-ti-zui-rong-z403l/)
+
+```java
+class Solution {
+    public int minKBitFlips(int[] A, int K) {
+      Deque<Integer> de = new LinkedList<>();
+        int rs =0;
+        for(int i=0;i<A.length;i++){
+            if(de.size()>0&&i-de.peekFirst()>=K){
+                de.pollFirst();
+            }
+            if((de.size()+A[i])%2==0){
+                if(i+K-1>A.length-1) return -1;
+                de.addLast(i);
+                rs++;
+                
+            }
+            
+        }
+        return rs;
+    }
+}
+```
+

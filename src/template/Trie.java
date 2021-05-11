@@ -35,7 +35,6 @@ public class Trie {
           Trie trie = searchPrefix(word);
           return  trie!=null&& trie.isend;
     }
-
     /** Returns if there is any word in the trie that starts with the given prefix. */
     public boolean startsWith(String prefix) {
  return  searchPrefix(prefix)!=null;

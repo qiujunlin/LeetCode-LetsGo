@@ -12,7 +12,6 @@ public class Dijiskra {
         int n =7;
         int dist[] = dijiskra(map,source,n);
     }
-
     private static int[] dijiskra(HashMap<Integer, HashMap<Integer, Integer>> map, int source,int n) {
            int dist[]=  new int[n];
            int pre [] = new int[n];
