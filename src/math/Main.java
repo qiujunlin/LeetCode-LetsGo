@@ -3,6 +3,11 @@ package math;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Scanner;
+//package math;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Scanner;
 class  Node{
     int id;
     Node next;
@@ -17,7 +22,7 @@ public class Main {
         int  num = scanner.nextInt();
         int  time = scanner.nextInt();
         int arr[][] = new int[time][2];
-        for(int i=0;i<num;i++){
+        for(int i=0;i<time;i++){
             arr[i][0]=scanner.nextInt();
             arr[i][1]=scanner.nextInt();
         }
@@ -30,26 +35,33 @@ public class Main {
             cur = cur.next;
         }
 
-        for(int i=0;i<num;i++){
+        for(int i=0;i<time;i++){
             int a =  arr[i][0];
             int b  =arr[i][1];
             Node pre = map.get(a);
             Node first =map.get(a).next;
             Node last = first;
-            while (b>0&&last!=null){
+            while (b>0&&last.next!=null){
                 last=last.next;
+                b--;
             }
             Node last2 =null;
-            if(last==null) last2=null;
+            if(last.next==null) last2=null;
             else last2 = last.next;
             last.next =  head.next;
             pre.next= last2;
             head.next=first;
+            map.put(first.id,head);
+            map.put(head.next.id,last);
+            if(last.next.next!=null){
+                map.put(last.next.id,first);
+            }
         }
         cur =head.next;
-        while (head!=null){
+        while (cur!=null){
             System.out.print(cur.id+" ");
-
+            cur =cur.next;
         }
     }
 }
+
