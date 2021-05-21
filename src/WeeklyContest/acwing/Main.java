@@ -10,19 +10,23 @@ import java.util.*;
  */
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        long N=  scanner.nextLong();
-        long k =scanner.nextLong();
-        long pre[]=  new long[(int) (N+1)];
-        long dp []= new long[(int) k];
-        long res =0;
-        for(int i=0;i<N;i++){
-            long num =  scanner.nextLong();
-            pre[i+1]= pre[i]+num;
-            res+=dp[(int) (pre[i+1]%k)];
-            dp[(int) (pre[i+1]%k)]++;
-        }
-        System.out.println(res+dp[0]);
+    }
 
+    public List<String> topKFrequent(String[] words, int k) {
+        HashMap<String ,Integer> map = new HashMap();
+        for(String s:words){
+            map.put(s,map.getOrDefault(s,0)+1);
+        }
+        PriorityQueue<Map.Entry<String,Integer>> que =
+                new PriorityQueue<Map.Entry<String,Integer>>((o1,o2)->o1.getValue()-o2.getValue());
+        for(Map.Entry<String,Integer> entry:map.entrySet()) {
+            que.offer(entry);
+            if(que.size()>k) que.poll();
+        }
+        List<String> res = new ArrayList();
+        while(!que.isEmpty()){
+            res.add(que.poll().getKey());
+        }
+        return res;
     }
 }
