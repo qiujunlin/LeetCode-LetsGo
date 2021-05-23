@@ -16,7 +16,6 @@ public class Trie {
       children = new Trie[26];
       isend =false;
     }
-
     /** Inserts a word into the trie. */
     public void insert(String word) {
         Trie trie = this;
