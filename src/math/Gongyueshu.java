@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Gongyueshu {
     public static void main(String[] args) {
-        Integer a = Integer.valueOf(args[0]);
-
+       // Integer a = Integer.valueOf(args[0]);
+  int a   =  378000;
        prims(a);
 
     }
@@ -93,5 +93,11 @@ public class Gongyueshu {
         }
         System.out.println(list1);
         System.out.println(list2);
+        int sum = 1;
+        for(int c:list2){
+            sum*=(c+1);
+            //sum+=1;
+        }
+        System.out.println(sum);
   }
 }

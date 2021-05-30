@@ -396,3 +396,126 @@ class Solution {
 }
 ```
 
+## 二维矩阵问题
+
+​	
+
+### 304二维区域和检索
+
+这道题是典型的二维数组区域检索和的问题，是后面几道题的基础，
+
+```java
+class NumMatrix {
+
+    int presunm[][];
+    public NumMatrix(int[][] matrix) {
+     int m = matrix.length;
+     int n = matrix[0].length;
+     presunm =  new int[m+1][n+1];
+     for(int i= 0;i<m;i++){
+        for(int j =0;j<n;j++){
+            presunm[i+1][j+1] = presunm[i][j+1]+presunm[i+1][j]-presunm[i][j] + matrix[i][j];
+        }
+     }
+    }
+
+    public int sumRegion(int row1, int col1, int row2, int col2) {
+        return presunm[row2+1][col2+1] - presunm[row1][col2+1] - presunm[row2+1][col1] + presunm[row1][col1];
+    }
+}
+
+/**
+ * Your NumMatrix object will be instantiated and called as such:
+ * NumMatrix obj = new NumMatrix(matrix);
+ * int param_1 = obj.sumRegion(row1,col1,row2,col2);
+ */
+```
+
+### 363 矩形区域不超过k的最大数值和
+
+![](images/363.png)
+
+#### 解法一  直接暴力
+
+```java
+class Solution {
+    public int maxSumSubmatrix(int[][] matrix, int k) {
+        System.out.println(k);
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int dp[][] = new int[m+1][n+1];
+        for(int i=0;i<m;i++){
+           for(int j=0;j<n;j++){
+               dp[i+1][j+1]= dp[i][j+1]+dp[i+1][j]+matrix[i][j]-dp[i][j];
+           }
+        }
+        // for(int i=0;i<=m;i++){
+        //    for(int j=0;j<=n;j++){
+        //        System.out.print(dp[i][j]+" ");
+        //    }
+        //    System.out.println();
+        // }
+       // System.out.println(dp[2][3]-dp[2][2]-dp[])
+        int max = Integer.MIN_VALUE;
+        for(int i=0;i<m;i++){
+            for(int j=i;j<m;j++){
+                for(int q = 0;q<n;q++){
+                    for(int l =q;l<n;l++){
+                       int sum = dp[j+1][l+1]-dp[i][l+1]-dp[j+1][q]+dp[i][q];
+                      // System.out.print(sum + " ");
+                       if(sum<=k) max = Math.max(sum,max);
+                    }
+                }
+            } 
+        }
+        return max;
+
+    }
+}
+```
+
+
+
+###  
+
+#### 解法二   二维前缀和 TreeSet二分查找
+
+这里的 treeset 有点难以理解 。
+
+使用了ceiling 函数，求大于某个数的最小值。
+
+和k最接近的值，
+
+分析：
+
+presum  - k   = n,
+
+```java
+class Solution {
+    public int maxSumSubmatrix(int[][] matrix, int k) {
+     int res =Integer.MIN_VALUE;
+         for(int i=0;i<matrix.length;i++){
+             int presum[] =  new int[matrix[0].length];
+             for(int j =i;j<matrix.length;j++){
+                 for(int l = 0;l<matrix[0].length;l++){
+                        presum[l]+=matrix[j][l];
+                 }
+                 TreeSet<Integer> set =  new TreeSet();
+                 set.add(0);
+                 int sum =0;
+                 for(int m=0;m<presum.length;m++){
+                     sum+=presum[m];
+                     Integer a =  set.ceiling(sum-k);
+                     set.add(sum);
+                     if(a!=null) {
+                        res = Math.max(res,sum-a);
+                     }
+                 }
+             }
+         }
+         return res;
+    }
+    
+}
+```
+

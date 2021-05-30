@@ -4,6 +4,24 @@
 
 数学问题：
 
+求约数：
+
+1.求约数个数
+
+对于一个大于1正整数n可以[分解质因数](https://baike.baidu.com/item/分解质因数)：
+
+![img](https://bkimg.cdn.bcebos.com/formula/76357a33aa3a9a2fd99b778bd0dcf151.svg)
+
+则n的[正约数](https://baike.baidu.com/item/正约数/882466)的个数就是
+
+![img](https://bkimg.cdn.bcebos.com/formula/94d751076e8797a3c2a06f01404176ad.svg)
+
+。
+
+其中a1、a2、a3…ak是p1、p2、p3，…pk的指数。
+
+2.求所有的约数
+
 ## 三角形面积求法
 
 已知三个顶点坐标
