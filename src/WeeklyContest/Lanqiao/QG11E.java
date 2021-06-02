@@ -4,7 +4,7 @@ public class QG11E {
     static int count = 0;
     static int direct[][] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
-    public static void main(String[] args) {
+    public static void mai24n(String[] args) {
         boolean vis[][] = new boolean[4][4];
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -15,7 +15,6 @@ public class QG11E {
         }
         System.out.println(count);
     }
-
     private static void dfs(boolean[][] vis, int x, int y, int num) {
         if (num == 16) {
             count++;
