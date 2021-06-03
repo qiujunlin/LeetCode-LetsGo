@@ -1,4 +1,4 @@
-package DynamicPlanning;
+package dp.DynamicPlanning;
 
 import java.util.*;
 

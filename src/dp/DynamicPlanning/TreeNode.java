@@ -1,4 +1,4 @@
-package DynamicPlanning;
+package dp.DynamicPlanning;
 public class TreeNode {
     int val;
     TreeNode left;

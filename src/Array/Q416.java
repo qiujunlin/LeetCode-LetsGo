@@ -11,10 +11,9 @@ public class Q416 {
         Arrays.sort(nums);
         for(int i=0;i<nums.length;i++){
             for(int j=sum/2;j>=nums[i];j--){
-                dp[j] =Math.max(dp[j-nums[i]],dp[j]);
             }
         }
-        return  dp
+        return  true;
 
     }
 }
