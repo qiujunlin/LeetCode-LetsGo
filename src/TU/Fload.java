@@ -1,8 +1,17 @@
 package TU;
 
+import java.util.Random;
+
 public class Fload {
     static int max= 100000;
     public static void main(String[] args) {
+        Random ran = new Random();
+        int dis[][] = new int[10000][10000];
+        for (int i = 0; i < dis.length; i++) {
+            for (int j = 0; j < dis.length; j++) {
+                dis[i][j] = ran.nextInt(10000);
+            }
+        }
         int dist[][] = {
                 { 0, 2, 3, 6, max, max },
                 { 2, 0, max, max,4, 6 },
@@ -10,12 +19,12 @@ public class Fload {
                 { 6, max, 2, 0, 1, 3 },
                 { max, 4, max, 1, 0, max },
                 { max, 6, max, 3, max, 0 } };// 地图
-        fload(dist);
+        fload(dis);
         // 输出
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < dis.length; i++) {
             System.out.print("节点"+(i+1)+" 的最短路径");
-            for (int j = 0; j < 6; j++) {
-                System.out.print(dist[i][j]+" ");
+            for (int j = 0; j < dis.length; j++) {
+                System.out.print(dis[i][j]+" ");
             }
             System.out.println();
         }

@@ -16,6 +16,7 @@ public class Dijiskra {
            int dist[]=  new int[n];
            int pre [] = new int[n];
            boolean  vis [] = new boolean[n];
+           dist[source] =0;
            Arrays.fill(dist,Integer.MAX_VALUE);
            PriorityQueue<int[]> que = new PriorityQueue<>((a,b)->a[1]-b[1]);
            que.offer(new int[]{source,0});
