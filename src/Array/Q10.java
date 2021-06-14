@@ -10,7 +10,7 @@ public class Q10 {
         for(int i=1;i<=len1;i++){
             char c1 =  ch1[i-1];
             for(int j =1;j<=len2;j++){
-               CAHR
+
             }
         }
              return  dp[len1][len2];
