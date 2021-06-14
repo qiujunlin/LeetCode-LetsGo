@@ -1,4 +1,4 @@
-package dp.DynamicPlanning;
+package Array;
 
 import java.util.ArrayList;
 import java.util.List;
