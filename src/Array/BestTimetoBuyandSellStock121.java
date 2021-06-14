@@ -9,6 +9,8 @@ import java.util.*;
  * @Created by qiujunlin
  */
 public class BestTimetoBuyandSellStock121 {
+
+
     public int maxProfit(int[] prices) {
         int minprice=Integer.MAX_VALUE;
         int maxprifit=0;
