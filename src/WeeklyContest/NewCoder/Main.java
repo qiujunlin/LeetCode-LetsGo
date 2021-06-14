@@ -8,18 +8,24 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int num = scanner.nextInt();
-        int t[] = new int[num];
-        int h[] = new int[num];
-        int d[] = new int[num];
+        scanner.nextLine();
+        HashMap<String,HashSet<String>> map = new HashMap<>();
         for(int i=0;i<num;i++){
-            t[i] =scanner.nextInt();
-            h[i] =scanner.nextInt();
-            d[i] =scanner.nextInt();
-        }
-        int res [] = new int[num];
-        LinkedList<Integer> list = new LinkedList<>();
-        for(int i=0;i<num;i++){
-            //while (!list.isEmpty()&&h[i]>h[list.getLast()]&&d[list.getLast()])
+            String a = scanner.nextLine();
+            String s[] = a.split(" ");
+            if(!map.containsKey(s[0])){
+                map.put(s[0],new HashSet<>());
+                map.get(s[0]).add(s[1]);
+                System.out.println("YES");
+            }else{
+                if(map.get(s[0]).contains(s[1])) System.out.println("NO");
+                else {
+                    System.out.println("YES");
+                    map.get(s[0]).add(s[1]);
+                }
+            }
+
+
         }
 
     }
