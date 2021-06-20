@@ -63,33 +63,39 @@ replace() 替换 hashMap 中是指定的 key 对应的 value。
 
 ## TreeMap
 
-查找元素
+**增添元素**
 
-增添元素
+- V put(K key, V value)：将指定映射放入该TreeMap中
+- V putAll(Map map)：将指定map放入该TreeMap中
 
-- `V put(K key, V value)`：将指定映射放入该TreeMap中
-- `V putAll(Map map)`：将指定map放入该TreeMap中
+**删除元素**
 
-删除元素
+- void clear()：清空TreeMap中的所有元素
+- V remove(Object key)：从TreeMap中移除指定key对应的映射
 
-- `void clear()`：清空TreeMap中的所有元素
-- `V remove(Object key)`：从TreeMap中移除指定key对应的映射
+**修改元素**
 
-修改元素
+- V replace(K key, V value)：替换指定key对应的value值
 
-- `V replace(K key, V value)`：替换指定key对应的value值
+**查找元素**
 
-查找元素
+* floorKey返回小于等于给定键的最大键；如果不存在这样的键，则返回null。
 
-- `boolean containsKey(Object key)`：判断该TreeMap中是否包含指定key的映射
-- `boolean containsValue(Object value)`：判断该TreeMap中是否包含有关指定value的映射
-- `Map.Entry<K, V> firstEntry()`：返回该TreeMap的第一个（最小的）映射
-- `K firstKey()`：返回该TreeMap的第一个（最小的）映射的key
-- `Map.Entry<K, V> lastEntry()`：返回该TreeMap的最后一个（最大的）映射
-- `K lastKey()`：返回该TreeMap的最后一个（最大的）映射的key
-- `v get(K key)`：返回指定key对应的value
-- `SortedMap<K, V> headMap(K toKey)`：返回该TreeMap中严格小于指定key的映射集合
-- `SortedMap<K, V> subMap(K fromKey, K toKey)`：返回该TreeMap中指定范围的映射集合（大于等于fromKey，小于toKey）
+* ceilingKey（找到大于等于该key的最小值）：
+
+* HigherKey()方法用于返回比给定键元素(key_ele)高的最低键值元素。
+
+* （lowerKey()方法用于检索低于给定键元素的最大键元素值
+
+- boolean containsKey(Object key)：判断该TreeMap中是否包含指定key的映射
+- boolean containsValue(Object value)：判断该TreeMap中是否包含有关指定value的映射
+- Map.Entry<K, V> firstEntry()：返回该TreeMap的第一个（最小的）映射
+- K firstKey()：返回该TreeMap的第一个（最小的）映射的key
+- Map.Entry<K, V> lastEntry()：返回该TreeMap的最后一个（最大的）映射
+- K lastKey()：返回该TreeMap的最后一个（最大的）映射的key
+- v get(K key)：返回指定key对应的value
+- SortedMap<K, V> headMap(K toKey)：返回该TreeMap中严格小于指定key的映射集合
+- SortedMap<K, V> subMap(K fromKey, K toKey)：返回该TreeMap中指定范围的映射集合（大于等于fromKey，小于toKey）
 
 
 
