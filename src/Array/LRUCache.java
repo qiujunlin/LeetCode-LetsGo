@@ -6,7 +6,7 @@ class  Node{
     Node right=null;
     int val;
     int key;
-    public  Node(int val,int key){
+    public  Node(int key,int val){
         this.val  = val;
         this.key = key;
     }
@@ -15,102 +15,58 @@ public class LRUCache {
 
     int capacity;
     HashMap<Integer,Node> map ;
-    Node last;
     Node head;
+    Node last;
     public  LRUCache(int capacity) {
         this.capacity = capacity;
         map = new HashMap<>();
-        //  head = new Node(-1,0);
+        head =  new Node(0,0);
+        last =  new Node(0,0);
+        head.right = last;
+        last.left=head;
     }
     public int get(int key) {
-        if(map.containsKey(key)) {
-            int  res =map.get(key).val;
-            Node node = map.get(key);
-            if(map.size()==1) return  res;
-            //是头结点
-            if(head==node) {
-                head=node.right;
-                node.right=null;
-                head.left=null;
-                last.right=node;
-                node.left=last;
-                last =node;
-            }else if(node.left!=null){
-                node.left.right=node.right;
-                node.right.left =node.left;
-                node.left=last;
-                last.right=node;
-                node.right =null;
-                last = node;
-            }
-            return  res;
+        if(map.containsKey(key)){
+            resort(key);
+            return  map.get(key).val;
+        }else{
+            return  -1;
         }
-        else return  -1;
+    }
+
+    private void resort(int key) {
+        Node  node =map.get(key);
+        node.left.right = node.right;
+        node.right.left=node.left;
+        addlast(node);
     }
 
     public void put(int key, int value) {
         if(map.containsKey(key)){
-            Node node = map.get(key);
-            node.val=value;
-            //cap =1
-            if(capacity==1){
-                map.clear();
-                map.put(key,node);
-                return;
-            }
-            if(map.size()==1){
-                node.val=value;
-                return;
-            }
-            if(node==last) return;
-            //是头结点
-            if(head==node) {
-                head=node.right;
-                node.right=null;
-                head.left=null;
-                last.right=node;
-                node.left=last;
-                last =node;
-            }else if(node.left!=null){
-                node.left.right=node.right;
-                node.right.left =node.left;
-                node.left=last;
-                last.right=node;
-                node.right =null;
-                last = node;
-            }
+             map.get(key).val  =value;
+             resort(key);
         }else{
-           // System.out.println(map);
-
-            Node node = new Node(value,key);
-            if(capacity==1||map.size()==0){
-                map.clear();
-                map.put(key,node);
-                head=node;
-                last =node;
-                return;
+            Node newnpode =  new Node(key,value);
+            if(map.size()==capacity){
+                deletefirst();
+                map.remove(key);
             }
-            if(map.size()==1){
-                map.put(key,node);
-                head.right =node;
-                node.left =head;
-                last=node;
-                return;
-            }
-            if(map.size()==capacity) {
-                // System.out.println(head.val);
-                map.remove(head.key );
-                head=head.right;
-                head.left=null;
-
-            }
-            last.right = node;
-            node.left=last;
-            last = node;
-            // System.out.println(last.val);
-            map.put(key,node);
+            addlast(newnpode);
+            map.put(key,newnpode);
         }
+    }
 
+    private void addlast(Node newnpode) {
+        last.left.right =  newnpode;
+        newnpode.left=last.left;
+        newnpode.right=last;
+        last.left=newnpode;
+    }
+
+    private void deletefirst() {
+
+        head.right=head.right.right;
+        head.right.left=head;
     }
 
     public static void main(String[] args) {

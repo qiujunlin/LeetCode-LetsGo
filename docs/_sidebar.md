@@ -28,6 +28,7 @@
   * [👉贪心](algorithm/贪心/贪心.md)
   * [👉滑动窗口](algorithm/滑动/滑动.md)
   * [👉Hashet](algorithm/set/hashset.md)
+  * [前缀和](algorithm/前缀和/前缀.md)
   * [👉位运算](algorithm/位运算/位运算.md)
   * [👉回文](algorithm/回文/回文.md)
   * [👉单调栈](algorithm/单调栈/单调栈.md)
