@@ -11,17 +11,20 @@ import java.util.*;
  */
 public class Sort {
     public static void main(String[] args) {
-        Integer a[]=  new Integer[1000+1];
-        for(int i=1000;i>=0;i--)
-        a[i] = i;
-        Comparable temp [] =a;
-       long s= System.currentTimeMillis();
+        int a[]= {2,453,32,6,87,23,9,32,1};
+        int b[]=  new int[10000];
+        for (int i = 10000-1; i >0; i--) {
+            b[i] = i;
+        }
+        long s= System.currentTimeMillis();
         //shell(temp);
-       kuaishu(temp);
+        quicksort(a,0,a.length-1);
         //Arrays.sort(a);
         long end =System.currentTimeMillis();
         System.out.println("time:"+(end-s));
-        for (Comparable c: temp) System.out.print(c+" ");
+        for (int i = 0; i <a.length ; i++) {
+            System.out.print(a[i]+" ");
+        }
         //  System.out.println(a);
     }
     //希尔排序
@@ -95,5 +98,30 @@ public class Sort {
         a[l] =a[right];
         a[right] =temp;
         return      right;
+    }
+    private  static  int partition(int a[],int l ,int r){
+        int left = l;
+        int right = r;
+        while (left<right){
+            while (right>left&&a[right]>a[l]) right--;
+            while (left<right&&a[left]<=a[l]) left++;
+            if(left<right) {
+                int temp = a[right];
+                a[right] = a[left];
+                a[left] = temp;
+            }
+        }
+
+        int temp = a[left];
+        a[left] = a[l];
+        a[l] =temp;
+        return  left;
+    }
+    private  static  void quicksort(int a[],int l ,int r){
+         if(l>=r) return;
+         int i =  partition(a,l,r);
+         quicksort(a,l,i-1);
+         quicksort(a,i+1,r);
+
     }
 }
