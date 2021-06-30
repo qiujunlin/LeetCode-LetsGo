@@ -103,7 +103,7 @@ public class Sort {
         int left = l;
         int right = r;
         while (left<right){
-            while (right>left&&a[right]>a[l]) right--;
+            while (right>left&&a[right]>=a[l]) right--;
             while (left<right&&a[left]<=a[l]) left++;
             if(left<right) {
                 int temp = a[right];
@@ -111,7 +111,6 @@ public class Sort {
                 a[left] = temp;
             }
         }
-
         int temp = a[left];
         a[left] = a[l];
         a[l] =temp;
