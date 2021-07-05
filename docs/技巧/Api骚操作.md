@@ -60,6 +60,7 @@ replace() 替换 hashMap 中是指定的 key 对应的 value。
 ## String
 
 1. trim() 去除两边空格
+2. string.Join()方法
 
 ## TreeMap
 
