@@ -16,6 +16,43 @@ public int[] twoSum(int[] nums, int target) {
     }
 ```
 
+## 41 缺失的第一个正数
+
+![](image/41.png)
+
+原地hash算法
+
+```java
+class Solution {
+    public int firstMissingPositive(int[] nums) {
+        for(int i=0;i<nums.length;i++){
+            while(nums[i]!=i+1&&nums[i]<nums.length&&nums[i]>0&&nums[i]!=nums[nums[i]-1]){
+                int temp = nums[i];
+                nums[i] = nums[temp-1];
+                
+                nums[temp-1] = temp;
+            }
+        }
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]!=i+1) return i+1;
+        }
+        return nums.length+1;
+    }
+}
+```
+
+### 448 原地hash 找到所有数组中消失的数字
+
+![](image/448.png)
+
+
+
+## 442 数组中的重复
+
+## 数据  
+
+![](image/448.png)
+
 
 
 ## 217. 存在重复元素

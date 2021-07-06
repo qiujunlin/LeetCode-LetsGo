@@ -54,9 +54,23 @@ public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
 
 ## 96不同的二叉搜索树
 
+![](image/96.png)
+
+使用动态规划
+
+
+
 ## 98  验证二叉搜索树
 
-## 99  恢复二叉搜索树100  相同的树
+## 99  恢复二叉搜索树
+
+![](image/99.png)
+
+
+
+
+
+## 100  相同的树
 
 ## 101  对称二叉树
 
