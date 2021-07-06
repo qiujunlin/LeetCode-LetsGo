@@ -2,24 +2,45 @@ package Array;
 
 public class Q43 {
     public String multiply(String num1, String num2) {
-        int a[]=  new int[num1.length()];
-        int b[] = new int[num2.length()];
-       // num1 = new StringBuilder(num1).reverse().toString();
-        num2 = new StringBuilder(num2).reverse().toString();
-        for(int i=0;i<num1.length();i++){
-            a[i] =num1.charAt(i)-'0';
+         int len1 = num1.length();
+         int len2 = num2.length();
+         int mut[][] = new int[len1][250];
+         int a[] =  new int[len1];
+        for (int i = 0; i < len1; i++) {
+            a[i] = num1.charAt(i)-'0';
         }
-        for(int i=0;i<num2.length();i++){
-            b[i] =num2.charAt(i)-'0';
+         int b[] =  new int[len2];
+        for (int i = 0; i < len2; i++) {
+            b[i] = num2.charAt(i)-'0';
         }
+        int row  =0;
+        for (int i = len1-1; i >=0; i--) {// len2 * len1
+            int  n =  a[i];
+            int pre  =0;
+            int  col  =0;
+            for (int j = len2-1; j >= 0; j--) {
+                 int res = pre+n*b[j];
+                 mut[row][row+col] = res%10;
+                 pre = res/10;
+                 col++;
+            }
+            if(pre!=0) mut[row+1][col+row]=pre;
+            row++;
+        }
+       StringBuilder re = new StringBuilder();
+        int pre =0;
+        for (int i = 0; i < 250; i++) {
+            int sum =pre;
+            for (int j = 0; j < len1; j++) {
+                  sum+=mut[j][i];
+            }
+            if(sum==0) break;
+            re.append(sum%10);
+            pre = sum/10;
+        }
+        return re.reverse().toString();
 
-        //  List<String> list =new ArrayList();
-        StringBuilder pre = new StringBuilder();
-        for(int  i=0;i<num2.length();i++){
-            pre = get(a,i, b[i],pre);
-        }
 
-        return new StringBuilder(pre.substring(0,pre.length())).reverse().toString();
     }
 
     StringBuilder get(int nums[],int n,int num,StringBuilder prestring){
