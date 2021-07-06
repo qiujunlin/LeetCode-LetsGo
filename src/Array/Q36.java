@@ -9,34 +9,28 @@ import java.util.*;
  * @Created by qiujunlin
  */
 public class Q36 {
-    public boolean isValidSudoku(char[][] board) {
-       HashMap<Integer,HashSet<Integer>> row = new HashMap<>();
-       HashMap<Integer,HashSet<Integer>> col = new HashMap<>();
-       HashMap<Integer,HashSet<Integer>> sca = new HashMap<>();
-       for(int i = 0;i<9;i++){
-           row.put(i,new HashSet<>());
-           col.put(i,new HashSet<>());
-           sca.put(i,new HashSet<>());
-       }
+    public static void main(String[] args) {
+        TreeSet<Integer> set = new TreeSet<>();
+        set.add(1);set.add(2);set.add(3);
+        while (!set.isEmpty()) System.out.println(set.pollFirst());
 
-       for(int i=0;i<9;i++){
-           for(int j =0;j<9;j++){
-               if(board[i][j]=='.') continue;
-               if(row.get(i).contains(board[i][j]-'0')){
-                   return  false;
-               }
-               if(col.get(i).contains(board[i][j]-'0')){
-                   return  false;
-               }
-               int t = i/3*3+j/3;
-               if(sca.get(t).contains(board[i][j]-'0')){
-                   return  false;
-               }
-               row.get(i).add(board[i][j]-'0');
-               col.get(i).add(board[i][j]-'0');
-               sca.get(t).add(board[i][j]-'0');
-           }
-       }
-       return  true;
+    }
+    public boolean isValidSudoku(char[][] board) {
+       int grid[][] = new int[9][9];
+       int col[][] = new int[9][9];
+       int row[][] = new int[9][9];
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if(board[i][j]=='.') continue;
+                int a  = board[i][j]-'0';
+                if(grid[i/3*3+j/3][a]==1) return  false;
+                else grid[i/3*3+j/3][a] =1;
+                if(col[j][a]==1) return  false;
+                else col[j][a]=1;
+                if(row[i][a]==1) return  false;
+                else  row[i][a] =1;
+            }
+        }
+        return  true;
     }
 }
