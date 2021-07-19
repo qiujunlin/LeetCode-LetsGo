@@ -29,6 +29,11 @@ List<String> colors = Stream.of("blue", "red", "yellow").collect(toList());
 
 集合的拷贝方式
 
+**list转数组**	list.toArray(T[]  a); 将list转化为你所需要类型的数组
+
+**数组转list**  Arrays.asList(str)		
+
+因为asList()返回的列表的大小是固定的。事实上，返回的列表不是java.util.ArrayList类，而是定义在java.util.Arrays中一个私有静态类java.util.Arrays.ArrayList我们知道ArrayList的实现本质上是一个数组，而asList()返回的列表是由原始数组支持的固定大小的列表。这种情况下，如果添加或删除列表中的元素，程序会抛出异常UnsupportedOperationException。
 
 
 ## 数组比较
@@ -60,14 +65,31 @@ replace() 替换 hashMap 中是指定的 key 对应的 value。
 ## String
 
 1. trim() 去除两边空格
+
 2. string.Join()方法
+
+   连接指定数组的元素或集合的成员，在每个元素或成员之间使用指定的分隔符。重载此成员。
+      Join(String, IEnumerable<String>)         串联类型为 String 的 IEnumerable<T> 构造集合的成员，其中在每个成员之间使用指定的分隔符。
+
+   Join<T>(String, IEnumerable<T>)          串联集合的成员，其中在每个成员之间使用指定的分隔符。   Join(String, Object[])          串联对象数组的各个元素，其中在每个元素之间使用指定的分隔符。   Join(String, String[])          串联字符串数组的所有元素，其中在每个元素之间使用指定的分隔符。   
 
 ## TreeMap
 
 **增添元素**
 
 - V put(K key, V value)：将指定映射放入该TreeMap中
+
 - V putAll(Map map)：将指定map放入该TreeMap中
+
+- 批量增加 
+
+  ```
+  HashMap<Integer,Integer> map = new HashMap(){{
+      put(1,2);
+      put(2,2);
+     put(3,2);
+  }};
+  ```
 
 **删除元素**
 
@@ -98,5 +120,9 @@ replace() 替换 hashMap 中是指定的 key 对应的 value。
 - SortedMap<K, V> headMap(K toKey)：返回该TreeMap中严格小于指定key的映射集合
 - SortedMap<K, V> subMap(K fromKey, K toKey)：返回该TreeMap中指定范围的映射集合（大于等于fromKey，小于toKey）
 
+遍历方式 JSK8:
 
+*// JDK8的迭代方式* infoMap.forEach((key, value) -> {    System.out.println(key + "：" + value); });	
+
+在迭代里面进行 return;  相当于 执行下下一次迭代  不是退出迭代
 

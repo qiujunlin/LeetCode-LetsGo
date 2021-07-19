@@ -165,8 +165,8 @@ List<Integer> getPrime(int num){
 ##### n>n 万能方法:
 
 ```
-BigInteger bigint=new BigInteger(hexs, 16);//hexs  :String 类型数据
-int numb=bigint.toString(hexs));
+    BigInteger bigint=new BigInteger(hexs, 16);//hexs  :String 类型数据
+    int numb=bigint.toString(hexs));
 ```
 
 ##### 10->n 万能 
