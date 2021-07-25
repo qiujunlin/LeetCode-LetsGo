@@ -5,10 +5,9 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        PriorityQueue<Integer> queue = new PriorityQueue<>();
-
-        //  TreeMap<Integer,Integer> map
-        System.out.println(1<<2+10);
-        System.out.println(1<<(2+10));
+        a:
+        while (true){
+            System.out.println(11);
+        }
     }
 }

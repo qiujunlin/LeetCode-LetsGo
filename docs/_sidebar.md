@@ -5,13 +5,13 @@
   * [发现新东西](技巧/new.md)
   * [奇奇怪怪的题](技巧/智力题.md)
 * [📜小番茄的模板](/模板/算法模板.md)
+* 📗收集到的面试题
 * 📗数据结构
   * [ 👉🏻 数组](/data-structure/array/array.md  "array")
   * [ 👉🏻 链表](data-structure/linkedlist/linkedlist.md)
   * [ 👉🏻 树](data-structure/tree/tree.md)
   * [ 👉🏻 堆](data-structure/heap/)
   * [👉🏻栈](data-structure/stack/)
-  
 * 📗高级数据结构
   * [👉并查集](algorithm/并查集/bingcha.md)
   * 线段树/树状数组
