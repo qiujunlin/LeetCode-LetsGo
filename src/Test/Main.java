@@ -1,29 +1,38 @@
 package Test;
 
+import sun.reflect.generics.reflectiveObjects.ParameterizedTypeImpl;
+
 import java.io.*;
+import java.lang.reflect.Field;
+import java.lang.reflect.Type;
+import java.lang.reflect.TypeVariable;
 import java.util.*;
 
-public  class Main {
+public class Main {
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
-        BufferedReader in = new BufferedReader(new FileReader("D:\\input.txt"));//要读取的文本文件
-        BufferedWriter br = new BufferedWriter(new FileWriter("D:\\out.txt"));//输出的结果文件
-        String s = "";
-        ArrayList<String> list = new ArrayList<>();
-        while ((s = in.readLine()) != null) {
-            list.add(s);
+        Field[] fields = Student.class.getDeclaredFields();
+        System.out.println(fields[0].getType()); // 输出 class java.lang.Object
+        System.out.println(fields[0].getGenericType()); //输出 T
+        Type genericType = fields[0].getGenericType();
+        ParameterizedTypeImpl parameterTypeImpl = (ParameterizedTypeImpl) genericType;
+        TypeVariable<? extends Class<?>>[] typeVariables = parameterTypeImpl.getRawType().getTypeParameters();
+        Type[] actualTypeArguments = parameterTypeImpl.getActualTypeArguments();
+        for (int i = 0; i < typeVariables.length; i++) {
+            System.out.println(typeVariables[i].getName() + "  "+ actualTypeArguments[i].getTypeName());
         }
-        Collections.sort(list);
-        for (int j = 0; j < list.size(); j++) {
-            br.write(list.get(j));
-            br.write("\n");
-        }
-        //关闭
-        in.close();
-        br.flush();
-        br.close();
+        System.out.println("Dsad");
+
+
+
+
     }
+
+    class Student<T> {
+        HashMap<Integer, T> age;
+    }
+
 }
 
