@@ -1,54 +1,99 @@
 package Test;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
+
 class Solution {
-    StringBuilder res=new StringBuilder();
-    int num ;
-    public String getPermutation(int n, int k) {
-        if(n==1) return  "1";
-        num=k;
-        int jie =  get(n-1);
-        int count =  k/jie;
-        num-=count*jie;
-        StringBuilder s = new StringBuilder();
-        boolean vis[] = new boolean[n];
-        int nums[] = new int[n];
-        s.append(count+1);
-        vis[count] = true;
-        for (int i = 1; i <=n; i++) {
-            nums[i-1] =  i;
-        }
-        dfs(nums,vis,s);
-        return  res.toString();
+    public static void main(String[] args) {
+        new Solution().main();
     }
-    int get(int n){
-        int res =1;
-        while (n!=0){
-            res*=n;
-            n--;
+     class  Tree {
+        int num ;
+        int val;
+        long count = 1;
+        long mul = 0;
+        ArrayList<Tree> nodes = new ArrayList<>();
+
+        public Tree(int val,int num ) {
+            this.val = val;
+            this.num =  num;
         }
-        return  res;
+        public void add(Tree tree) {
+            this.nodes.add(tree);
+        }
+        public  ArrayList<Tree> getNodes() {return nodes;}
     }
-    void dfs(int nums[],boolean vis[],StringBuilder s){
-        if(s.length()==nums.length) {
-            num--;
-            if(num==0) res=new StringBuilder(s);
-            return;
+    int sumtree=0;
+     long maxmul =0;
+     int   n = 0;
+    long sum  =0;
+    public  void main() {
+        Scanner scanner = new Scanner(System.in);
+         n  = scanner.nextInt();
+        HashMap<Integer,ArrayList<Integer>> map = new HashMap<>();
+        int arr[] = new int[n-1];
+
+        for (int i = 0; i < n-1; i++) {
+            arr[i] = scanner.nextInt();
+            map.computeIfAbsent(arr[i],(key)->new ArrayList<>()).add(i+1);
+            map.computeIfAbsent(i+1,(key)->new ArrayList<>()).add(arr[i]);
         }
-        for(int i=0;i<nums.length;i++){
-            if(res.length()!=0) return;
-            if(!vis[i]){
-                vis[i] = true;
-                s.append(nums[i]);
-                dfs(nums,vis,s);
-                s=s.deleteCharAt(s.length()-1);
-                vis[i] = false;
+        HashSet<Integer> set = new HashSet<>();
+        int weight[] = new int[n];
+        for (int i = 0; i <n ; i++) {
+            weight[i] = scanner.nextInt();
+            sum+=weight[i];
+        }
+        Tree root   = new Tree(weight[0],1);
+        set.add(1);
+        Queue<Tree> trees = new LinkedList<>();
+        trees.add(root);
+        while(!trees.isEmpty()){
+            int size  =  trees.size();
+            for (int i = 0; i <size ; i++) {
+                Tree node = trees.poll();
+                int num = node.num;
+                for(int c : map.get(num)){
+                    if(!set.contains(c)){
+                        set.add(c);
+                        Tree tree = new Tree(weight[c-1],c);
+                        node.getNodes().add(tree);
+                        trees.offer(tree);
+                    }
+                }
             }
         }
-    }
+        backdfs(root);
+        backdfs2(root);
+        backdfs3(root,null);
+        System.out.println(sumtree);
+        System.out.println(maxmul);
 
-    public static void main(String[] args) {
-         new Solution().getPermutation(2,1);
+    }
+    private void backdfs3(Tree root, Tree pre) {
+        if(pre!=null) {
+            sumtree += root.count * (n - root.count) ;
+            maxmul = Math.max(root.mul * (sum - root.mul) - root.val * pre.val, maxmul);
+        }
+        for(Tree node:root.getNodes()){
+            backdfs3(node,root);
+        }
+    }
+    private  long backdfs2(Tree root) {
+        if(root==null)  return  0;
+        long mul  =0;
+        for(Tree node:root.getNodes()){
+            mul+=backdfs(node);
+        }
+        root.mul =  mul+root.val;
+        return  root.mul;
+    }
+    private  long backdfs(Tree root) {
+        if(root==null)  return  0;
+        long sum  =0;
+        for(Tree node:root.getNodes()){
+           sum+= backdfs(node);
+        }
+        root.count = sum+root.count;
+        return  root.count;
     }
 }

@@ -9,19 +9,25 @@ import java.util.HashMap;
 public class MethodDemo {
 
     public static void main(String[] args) {
+  processMethod();
+    }
+   static  void processFiled(){
+       Field[] fields = SampleClass.class.getDeclaredFields();
+       for (int i = 0; i < fields.length; i++) {
+           System.out.println(fields[i].getType());
+           System.out.println(fields[i].getGenericType());
+       }
+       Method[]  methods = SampleClass.class.getMethods();
+       methods[0].getParameterTypes();
+
+    }
+    static  void processMethod(){
         Method[] methods = SampleClass.class.getMethods();
-        Type[] parameters = methods[1].getGenericParameterTypes();
-      //  Type[] parameters2 = methods[1].getTypeParameters();
-        Field[] fields = SampleClass.class.getDeclaredFields();
-        System.out.println(fields[1].getType()); // 输出 class java.lang.Object
-        System.out.println(fields[1].getGenericType());
-        Type[] parameters3 = methods[1].getParameterTypes();
-        TypeVariable[] typeVariables = SampleClass.class.getTypeParameters();
-        System.out.println(typeVariables[0]);
-        for (int i = 0; i < parameters.length; i++) {
-            System.out.println(parameters[i]);
-            //System.out.println(parameters2[i]);
-            System.out.println(parameters3[i]);
+        for (int i = 0; i <methods.length ; i++) {
+            Type[]  types =  methods[i].getParameterTypes();
+            Type[]  types1 =  methods[i].getGenericParameterTypes();
+            Type[]  types2 = methods[i].getTypeParameters();
+            System.out.println(1);
         }
     }
 }
