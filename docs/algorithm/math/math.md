@@ -326,3 +326,46 @@ class Solution {
 }
 ```
 
+## 5844 数组元素的最小 非零乘积
+
+
+
+```
+给你一个正整数 p 。你有一个下标从 1 开始的数组 nums ，这个数组包含范围 [1, 2p - 1] 内所有整数的二进制形式（两端都 包含）。你可以进行以下操作 任意 次：
+从 nums 中选择两个元素 x 和 y  。
+选择 x 中的一位与 y 对应位置的位交换。对应位置指的是两个整数 相同位置 的二进制位。
+比方说，如果 x = 1101 且 y = 0011 ，交换右边数起第 2 位后，我们得到 x = 1111 和 y = 0001 。
+请你算出进行以上操作 任意次 以后，nums 能得到的 最小非零 乘积。将乘积对 109 + 7 取余 后返回。
+注意：答案应为取余 之前 的最小值。
+```
+
+
+
+思路： 快速+贪心  这道题很有意思。，
+
+```
+class Solution {
+    int mod = 1000000007;
+    public int minNonZeroProduct(int p) {
+        int a = (1L<<p)-1;
+        int b  =  (1L<<p)-2;
+        long c = (1L<<(p-1))-1;;
+        long d  = quck(b%mod,c);
+      //  System.out.print(a+" "+b+ " "+c+ " "+d+ " ");
+        return  (int)(a%mod*d%mod);
+
+
+    }
+    int  quck(long n ,long x){
+        int  res  =1;
+        while(x>0){
+            if(x%2==1) res=(res*n)%mod;
+            x= x/2;
+            n = (n*n)%mod;
+        }
+        return res;
+
+    }
+}
+```
+
