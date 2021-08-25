@@ -30,6 +30,10 @@ public class Functions {
         RAW_MAP.put("VALUE","");
         RAW_MAP.put("value","");
         RAW_MAP.put("DISTINCT","");
+        RAW_MAP.put("day","");
+        RAW_MAP.put("hour","");
+        RAW_MAP.put("minute","");
+        RAW_MAP.put("month","");
 
 
 

@@ -12,13 +12,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-        String  s =  "-10";
-        Scanner  scanner = new Scanner(System.in);
-
-        while (true){
-            s = scanner.nextLine();
-            System.out.println(StringUtil.isNumer(s));
-        }
+       String s  ="\'d\'";
+        System.out.println(s);
 
 
 

@@ -32,7 +32,7 @@ public class Analize {
         int i = 0;
         while (i < expression.length()) {
             char c = expression.charAt(i);
-            //一段一段解析  是遇见非 ' ' ,几种情况： 1、字段 2. 字符串  3. 是函数  。情况1 ，2 直接截取，情况3 ，判断最外层函数的括号位置，递归的解析括号内部的函数。
+            //一段一段解析  是遇见非 ' ' ,几种情况： 1、字段 2. 字符串  3. 是函数  4. 是 “，”  情况1 ，2 直接截取，情况3 ，判断最外层函数的括号位置，递归的解析括号内部的函数。
             if (c != ' ') {
                 //是冒号
                 if (c == ',') {
@@ -42,10 +42,10 @@ public class Analize {
                     //是字符
                     StringBuilder stringBuilder = new StringBuilder();
                     int j = i;
-                    //是字符串开始
+                    //是字符串开始  寻找最后一个 ' ,两种情况 第一种是 字符串内部有 ',第二种是结尾的
                     if (c == '\'') {
                         j = i + 1;
-                        while (j < len && expression.charAt(j) != '\'') {
+                        while (j < len && (expression.charAt(j) != '\''||(expression.charAt(j)=='\''&&expression.charAt(j-1)=='\\'))) {
                             stringBuilder.append(expression.charAt(j));
                             j++;
                         }
@@ -80,9 +80,8 @@ public class Analize {
                                 //思路2 根据括号寻找
                                 right = getnext(j + 1, expression);
                                 if (right == -1) {
-                                    throw new RuntimeException("函数括号不匹配");
+                                    throw new IllegalArgumentException("函数括号不匹配！请检查函数嵌套是否正确！");
                                 } else {
-
                                     stringBuilder.append("(");
                                     // 递归调用
                                     stringBuilder.append(get(expression.substring(j + 1, right), depth + 1));
@@ -167,7 +166,7 @@ public class Analize {
             } else {
                 int j = i;
                 while (j < len && expression.charAt(j) == ' ') j++;
-                //空格浓缩
+                //空格压缩
                 if (j < len) res.append(' ');
                 i = j;
             }
@@ -177,10 +176,12 @@ public class Analize {
 
     private int getnext(int j, String s) {
         Stack<Integer> stack = new Stack<>();
+        //返回括号“）”下标
         int index = j;
         boolean isString = false;
         while (index < s.length()) {
-            if (s.charAt(index) == '\'') {
+            //排除字字符串中的 括号
+            if ((index==j&&s.charAt(index)=='\'')||(s.charAt(index) == '\''&&index>1&&s.charAt(index-1)!='\\')) {
                 isString = !isString;
             } else if (s.charAt(index) == '(' && !isString) {
                 stack.push(index);
