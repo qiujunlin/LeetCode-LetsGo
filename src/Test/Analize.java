@@ -1,5 +1,7 @@
 package Test;
 
+import Test.FuncionAnalize.Functions;
+import Test.FuncionAnalize.StringUtil;
 import edu.princeton.cs.algs4.Stack;
 
 import java.io.*;
@@ -18,7 +20,6 @@ public class Analize {
                 System.out.println("@column中函数不符合规则，请检查是否正确，减少不必要的空格");
                 e.printStackTrace();
             }
-
         }
         //  System.out.println(new analize().getnext(4,s));
     }
@@ -45,7 +46,7 @@ public class Analize {
                     //是字符串开始  寻找最后一个 ' ,两种情况 第一种是 字符串内部有 ',第二种是结尾的
                     if (c == '\'') {
                         j = i + 1;
-                        while (j < len && (expression.charAt(j) != '\''||(expression.charAt(j)=='\''&&expression.charAt(j-1)=='\\'))) {
+                        while (j < len && (expression.charAt(j) != '\'')) {
                             stringBuilder.append(expression.charAt(j));
                             j++;
                         }
@@ -181,7 +182,7 @@ public class Analize {
         boolean isString = false;
         while (index < s.length()) {
             //排除字字符串中的 括号
-            if ((index==j&&s.charAt(index)=='\'')||(s.charAt(index) == '\''&&index>1&&s.charAt(index-1)!='\\')) {
+            if (s.charAt(index)=='\'') {
                 isString = !isString;
             } else if (s.charAt(index) == '(' && !isString) {
                 stack.push(index);

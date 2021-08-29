@@ -1,4 +1,4 @@
-package Test;
+package Test.FuncionAnalize;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -8,32 +8,68 @@ public class Functions {
     // 允许调用的 SQL 函数：当 substring 为 null 时忽略；当 substring 为 "" 时整个 value 是 raw SQL；其它情况则只是 substring 这段为 raw SQL
     public static final Map<String, String> SQL_FUNCTION_MAP;
 
-    private static final Pattern PATTERN_RANGE;
-    private static final Pattern PATTERN_FUNCTION;
-    public static String PREFFIX_DISTINCT = "DISTINCT ";
+
+     static final Pattern PATTERN_RANGE;
+     static final Pattern PATTERN_STRING;
+     static final Pattern PATTERN_FUNCTION;
+     static String PREFFIX_DISTINCT = "DISTINCT ";
     public static final Map<String, String> RAW_MAP;
     static {
+        PATTERN_STRING  = Pattern.compile("^[,#;\"`]+$");
         PATTERN_RANGE = Pattern.compile("^[0-9%,!=\\<\\>/\\.\\+\\-\\*\\^]+$"); // ^[a-zA-Z0-9_*%!=<>(),"]+$ 导致 exists(select*from(Comment)) 通过！
-        PATTERN_FUNCTION = Pattern.compile("^[A-Za-z0-9%,:_@&~!=\\<\\>\\|\\[\\]\\{\\} /\\.\\+\\-\\*\\^\\?\\$]+$"); //TODO 改成更好的正则，校验前面为单词，中间为操作符，后面为值
-
+        PATTERN_FUNCTION = Pattern.compile("^[A-Za-z0-9%,:_@&~!=\\<\\>\\|\\[\\]\\{\\} /\\.\\+\\-\\*\\^\\?\\s\\(\\)\\$]+$"); //TODO 改成更好的正则，校验前面为单词，中间为操作符，后面为值
         RAW_MAP = new LinkedHashMap<>();  // 保证顺序，避免配置冲突等意外情况
 
-        RAW_MAP.put("datetime","");
-        RAW_MAP.put("DATETIME","");
+
+       // 必要关键字
         RAW_MAP.put("AS","");
-        RAW_MAP.put("as","");
-        RAW_MAP.put("date","");
-        RAW_MAP.put("DATE","");
-        RAW_MAP.put("OVER","");
-        RAW_MAP.put("over","");
-        RAW_MAP.put("INTERVAL","");
         RAW_MAP.put("VALUE","");
-        RAW_MAP.put("value","");
         RAW_MAP.put("DISTINCT","");
-        RAW_MAP.put("day","");
-        RAW_MAP.put("hour","");
-        RAW_MAP.put("minute","");
-        RAW_MAP.put("month","");
+        RAW_MAP.put("DateTime","");
+        RAW_MAP.put("DISTINCT","");
+        RAW_MAP.put("DISTINCT","");
+        RAW_MAP.put("DISTINCT","");
+        RAW_MAP.put("DISTINCT","");
+        //时间
+        RAW_MAP.put("DATE","");
+        RAW_MAP.put("now()","");
+        RAW_MAP.put("DATETIME","");
+        RAW_MAP.put("SECOND","");
+        RAW_MAP.put("MINUTE","");
+        RAW_MAP.put("HOUR","");
+        RAW_MAP.put("DAY","");
+        RAW_MAP.put("WEEK","");
+        RAW_MAP.put("MONTH","");
+        RAW_MAP.put("QUARTER","");
+        RAW_MAP.put("YEAR","");
+
+        RAW_MAP.put("json","");
+        RAW_MAP.put("unit","");
+        //数据类型 BINARY，CHAR，，DATETIME，TIME，DECIMAL，SIGNED，UNSIGNED
+        RAW_MAP.put("BINARY","");
+        RAW_MAP.put("SIGNED","");
+        RAW_MAP.put("DECIMAL","");
+        RAW_MAP.put("BINARY","");
+        RAW_MAP.put("UNSIGNED","");
+
+        RAW_MAP.put("CHAR","");
+        RAW_MAP.put("TIME","");
+
+        //
+
+        //窗口函数关键字
+        RAW_MAP.put("OVER","");
+        RAW_MAP.put("INTERVAL","");
+        RAW_MAP.put("ORDER","");
+        RAW_MAP.put("BY","");
+        RAW_MAP.put("PARTITION",""); //往前
+        RAW_MAP.put("DESC","");
+        RAW_MAP.put("FOLLOWING","");//往后
+        RAW_MAP.put("DESC","");
+        RAW_MAP.put("DESC","");
+
+
+
 
 
 
@@ -41,6 +77,18 @@ public class Functions {
         //test
         SQL_FUNCTION_MAP.put("fun", "");
 
+        //窗口函数
+        SQL_FUNCTION_MAP.put("rank", "");//得到数据项在分组中的排名，排名相等的时候会留下空位
+        SQL_FUNCTION_MAP.put("dense_rank", ""); //得到数据项在分组中的排名，排名相等的时候不会留下空位
+        SQL_FUNCTION_MAP.put("row_number", "");//按照分组中的顺序生成序列，不存在重复的序列
+        SQL_FUNCTION_MAP.put("ntile", "");//用于将分组数据按照顺序切分成N片，返回当前切片值，不支持ROWS_BETWEE
+        SQL_FUNCTION_MAP.put("first_value", "");//取分组排序后，截止到当前行，分组内第一个值
+        SQL_FUNCTION_MAP.put("last_value", "");//取分组排序后，截止到当前行，分组内的最后一个值
+        SQL_FUNCTION_MAP.put("lag", "");//统计窗口内往上第n行值。第一个参数为列名，第二个参数为往上第n行（可选，默认为1），第三个参数为默认值（当往上第n行为NULL时候，取默认值，如不指定，则为NULL）
+        SQL_FUNCTION_MAP.put("lead", "");//统计窗口内往下第n行值。第一个参数为列名，第二个参数为往下第n行（可选，默认为1），第三个参数为默认值（当往下第n行为NULL时候，取默认值，如不指定，则为NULL）
+        SQL_FUNCTION_MAP.put("cume_dist", "");//)返回（小于等于当前行值的行数）/（当前分组内的总行数）
+        SQL_FUNCTION_MAP.put("percent_rank", "");//返回（组内当前行的rank值-1）/（分组内做总行数-1）
+       // SQL_FUNCTION_MAP.put("rank", "");//
 
         // MySQL 字符串函数
         SQL_FUNCTION_MAP.put("ascii", "");  // ASCII(s)	返回字符串 s 的第一个字符的 ASCII 码。
@@ -216,8 +264,7 @@ public class Functions {
         SQL_FUNCTION_MAP.put("nullif", "");  // NULLIF(expr1, expr2)	比较两个字符串，如果字符串 expr1 与 expr2 相等 返回 NULL，否则返回 expr1
         SQL_FUNCTION_MAP.put("group_concat", "");  // GROUP_CONCAT([DISTINCT], s1, s2...)
 
-
-        //clickhouse
+        //clickhouse 字符串函数  注释的函数表示返回的格式暂时不支持，如：返回数组 ，同时包含因版本不同 clickhosue不支持的函数，版本
         SQL_FUNCTION_MAP.put("empty", "");  // empty(s) 对于空字符串s返回1，对于非空字符串返回0
         SQL_FUNCTION_MAP.put("notEmpty", "");  //notEmpty(s) 对于空字符串返回0，对于非空字符串返回1。
         SQL_FUNCTION_MAP.put("lengthUTF8", "");  //假定字符串以UTF-8编码组成的文本，返回此字符串的Unicode字符长度。如果传入的字符串不是UTF-8编码，则函数可能返回一个预期外的值
@@ -240,18 +287,18 @@ public class Functions {
         SQL_FUNCTION_MAP.put("trimLeft", ""); //trimLeft(s)返回一个字符串，用于删除左侧的空白字符。
         SQL_FUNCTION_MAP.put("trimRight", ""); //trimRight(s) 返回一个字符串，用于删除右侧的空白字符。
         SQL_FUNCTION_MAP.put("trimBoth", ""); //trimBoth(s)，用于删除任一侧的空白字符
-        SQL_FUNCTION_MAP.put("splitByChar", ""); //splitByChar（分隔符，s)  将字符串以’separator’拆分成多个子串。’separator’必须为仅包含一个字符的字符串常量。
-        SQL_FUNCTION_MAP.put("splitByString", "");  //  splitByString(分隔符，s) 与上面相同，但它使用多个字符的字符串作为分隔符。 该字符串必须为非空。
+        //SQL_FUNCTION_MAP.put("splitByChar", ""); //splitByChar（分隔符，s)  将字符串以’separator’拆分成多个子串。’separator’必须为仅包含一个字符的字符串常量。
+       // SQL_FUNCTION_MAP.put("splitByString", "");  //  splitByString(分隔符，s) 与上面相同，但它使用多个字符的字符串作为分隔符。 该字符串必须为非空。
         SQL_FUNCTION_MAP.put("arrayStringConcat", ""); //arrayStringConcat(arr[,分隔符])使用separator将数组中列出的字符串拼接起来。’separator’是一个可选参数：一个常量字符串，默认情况下设置为空字符串。
         SQL_FUNCTION_MAP.put("alphaTokens", "");  //alphaTokens(s) 从范围a-z和A-Z中选择连续字节的子字符串。返回子字符串数组。
-        SQL_FUNCTION_MAP.put("splitByRegexp", ""); //splitByRegexp(regexp, s)  将字符串分割为由正则表达式分隔的子字符串。它使用正则表达式字符串regexp作为分隔符。
-        SQL_FUNCTION_MAP.put("splitByWhitespace", ""); //splitByWhitespace(s) 将字符串分割为由空格字符分隔的子字符串。返回选定子字符串的数组
-        SQL_FUNCTION_MAP.put("splitByNonAlpha", ""); //splitByNonAlpha(s) 将字符串分割为由空格和标点字符分隔的子字符串
+       //SQL_FUNCTION_MAP.put("splitByRegexp", ""); //splitByRegexp(regexp, s)  将字符串分割为由正则表达式分隔的子字符串。它使用正则表达式字符串regexp作为分隔符。
+       //SQL_FUNCTION_MAP.put("splitByWhitespace", ""); //splitByWhitespace(s) 将字符串分割为由空格字符分隔的子字符串。返回选定子字符串的数组
+        //SQL_FUNCTION_MAP.put("splitByNonAlpha", ""); //splitByNonAlpha(s) 将字符串分割为由空格和标点字符分隔的子字符串
         SQL_FUNCTION_MAP.put("extractAllGroups", ""); //extractAllGroups(text, regexp) 从正则表达式匹配的非重叠子字符串中提取所有组
-        SQL_FUNCTION_MAP.put("leftPad", "");  //leftPad('string', 'length'[, 'pad_string']) 用空格或指定的字符串从左边填充当前字符串(如果需要，可以多次)，直到得到的字符串达到给定的长度
-        SQL_FUNCTION_MAP.put("leftPadUTF8", ""); //leftPadUTF8('string','length'[, 'pad_string']) 用空格或指定的字符串从左边填充当前字符串(如果需要，可以多次)，直到得到的字符串达到给定的长度
-        SQL_FUNCTION_MAP.put("rightPad", ""); // rightPad('string', 'length'[, 'pad_string']) 用空格或指定的字符串(如果需要，可以多次)从右边填充当前字符串，直到得到的字符串达到给定的长度
-        SQL_FUNCTION_MAP.put("rightPadUTF8", "");// rightPadUTF8('string','length'[, 'pad_string'])  用空格或指定的字符串(如果需要，可以多次)从右边填充当前字符串，直到得到的字符串达到给定的长度。
+       // SQL_FUNCTION_MAP.put("leftPad", "");  //leftPad('string', 'length'[, 'pad_string']) 用空格或指定的字符串从左边填充当前字符串(如果需要，可以多次)，直到得到的字符串达到给定的长度
+       // SQL_FUNCTION_MAP.put("leftPadUTF8", ""); //leftPadUTF8('string','length'[, 'pad_string']) 用空格或指定的字符串从左边填充当前字符串(如果需要，可以多次)，直到得到的字符串达到给定的长度
+       // SQL_FUNCTION_MAP.put("rightPad", ""); // rightPad('string', 'length'[, 'pad_string']) 用空格或指定的字符串(如果需要，可以多次)从右边填充当前字符串，直到得到的字符串达到给定的长度
+       // SQL_FUNCTION_MAP.put("rightPadUTF8", "");// rightPadUTF8('string','length'[, 'pad_string'])  用空格或指定的字符串(如果需要，可以多次)从右边填充当前字符串，直到得到的字符串达到给定的长度。
         SQL_FUNCTION_MAP.put("CRC32", ""); // 使用CRC-32-IEEE 802.3多项式和初始值0xffffffff (zlib实现)返回字符串的CRC32校验和
         SQL_FUNCTION_MAP.put("CRC32IEEE", ""); // 使用CRC-32-IEEE 802.3多项式返回字符串的CRC32校验和
         SQL_FUNCTION_MAP.put("CRC64", ""); // 使用CRC-64-ECMA多项式返回字符串的CRC64校验和
@@ -291,7 +338,7 @@ public class Functions {
         SQL_FUNCTION_MAP.put("replaceRegexpAll", ""); //replaceRegexpAll(s, pattern, replacement)
         SQL_FUNCTION_MAP.put("regexpQuoteMeta", ""); //regexpQuoteMeta(s)该函数在字符串中某些预定义字符之前添加一个反斜杠
 
-
+        //clickhouse日期函数
         SQL_FUNCTION_MAP.put("toYear", "");  //将Date或DateTime转换为包含年份编号（AD）的UInt16类型的数字。
         SQL_FUNCTION_MAP.put("toQuarter", ""); //将Date或DateTime转换为包含季度编号的UInt8类型的数字。
         SQL_FUNCTION_MAP.put("toMonth", ""); //Date或DateTime转换为包含月份编号（1-12）的UInt8类型的数字。
@@ -318,43 +365,47 @@ public class Functions {
         SQL_FUNCTION_MAP.put("toStartOfInterval", ""); //
         SQL_FUNCTION_MAP.put("toTime", ""); //将DateTime中的日期转换为一个固定的日期，同时保留时间部分。
         SQL_FUNCTION_MAP.put("toRelativeYearNum", ""); //将Date或DateTime转换为年份的编号，从过去的某个固定时间点开始。
-        SQL_FUNCTION_MAP.put("toRelativeQuarterNum", ""); //
-        SQL_FUNCTION_MAP.put("toRelativeMonthNum", ""); //
-        SQL_FUNCTION_MAP.put("toRelativeWeekNum", "");//
-        SQL_FUNCTION_MAP.put("toRelativeDayNum", ""); //
-        SQL_FUNCTION_MAP.put("toRelativeHourNum", ""); //
-        SQL_FUNCTION_MAP.put("toRelativeMinuteNum", ""); //
-        SQL_FUNCTION_MAP.put("toRelativeSecondNum", ""); //
+        SQL_FUNCTION_MAP.put("toRelativeQuarterNum", ""); //同上
+        SQL_FUNCTION_MAP.put("toRelativeMonthNum", ""); //同上
+        SQL_FUNCTION_MAP.put("toRelativeWeekNum", "");//同上
+        SQL_FUNCTION_MAP.put("toRelativeDayNum", ""); //同上
+        SQL_FUNCTION_MAP.put("toRelativeHourNum", ""); //同上
+        SQL_FUNCTION_MAP.put("toRelativeMinuteNum", ""); //同上
+        SQL_FUNCTION_MAP.put("toRelativeSecondNum", ""); //同上
         SQL_FUNCTION_MAP.put("toISOYear", ""); //将Date或DateTime转换为包含ISO年份的UInt16类型的编号。
         SQL_FUNCTION_MAP.put("toISOWeek", ""); //
         SQL_FUNCTION_MAP.put("toWeek", "");// 返回Date或DateTime的周数。
-        SQL_FUNCTION_MAP.put("toYearWeek", ""); //
-        SQL_FUNCTION_MAP.put("date_trunc", ""); //
+        SQL_FUNCTION_MAP.put("toYearWeek", ""); //返回年和周的日期
+        SQL_FUNCTION_MAP.put("date_trunc", ""); //截断日期和时间数据到日期的指定部分
+        SQL_FUNCTION_MAP.put("date_diff", ""); //回两个日期或带有时间值的日期之间的差值。
+
         SQL_FUNCTION_MAP.put("yesterday", ""); //不接受任何参数并在请求执行时的某一刻返回昨天的日期(Date)。
         SQL_FUNCTION_MAP.put("today", ""); //不接受任何参数并在请求执行时的某一刻返回当前日期(Date)。
         SQL_FUNCTION_MAP.put("timeSlot", ""); //将时间向前取整半小时。
         SQL_FUNCTION_MAP.put("toYYYYMM", ""); //
         SQL_FUNCTION_MAP.put("toYYYYMMDD", "");//
         SQL_FUNCTION_MAP.put("toYYYYMMDDhhmmss", ""); //
-        SQL_FUNCTION_MAP.put("addYears", ""); //
-        SQL_FUNCTION_MAP.put("addMonths", ""); //
-        SQL_FUNCTION_MAP.put("addWeeks", ""); //
-        SQL_FUNCTION_MAP.put("addDays", ""); //
-        SQL_FUNCTION_MAP.put("addHours", ""); //
-        SQL_FUNCTION_MAP.put("addMinutes", "");//
-        SQL_FUNCTION_MAP.put("addSeconds", ""); //
-        SQL_FUNCTION_MAP.put("addQuarters", ""); //
-        SQL_FUNCTION_MAP.put("subtractYears", ""); //
-        SQL_FUNCTION_MAP.put("subtractMonths", ""); //
-        SQL_FUNCTION_MAP.put("subtractWeeks", ""); //
-        SQL_FUNCTION_MAP.put("subtractDays", ""); //
-        SQL_FUNCTION_MAP.put("subtractours", "");//
-        SQL_FUNCTION_MAP.put("subtractMinutes", ""); //
-        SQL_FUNCTION_MAP.put("subtractSeconds", ""); //
-        SQL_FUNCTION_MAP.put("subtractQuarters", ""); //
+        SQL_FUNCTION_MAP.put("addYears", ""); // Function adds a Date/DateTime interval to a Date/DateTime and then return the Date/DateTime
+        SQL_FUNCTION_MAP.put("addMonths", ""); //同上
+        SQL_FUNCTION_MAP.put("addWeeks", ""); //同上
+        SQL_FUNCTION_MAP.put("addDays", ""); //同上
+        SQL_FUNCTION_MAP.put("addHours", ""); //同上
+        SQL_FUNCTION_MAP.put("addMinutes", "");//同上
+        SQL_FUNCTION_MAP.put("addSeconds", ""); //同上
+        SQL_FUNCTION_MAP.put("addQuarters", ""); //同上
+        SQL_FUNCTION_MAP.put("subtractYears", ""); //Function subtract a Date/DateTime interval to a Date/DateTime and then return the Date/DateTime
+        SQL_FUNCTION_MAP.put("subtractMonths", ""); //同上
+        SQL_FUNCTION_MAP.put("subtractWeeks", ""); //同上
+        SQL_FUNCTION_MAP.put("subtractDays", ""); //同上
+        SQL_FUNCTION_MAP.put("subtractours", "");//同上
+        SQL_FUNCTION_MAP.put("subtractMinutes", ""); //同上
+        SQL_FUNCTION_MAP.put("subtractSeconds", ""); //同上
+        SQL_FUNCTION_MAP.put("subtractQuarters", ""); //同上
         SQL_FUNCTION_MAP.put("formatDateTime", ""); //函数根据给定的格式字符串来格式化时间
+        SQL_FUNCTION_MAP.put("timestamp_add", ""); //使用提供的日期或日期时间值添加指定的时间值。
+        SQL_FUNCTION_MAP.put("timestamp_sub", ""); //从提供的日期或带时间的日期中减去时间间隔。
 
-
+         //clickhouse json函数
         SQL_FUNCTION_MAP.put("visitParamHas", ""); //visitParamHas(params, name)检查是否存在«name»名称的字段
         SQL_FUNCTION_MAP.put("visitParamExtractUInt", ""); //visitParamExtractUInt(params, name)将名为«name»的字段的值解析成UInt64。
         SQL_FUNCTION_MAP.put("visitParamExtractInt", ""); //与visitParamExtractUInt相同，但返回Int64。
@@ -375,6 +426,7 @@ public class Functions {
         SQL_FUNCTION_MAP.put("JSONExtractRaw", ""); //返回JSON的部分。
         SQL_FUNCTION_MAP.put("toJSONString", ""); //
 
+        //clickhouse 类型转换函数
         SQL_FUNCTION_MAP.put("toInt8", ""); //toInt8(expr)  转换一个输入值为Int类型
         SQL_FUNCTION_MAP.put("toInt16", ""); //toInt16(expr)
         SQL_FUNCTION_MAP.put("toInt32", ""); //toInt32(expr)
@@ -448,7 +500,7 @@ public class Functions {
         SQL_FUNCTION_MAP.put("fromUnixTimestamp64Micro", "");
         SQL_FUNCTION_MAP.put("fromUnixTimestamp64Nano", "");
 
-        //GEO函数
+        //clickhouse GEO函数
 
         SQL_FUNCTION_MAP.put("greatCircleDistance", ""); //greatCircleDistance(lon1Deg, lat1Deg, lon2Deg, lat2Deg)计算地球表面两点之间的距离。
         SQL_FUNCTION_MAP.put("geoDistance", ""); //类似于greatCircleDistance，但在WGS-84椭球面而不是球面上计算距离
@@ -463,7 +515,7 @@ public class Functions {
         SQL_FUNCTION_MAP.put("geohashesInBox", "");  //计算在指定精度下计算最小包含指定的经纬范围的最小图形的geohash数组。
 
 
-//hash函数
+      ////clickhouse hash函数
         SQL_FUNCTION_MAP.put("halfMD5", ""); //计算字符串的MD5。然后获取结果的前8个字节并将它们作为UInt64（大端）返回
         SQL_FUNCTION_MAP.put("MD5", "");  //计算字符串的MD5并将结果放入FixedString(16)中返回
         SQL_FUNCTION_MAP.put("sipHash64", "");//计算字符串的SipHash。
@@ -478,8 +530,7 @@ public class Functions {
         SQL_FUNCTION_MAP.put("jumpConsistentHash", ""); //计算UInt64的JumpConsistentHash。
         SQL_FUNCTION_MAP.put("murmurHash2_32", ""); //计算字符串的MurmurHash2。
 
-
-//ip地址函数
+        //clickhouse ip地址函数
         SQL_FUNCTION_MAP.put("IPv4NumToString", "");  //接受一个UInt32（大端）表示的IPv4的地址，返回相应IPv4的字符串表现形式，格式为A.B.C.D（以点分割的十进制数字）。
         SQL_FUNCTION_MAP.put("IPv4StringToNum", ""); //与IPv4NumToString函数相反。如果IPv4地址格式无效，则返回0。
         SQL_FUNCTION_MAP.put("IPv4NumToStringClassC", ""); // 与IPv4NumToString类似，但使用xxx替换最后一个字节。
@@ -491,19 +542,18 @@ public class Functions {
         SQL_FUNCTION_MAP.put("toIPv6", ""); //IPv6StringToNum()的别名
         SQL_FUNCTION_MAP.put("isIPAddressInRange", ""); //确定一个IP地址是否包含在以CIDR符号表示的网络中
 
-//Nullable处理函数
+        //clickhouse Nullable处理函数
         SQL_FUNCTION_MAP.put("isNull", "");  //检查参数是否为NULL。
         SQL_FUNCTION_MAP.put("isNotNull", ""); //检查参数是否不为 NULL.
-
         SQL_FUNCTION_MAP.put("ifNull", ""); //如果第一个参数为«NULL»，则返回第二个参数的值。
         SQL_FUNCTION_MAP.put("assumeNotNull", ""); //将可为空类型的值转换为非Nullable类型的值。
         SQL_FUNCTION_MAP.put("toNullable", "");  //将参数的类型转换为Nullable。
 
-//UUID函数
+          //clickhouse UUID函数
         SQL_FUNCTION_MAP.put("generateUUIDv4", ""); // 生成一个UUID
         SQL_FUNCTION_MAP.put("toUUID", ""); //toUUID(x) 将String类型的值转换为UUID类型的值。
 
-
+        //clickhouse 系统函数
         SQL_FUNCTION_MAP.put("hostName", ""); //hostName()回一个字符串，其中包含执行此函数的主机的名称。
         SQL_FUNCTION_MAP.put("getMacro", ""); //从服务器配置的宏部分获取指定值。
         SQL_FUNCTION_MAP.put("FQDN", "");//返回完全限定的域名。
@@ -511,6 +561,8 @@ public class Functions {
         SQL_FUNCTION_MAP.put("currentUser", ""); //返回当前用户的登录。在分布式查询的情况下，将返回用户的登录，即发起的查询
         SQL_FUNCTION_MAP.put("version", ""); //以字符串形式返回服务器版本。
         SQL_FUNCTION_MAP.put("uptime", "");//以秒为单位返回服务器的正常运行时间。
+
+        //clickhouse 数学函数
         SQL_FUNCTION_MAP.put("least", ""); //返回a和b中最小的值。
         SQL_FUNCTION_MAP.put("greatest", ""); //返回a和b的最大值。
         SQL_FUNCTION_MAP.put("plus", "");  //plus(a, b), a + b operator¶计算数值的总和。

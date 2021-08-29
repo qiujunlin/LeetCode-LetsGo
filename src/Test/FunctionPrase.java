@@ -1,5 +1,8 @@
 package Test;
 
+import Test.FuncionAnalize.Functions;
+import Test.FuncionAnalize.StringUtil;
+
 import java.util.*;
 import java.util.regex.Pattern;
 
@@ -194,12 +197,6 @@ public class FunctionPrase {
     private List<Object> preparedValueList = new ArrayList<>();
     private Object getValue(Object value) {
         if (isPrepared()) {
-            if(value  instanceof  String){
-                String s =  value.toString();
-                if(s.startsWith("'")&&s.endsWith("'")){
-                    value =   s.substring(1,s.length()-1);
-                }
-            }
             preparedValueList.add(value);
             return "?";
         }
