@@ -103,7 +103,7 @@
 | 300  |                        最长上升子序列                        |                           Dp，二分                           | Middle |
 | 322  |                           零钱兑换                           |                           动态规划                           | Middle |
 | 349  | [两个数组交集](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/IntersectionofTwoArrays349.java) |                           双指针，                           |        |
-| 340  | [两个数组的交集\|\|](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/Array/IntersectionofTwoArrays350.java) |                         双指针，map                          |        |
+| 340  | [两个数组的交集\|\|](https://github.com/qiujunlin/LeetCode-LetsGo/blob/master/src/leetcode/IntersectionofTwoArrays350.java) |                         双指针，map                          |        |
 | 376  |                           摆动序列                           |                           dp，贪心                           | middle |
 | 387  |                   字符串中的第一个唯一字符                   |                                                              |        |
 | 389  |                            找不同                            |                            位运算                            | Easy   |

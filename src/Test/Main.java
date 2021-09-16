@@ -9,61 +9,33 @@ import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args) {
-        Scanner scanner=  new Scanner(System.in);
-        int Q =  scanner.nextInt();
-        int n = scanner.nextInt();
-        int arr[] =  new int[n];
-        for (int i = 0; i <arr.length ; i++) {
-            arr[i] = scanner.nextInt();
-        }
-        int res[] = new  int[n];
-        LinkedList<Integer> stack =   new LinkedList<>();
-        int cur  = 0;//指向队伍人数
-        for (int i = 0; i <n ; i++) {
-            int step = 0;
-            if(stack.isEmpty()){
-                 step+=cur;
-                 cur++;
-            }else{
-                int a = stack.pollFirst();
-                step+=a;
-            }
-            int num =  arr[cur];
-            if(num==0){
-                continue;
-            }else{
-                int nums = num;
-                if(stack.size()>=num){
-                    for (int j = 0; j < num; j++) {
-                        step+=stack.pollFirst()-j;
-                    }
-                }else{
-                    int size  =stack.size();
-                    for (int j = 0; j < size; j++) {
-                        step+=stack.pollFirst()-j;
-                    }
-                    int cha  =  num-stack.size();
-                    for (int j = 0; j < cha; j++) {
-                        step+=cur-size-j;
-                        cur++;
-                    }
-
-                }
-                for (int j = 1; j <=num; j++) {
-                    stack.addFirst(i);
-                }
-            }
-            res[i] =step;
-
-        }
-        for (int i = 0; i < n; i++) {
-            System.out.print(res[i] + " ");
-        }
-      //模拟
-      //
+           Scanner scanner =  new Scanner(System.in);
+           String s1 =  scanner.nextLine();
+           String s2 =  scanner.nextLine();
+           int len =  new Main().longestCommonSubsequence(s1,s2);
+           System.out.println(s2.length()-len);
 
 
     }
+
+        public int longestCommonSubsequence(String text1, String text2) {
+            int m = text2.length(), n = text1.length();
+            int[][] dp = new int[m + 1][n + 1];
+            for (int i = 1; i <= m; i++) {
+                char c1 = text2.charAt(i - 1);
+                for (int j = i; j <= n; j++) {
+                    char c2 = text1.charAt(j - 1);
+                    if (c1 == c2) {
+                        dp[i][j] = dp[i - 1][j - 1] + 1;
+                    } else {
+                        dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                    }
+                }
+            }
+            return dp[m][n];
+        }
+
+
   //  [] [] [] [] []  某次移动的 位置 和 为
     /**
      *  1.当移动为0的时候  第一个人向前

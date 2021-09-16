@@ -1,11 +1,7 @@
-
-
-##
-
-```
 package leetcode;
 
 import java.util.*;
+
 /**
  * @Classname FourPathSum18
  * @Description:
@@ -62,9 +58,9 @@ public class  FourPathSum18 {
         }
         return res;
     }
+
     public static void main(String[] args) {
         int a[]={1,-2,-5,-4,-3,3,3,5};
         System.out.println(new FourPathSum18().fourSum(a,-11));
     }
 }
-```
