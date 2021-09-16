@@ -3,37 +3,22 @@ package Test;
 import edu.princeton.cs.algs4.Stack;
 import org.omg.CORBA.INTERNAL;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class Main{
+public class Main {
     public static void main(String[] args) {
-           Scanner scanner =  new Scanner(System.in);
-           String s1 =  scanner.nextLine();
-           String s2 =  scanner.nextLine();
-           int len =  new Main().longestCommonSubsequence(s1,s2);
-           System.out.println(s2.length()-len);
-
-
+        Integer a[] = new Integer[10];
+        System.out.println(a[0]==null);
+        char c = 'a';
+        String  s=   "";
+        System.out.println(s+String.valueOf(c));
+        ArrayList arrayList =  new ArrayList();
     }
+}
 
-        public int longestCommonSubsequence(String text1, String text2) {
-            int m = text2.length(), n = text1.length();
-            int[][] dp = new int[m + 1][n + 1];
-            for (int i = 1; i <= m; i++) {
-                char c1 = text2.charAt(i - 1);
-                for (int j = i; j <= n; j++) {
-                    char c2 = text1.charAt(j - 1);
-                    if (c1 == c2) {
-                        dp[i][j] = dp[i - 1][j - 1] + 1;
-                    } else {
-                        dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
-                    }
-                }
-            }
-            return dp[m][n];
-        }
 
 
   //  [] [] [] [] []  某次移动的 位置 和 为
@@ -47,4 +32,3 @@ public class Main{
 
 
 
-}
