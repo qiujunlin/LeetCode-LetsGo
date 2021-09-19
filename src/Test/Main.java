@@ -1,33 +1,56 @@
 package Test;
 
+import edu.princeton.cs.algs4.Heap;
 import edu.princeton.cs.algs4.Stack;
 import org.omg.CORBA.INTERNAL;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Integer a[] = new Integer[10];
-        System.out.println(a[0]==null);
-        char c = 'a';
-        String  s=   "";
-        System.out.println(s+String.valueOf(c));
-        ArrayList arrayList =  new ArrayList();
+         StringBuffer s =  new StringBuffer();
+         s.append("aba");
+        System.out.println(s.toString().equals(s.reverse().toString())) ;
     }
+    private static void dfs(boolean[] vis, HashSet<String> set, HashMap<Integer, HashSet<Integer>> map, int source, int dep, StringBuffer s) {
+        if(dep==5) {
+            set.add(s.toString());
+            return;
+        }
+        for(int a :  map.get(source)){
+            if(!vis[a]){
+                vis[a] = true;
+                s.append(a);
+                dfs(vis,set,map,a,dep+1,s);
+                vis[a] = false;
+                s.deleteCharAt(s.length()-1);
+            }
+        }
+    }
+//
+//    private static boolean judge(HashSet<Integer> set, boolean[] vis,int pre ){
+//        for (int i = 1; i <vis.length ; i++) {
+//            if(vis[i]&&i!=pre){
+//                if(set.contains(i))  return  false;
+//            }
+//        }
+//        return  true;
+//    }
+    /**
+     *
+     6 7
+     1 2
+     2 3
+     3 4
+     4 5
+     5 6
+     1 6
+     3 6
+     */
+
+
 }
 
-
-
-  //  [] [] [] [] []  某次移动的 位置 和 为
-    /**
-     *  1.当移动为0的时候  第一个人向前
-     *  2.不为0的时候 n
-     *    1.如果之前没有人移动 ，后面的第一个人（不是第一个位置）移动第一位，只有将后面n个人移动到前面
-     *    2.将站在第一位的人移开，后面的人向前
-     */
 
 
 

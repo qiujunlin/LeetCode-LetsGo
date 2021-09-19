@@ -11,9 +11,7 @@ import java.util.PriorityQueue;
  */
 public class Q502 {
     public static void main(String[] args) {
-       System.arraycopy();
 
-        System.out.println(new Q502().fullJustify(words,16));
     }
     int maxWidth ;
     public List<String> fullJustify(String[] words, int maxWidth) {
