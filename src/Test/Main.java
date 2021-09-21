@@ -8,25 +8,32 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-         StringBuffer s =  new StringBuffer();
-         s.append("aba");
-        System.out.println(s.toString().equals(s.reverse().toString())) ;
+        new Main().findIntegers(5);
+
     }
-    private static void dfs(boolean[] vis, HashSet<String> set, HashMap<Integer, HashSet<Integer>> map, int source, int dep, StringBuffer s) {
-        if(dep==5) {
-            set.add(s.toString());
-            return;
-        }
-        for(int a :  map.get(source)){
-            if(!vis[a]){
-                vis[a] = true;
-                s.append(a);
-                dfs(vis,set,map,a,dep+1,s);
-                vis[a] = false;
-                s.deleteCharAt(s.length()-1);
+    public int findIntegers(int n) {
+        int  res =0;
+        int pre =0;
+        int dp[] =  new int[32];
+        dp[0] =1;dp[1] =1;
+        for(int i=2;i<=31;i++) {dp[i] = dp[i-1] + dp[i-2];}
+        for(int i=30;i>=0;i--){
+            int val =  1<<i;
+            if((n&val)!=0){
+                res+=dp[i+1];
+                System.out.println(n+ " "+i);
+                n-=val;
+                if(pre==1) break;
+                pre=1;
+            }else{
+                pre=0;
             }
         }
+        return res;
+
     }
+}
+
 //
 //    private static boolean judge(HashSet<Integer> set, boolean[] vis,int pre ){
 //        for (int i = 1; i <vis.length ; i++) {
@@ -49,7 +56,6 @@ public class Main {
      */
 
 
-}
 
 
 
