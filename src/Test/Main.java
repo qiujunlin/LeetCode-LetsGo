@@ -28,13 +28,8 @@ public class Main {
 
     }
     public long gridGame(int[][] grid) {
-      long max  =0;
-      long sum =0;
-        for (int i = 0; i <2 ; i++) {
-            for (int j = 0; j <grid.length ; j++) {
-                sum+=grid[0][j];
-            }
-        }
+        long max  =0;
+        long sum =0;
         int presum1[]  = new int[grid[0].length+1];
         int presum2[] = new int[grid[0].length+1];
         int len  = grid[0].length;
@@ -51,40 +46,9 @@ public class Main {
         return  max;
 
     }
-    public boolean placeWordInCrossword(char[][] board, String word) {
-        int m  = board.length;
-        int n = board[0].length;
-        int len  = word.length();
-      boolean res =   iscol(board,word,0);
-        for (int i = 0; i <m ; i++) {
 
-        }
 
-    }
 
-    private boolean iscol(char[][] board, String word, int i) {
-        char ch[] = board[i];
-        String s = String.valueOf(ch);
-        int len = word.length();
-        int chlen = ch.length;
-        for (int j = 0; j <ch.length; j++) {
-            if(ch[j]=='#')continue;
-            if(ch[j]==' '){
-                int  a =0;
-                int index =j;
-                while (index<chlen&&(ch[index]==' '||(ch[j]>='a'&&ch[j]<='z')))index++;
-                if(index==chlen&&index-j<len) return  false;
-                String ss =  s.substring(j,index);
-                
-
-                if()
-
-            }else{
-                if()
-            }
-        }
-
-    }
 
 
     class Node{
