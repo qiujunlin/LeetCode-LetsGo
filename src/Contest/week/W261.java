@@ -1,6 +1,6 @@
 package Contest.week;
 
-import static acwing.Q1207.dfs;
+
 
 public class W261 {
 
@@ -38,14 +38,5 @@ public class W261 {
 
     }
 
-    private boolean dfs1(int[] res, int summ, int i) {
-        for (int j = i; j < res.length; j++) {
-            for (int k = 1; k <=6 ; k++) {
-                res
-            }
-        }
-    }
-
-    boolean
 
 }
