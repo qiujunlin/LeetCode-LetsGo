@@ -84,9 +84,6 @@ public class DW62 {
                 if(map.containsKey(k+cha)){
                     res+=map.get(k+cha);
                 }
-
-
-
             }else{
                 // 将一个小的数字变大
                 //讲一个小于k的数字变为k
