@@ -126,3 +126,6 @@ replace() 替换 hashMap 中是指定的 key 对应的 value。
 
 在迭代里面进行 return;  相当于 执行下下一次迭代  不是退出迭代
 
+## 注意事项！！
+
+在HashMap中判断key是否重复的依据是根据hash值和equals比较，但是在TreeMap中，判断key是否重复的依据是根据 `comparaTo` 是否为0，如果为0，TreeMap 就认为key是重复的。
