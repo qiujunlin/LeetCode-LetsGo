@@ -21,4 +21,35 @@ public class Q87 {
     return  false;
     }
 
+    public boolean isScramble1(String s1, String s2) {
+        int len =  s1.length();
+        boolean dp[][][] = new boolean[len][len][len+1];
+        for (int i = 0; i <len ; i++) {
+            for (int j = 0; j <len ; j++) {
+                dp[i][j][1] = true;
+            }
+        }
+        //枚举长度
+        for (int i = 2; i <=len ; i++) {
+            // s1左边界
+            for (int j = 0; j < len ; j++) {
+                // s2 左边界
+                for (int k = 0; k < len; k++) {
+                    // 枚举分割点
+                    for (int l = 1; l <=len ; l++) {
+
+                        dp[i][j][len] |= dp[i+l][j+l][len-l] && dp[i][j][l];
+                        if(dp[i][j][len])  break;
+
+                        dp[i][j][len] |= dp[i][j+len-l][l] &&dp[i+l][j][len-l];
+                        if(dp[i][j][len]) break;
+
+                    }
+                }
+            }
+        }
+        return  dp[0][0][len];
+
+
+    }
 }

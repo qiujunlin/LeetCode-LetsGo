@@ -7,25 +7,17 @@ package leetcode;
  * @Created by qiujunlin
  */
 public class Q115 {
-        int res=0;
+    /**
+     * s[i]==s[j] dp[i][j] = dp[i-1][j-1]
+     * s[i]
+     * @param s
+     * @param t
+     * @return
+     */
         public int numDistinct(String s, String t) {
-    //使用状态压缩枚举出字符串 S的所有 子字符串 枚举的字符串长度为 t》length 计数 比较
-    //
-            StringBuilder ss=new StringBuilder();
-            dfs(ss,0,s,t);
-            return  res;
 
+
+ return  0;
         }
-        void dfs(StringBuilder ss,int index,String s,String t){
-            if(ss.length()==t.length()){
-                if (ss.toString().equals(t)) res++;
-                return;
-            }
-            for (int i=index;i<s.length();i++){
-                ss.append(s.charAt(i));
-                dfs(ss,i+1,s,t);
-                ss.deleteCharAt(ss.length()-1);
-            }
-           // dfs(ss.append());
-        }
+
 }
