@@ -9,6 +9,7 @@ import java.util.*;
  * @Created by qiujunlin
  */
 public class Trie {
+
     private Trie[] children;
     private boolean isend;
     /** Initialize your data structure here. */

@@ -3,8 +3,45 @@ import edu.princeton.cs.algs4.Stack;
 
 import  java.util.*;
 public class Main3 {
+    class Node{
+        Node nodes[] ;
+        boolean end ;
+        public Node(){
+            this.nodes = new Node[26];
+            this.end= false;
+        }
+    }
+    String res ="";
+    public String longestWord(String[] words) {
+        //字典树  1. 构建树  2 dfs
+        Node n = new Node();
+        for(String s :  words){
+            Node  temp = n;
+            for(int i=0;i<s.length();i++){
+                char c = s.charAt(i);
+                if(temp.nodes[c-'a']==null){
+                    temp.nodes[c-'a'] =new Node();
+                }
+                temp = temp.nodes[c-'a'];
+            }
+            temp.end = true;
+        }
 
-    public static void main(String[] args) {
+        return "";
+    }
+    void dfs(Node n,String s){
+        if(res.length()<s.length()){
+            res =s;
+        }
+        for(int i =0;i<26;i++){
+            if(n.nodes[i]!=null){
+                if(n.end){
+                    dfs(n.nodes[i],s+String.valueOf((char)(i+'a')));
+                }
+            }
+        }
+    }
+     public static void main(String[] args) {
         int nums[] ={1,2,3,4};
         int nums2[] ={4,3,2,4,3};
         new Main3().fun(5,3,nums2);
