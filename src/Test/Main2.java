@@ -10,10 +10,8 @@ import java.util.regex.Pattern;
 
 public class Main2 {
     public static void main(String[] args) {
-         StringBuilder s = new StringBuilder("abc");
-         s.setCharAt(0,'d');
-        System.out.println(s);
-
+       int a = 0x00000001;
+       System.out.println(a);
     }
 
 

@@ -1,31 +1,22 @@
 package leetcode;
 
+import java.util.ArrayList;
+
 public class Q300 {
     public int lengthOfLIS(int[] nums) {
-        int dp[] = new int[nums.length];
-        int index  =0;
+        ArrayList<Integer> list = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
-            if(index==0||nums[i]>dp[index-1]){
-                dp[index] = nums[i];
-                index++;
-            }else{
-                int insert = search(0,index-1,dp,nums[i]);
-                dp[insert] = nums[i];
+            if(list.size()==0||nums[i]>list.get(list.size()-1)) list.add(nums[i]);
+            else{
+                int l =0;int r = list.size()-1;
+                while (l<r){
+                    int mid = (l+r)/2;
+                    if(list.get(mid)<nums[i]) l = mid+1;
+                    else r =mid;
+                }
+                list.set(l,nums[i]);
             }
         }
-        return  index;
-    }
-
-    private int search(int i, int i1, int[] dp, int num) {
-      int  l = i,r  = i1;
-      while (l<r){
-          int mid = (l+r)/2;
-          if(dp[mid]<num){
-              l =mid+1;
-          }else{
-              r =mid;
-          }
-      }
-      return  l;
+        return  list.size();
     }
 }
