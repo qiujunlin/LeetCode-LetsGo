@@ -1,5 +1,6 @@
 package leetcode;
 
+import java.util.HashMap;
 import java.util.PriorityQueue;
 
 public class Q407 {
@@ -36,6 +37,31 @@ public class Q407 {
         }
         return  res;
 
+
+    }
+    public int[] maximumBeauty(int[][] items, int[] queries) {
+            int res[] =new int[queries.length];
+        PriorityQueue<int[]> queue = new PriorityQueue<>((a,b)->a[1]-b[1]);
+        for (int i = 0; i < queries.length; i++) {
+            queue.offer(new int[]{i,queries[i]});
+        }
+        PriorityQueue<int[]> queue1 =new PriorityQueue<>((a,b)->(a[0]-b[0]));
+        for (int i = 0; i <items.length ; i++) {
+            queue1.offer(items[i]);
+        }
+        PriorityQueue<Integer> max=  new PriorityQueue<>((a,b)->b-a);
+        while (!queue.isEmpty()){
+            int a[] = queue.poll();
+            while (!queue1.isEmpty()&&queue1.peek()[0]<=a[1]){
+                int b[]= queue1.poll();
+                max.offer(b[1]);
+            }
+            if(max.isEmpty())
+            res[a[0]] =0;
+            else res[a[0]]=max.peek();
+
+        }
+        return  res;
 
     }
 }
