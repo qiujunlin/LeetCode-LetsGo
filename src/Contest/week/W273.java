@@ -115,31 +115,10 @@ public class W273 {
         for(String  s : words){
             if(s.equals(new StringBuffer(s).reverse().toString())) return  s;
         }
-        return  ""''
+        return  "";
 
     }
-    public String addSpaces(String s, int[] spaces) {
 
-        StringBuilder s =  new StringBuilder();
-        int index =0;
-        for (int i = 0; i < s.length(); i++) {
-             if(i==spaces[i]){
-                 s.append(' ');
-                 index++;
-             }
-             s.append(s.charAt(i));
-        }
-        return  s.toString();
-
-    }
-    public long getDescentPeriods(int[] prices) {
-         long res  =0;
-
-    }
-    public int kIncreasing(int[] arr, int k) {
-
-
-    }
 
 
 
