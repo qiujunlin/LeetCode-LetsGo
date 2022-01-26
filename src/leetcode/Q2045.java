@@ -22,6 +22,7 @@ public class Q2045 {
             Arrays.fill(min[i],Integer.MAX_VALUE);
         }
         Deque<int[] > deque =new LinkedList<>();
+
         deque.offer(new int[]{1,0});
         while (!deque.isEmpty()){
             int temp[] = deque.poll();
