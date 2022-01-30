@@ -37,7 +37,7 @@ class LFUCache {
             Node n = new Node(key,value);
             h.put(key,n);
             // 1. 加入计数
-            LinkedList<Node> temp = l.computeIfPresent(0,(key)->new LinkedList());
+            LinkedList<Node> temp = l.computeIfPresent(0,(k,v)->new LinkedList());
 
             // 2. 加入链表
             temp.addLast(n);
