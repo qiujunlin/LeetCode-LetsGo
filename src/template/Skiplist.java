@@ -1,6 +1,9 @@
 package template;
 
 import Test.Main;
+
+import java.util.concurrent.SynchronousQueue;
+
 public class Skiplist {
     int curmaxlevel  = 1;
     int MAXLEVEL = 32;
@@ -90,5 +93,9 @@ public class Skiplist {
             this.val =val;
             this.next = new Node[level];
         }
+    }
+
+    public static void main(String[] args) {
+
     }
 }

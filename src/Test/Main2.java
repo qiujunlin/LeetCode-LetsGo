@@ -10,34 +10,24 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
-public class Main2 {
+    public class Main2   {
+     static HashMap<Integer,Integer> map =new HashMap<>();
+        public Main2(){
+            map.put(1,1);
 
-    public static AtomicInteger race = new AtomicInteger(0) ;
+      }
 
-    private static final int THREADS_COUNT = 20;
+        public static void main(String[] args) throws InterruptedException {
+            byte[] allocation1, allocation2,allocation3,allocation4,allocation5;
+            allocation1 = new byte[32000*1024];
+            allocation2 = new byte[1000*1024];
+            allocation3 = new byte[1000*1024];
+            allocation4 = new byte[1000*1024];
+            allocation5 = new byte[1000*1024];
 
-    //private static CountDownLatch countDownLatch = new CountDownLatch(THREADS_COUNT);
 
-    public static void increase() {
-        race.getAndIncrement();
+
+                 }
+
+
     }
-    public static void main(String[] args) throws InterruptedException {
-        Thread[] threads = new Thread[THREADS_COUNT];
-        for (int i = 0; i < THREADS_COUNT; i++) {
-            threads[i] = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    for (int i = 0; i < 10000; i++) {
-                        increase();
-                    }
-              //      countDownLatch.countDown();
-                }
-            });
-            threads[i].start();
-        }
-        //countDownLatch.await();
-        System.out.println(race);
-    }
-
-
-}
