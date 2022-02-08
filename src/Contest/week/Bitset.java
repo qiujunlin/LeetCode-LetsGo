@@ -1,5 +1,7 @@
 package Contest.week;
 
+import java.util.PriorityQueue;
+
 public class Bitset {
     int nums[];
     int c =0;
@@ -59,5 +61,8 @@ public class Bitset {
         }
         return  s.toString();
     }
-}
+
+    public static void main(String[] args) {
+        PriorityQueue<int[]> q =new PriorityQueue<>((e, f)->(f[1]-e[1]));
+    }
 }
