@@ -7,7 +7,7 @@ StringBuilder  的 deleteCharAt(int index) 方法 删除某个字符 ，常用�
 1. Arrays
 
 ```
-List<String> jdks = asList("JDK6", "JDK8", "JDK10");
+List<String> jdks = Arrays.asList("JDK6", "JDK8", "JDK10");
 Syst
 ```
 
@@ -129,3 +129,5 @@ replace() 替换 hashMap 中是指定的 key 对应的 value。
 ## 注意事项！！
 
 在HashMap中判断key是否重复的依据是根据hash值和equals比较，但是在TreeMap中，判断key是否重复的依据是根据 `comparaTo` 是否为0，如果为0，TreeMap 就认为key是重复的。
+
+String.split("\\s+") 以空格分割 多个空格
