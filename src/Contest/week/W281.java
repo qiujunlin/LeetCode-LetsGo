@@ -102,19 +102,7 @@ public class W281 {
             res.append(c);repeatLimit--;
         }
     }
-    public long coutPairs(int[] nums, int k) {
-        if(nums.length<1) return  0;
-        if(k==1) {
-            int n =nums.length;
-            return  n*(n-1)/2;
 
-        }
-
-        return  res;
-
-
-
-    }
 
     ArrayList<Integer> fenjie(int num){
 
@@ -125,7 +113,7 @@ public class W281 {
         while (i <= num) {
             if (num % i == 0) {
 
-              set.add(i);
+                set.add(i);
                 num = num / i;
 
                 i = 2;

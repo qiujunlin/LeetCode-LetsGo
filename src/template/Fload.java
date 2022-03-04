@@ -1,4 +1,4 @@
-package TU;
+package template;
 
 import java.util.Random;
 

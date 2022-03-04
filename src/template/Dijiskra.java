@@ -1,4 +1,4 @@
-package TU;
+package template;
 
 
 import java.util.Arrays;
@@ -16,7 +16,7 @@ public class Dijiskra {
            int dist[]=  new int[n];
            int pre [] = new int[n];
            boolean  vis [] = new boolean[n];
-          Arrays.fill(dist,Integer.MAX_VALUE);
+           Arrays.fill(dist,Integer.MAX_VALUE);
            dist[source] =0;
 
            PriorityQueue<int[]> que = new PriorityQueue<>((a,b)->a[1]-b[1]);
