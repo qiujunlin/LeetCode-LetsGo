@@ -3,63 +3,72 @@ package leetcode;
 import java.util.*;
 
 public class Q127 {
-    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-        HashSet<String> set = new HashSet<>();
-        for(String s:wordList){
-            set.add(s);
-        }
-        if(!set.contains(endWord)) return 0;
-        Deque<String> start = new LinkedList<>();
-        Deque<String> end = new LinkedList<>();
-        HashSet<String > visstart = new HashSet<>();
-        HashSet<String> visend = new HashSet<>();
-        start.offer(beginWord);
-        end.offer(endWord);
-        visstart.add(beginWord);
-        visend.add(endWord);
-        int count  = 0;
-        while (!start.isEmpty()&&end.isEmpty()){
-            count++;
-            boolean res = false;
-           if(start.size()<=end.size()){
-
-              res = updata(start,visstart,visend,set);
-           }else{
-               res =updata(end,visend,visstart,set);
-
-           }
-           if(res) return  count;
-        }
-        return  0;
-
-    }
-
-    private boolean updata(Deque<String> start, HashSet<String> visstart, HashSet<String> visend, HashSet<String> set) {
-         int size = start.size();
-        for (int i = 0; i < size; i++) {
-            for (String s:get(set,start.poll())) {
-                if(visstart.contains(s)) continue;
-                if(visend.contains(s)) return  true;
-                visstart.add(s);
-                start.offer(s);
+    int min =Integer.MIN_VALUE;
+    public List<List<String>>  ladderLength(String beginWord, String endWord, List<String> wordList) {
+        wordList.add(beginWord);
+        HashSet<String> set = new HashSet<>(wordList);
+        HashMap<String,ArrayList<String>> map = new HashMap<>();
+        Deque<String>  que =new LinkedList<>();
+        que.offer(beginWord);
+        int deep =1;
+        boolean  visit =false;
+        HashSet<String>  vis = new HashSet<>();
+        while (!que.isEmpty()) {
+            int size =que.size();
+            if(visit) break;
+            for (int i = 0; i < size; i++) {
+                String s = que.poll();
+                ArrayList<String> l = map.computeIfAbsent(s, (key) -> new ArrayList<>());
+                char ch[] = s.toCharArray();
+                for (int j = 0; j < ch.length; j++) {
+                    char temp = ch[j];
+                    for (int k = 0; k < 26; k++) {
+                        ch[j] = (char) (k + 'a');
+                        String news = new String(ch);
+                        if (set.contains(news)&&!vis.contains(news)) {
+                            l.add(news);
+                            que.offer(news);
+                            vis.add(news);
+                        }
+                        if(news.equals(endWord))  visit =true;
+                    }
+                    ch[j] = temp;
+                }
             }
         }
-        return  false;
+        LinkedList<String> l =new LinkedList<>();
+        HashSet<String>  viss = new HashSet<>();
+        List<List<String>>  res =new ArrayList<>();
+
+
+        l.addLast(beginWord);
+        vis.add(beginWord);
+        dfs(vis,l,endWord,res,map);
+
+        return   res;
+
+
     }
 
-    private List<String> get(HashSet<String> set, String poll) {
-         char ch[] = poll.toCharArray();
-        List<String> l = new ArrayList<>();
-         for (int i = 0; i < ch.length; i++) {
-             char c =ch[i];
-             for (int j = 0; j < 26; j++) {
-                 ch[i] =  (char) (j+'a');
-                 if(set.contains(new String(ch))){
-                     l.add(new String(ch));
-                 }
-             }
-             ch[i] = c;
-        }
-         return  l;
+    private void dfs(HashSet<String> vis, LinkedList<String> l,String end, List<List<String>> res, HashMap<String, ArrayList<String>> map) {
+          if(l.getLast().equals(end)) {
+              if(l.size()<min){
+                  res.clear();
+                  res.add(new ArrayList<>(l));
+              }
+              return;
+          }
+          if(l.size()>min) return;
+          String s = l.getLast();
+          for(String  temp  : map.get(s)){
+              if(!vis.contains(temp)) {
+                  vis.add(temp);
+                  l.addLast(temp);
+                  dfs(vis,l,end,res,map);
+                  vis.remove(temp);
+                  l.removeLast();
+              }
+          }
     }
+
 }

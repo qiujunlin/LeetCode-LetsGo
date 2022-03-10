@@ -1,62 +1,51 @@
 package interview;
 
+
+
 import java.util.*;
 
 public class Main {
+
+
     public static void main(String[] args) {
+        Scanner scanner  =new Scanner(System.in);
+        int a = scanner.nextInt();
+        int b =scanner.nextInt();
+        int year  = scanner.nextInt();
+        int month = scanner.nextInt();
+        int day  = scanner.nextInt();
+        String s = String.valueOf(year)+String.valueOf(month)+String.valueOf(day);
+        long min=-1;
+        long soure =Long.parseLong(s);
+        int len1 =String.valueOf(year).length();
+        int len2 =String.valueOf(month).length();
+        int len3 =String.valueOf(day).length();
+        for (int k = year; k <=100000 ; k++) {
+
+            for (int i = month + 1; i <= a; i++) {
+                for (int j = 1; j <= day; j++) {
+                    String ss = String.valueOf(k) + String.valueOf(i) + String.valueOf(j);
+                    if (judge(ss)) {
+                        System.out.println(year + " " + i + " " + j);
+                        break;
+                    }
+                }
+            }
+        }
 
 
     }
-    public int swimInWater(int[][] grid) {
-        int len  = grid.length;
-        int length  = len*len;
-        int nums[] = new int[length];
-        for (int i = 0; i <len ; i++) {
-            for (int j = 0; j < len; j++) {
-                 nums[grid[i][j]]  =  i*len +j;
+
+    private static boolean judge(String ss) {
+        int l =0;int r =ss.length()-1;
+        while (l<r){
+            if(ss.charAt(l)== ss.charAt(r)) {
+                l++;r--;
+            }else{
+                break;
             }
         }
-        Union u =new Union(len);
-        int dir[][] = {{0,1},{0,-1},{-1,0},{1,0}};
-        for (int i = 0; i <length ; i++) {
-            int n  = nums[i];
-            int x = n/len;int y  =  n%len;
-            for(int a[] :dir){
-                 int newx = x+a[0];
-                 int newy = y+a[1];
-                 if(newx>=0&&newy>=0&&newx<len&&newy<len){
-                     u.merge(n,newx*len+newy);
-                 }
-                 if(u.isconnected(0,length-1)) return  i;
-            }
-        }
-        return  0;
-    }
-    public class Union {
-        private  int parent[];
-        int count  =0 ;
-        public Union(int n ){
-            this.count = n ;
-            this.parent =  new int[n];
-            for (int  i =0;i<n;i++) {
-                this.parent[i] = i;
-            }
-        }
-        public  void merge(int x,int y){
-            int newx = find(x);
-            int newy = find(y);
-            if(newx==newy) return;
-            else{
-                parent[newx] = newy;
-                count--;
-            }
-        }
-        public int find(int x){
-            return  x==parent[x]?(x):(parent[x] = find(parent[x]));
-        }
-        public boolean isconnected(int x,int y){
-            return  find(x) ==find(y);
-        }
+        return   l==r;
     }
 
 }
