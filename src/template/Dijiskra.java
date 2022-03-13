@@ -15,8 +15,8 @@ public class Dijiskra {
     private static int[] dijiskra(HashMap<Integer, HashMap<Integer, Integer>> map, int source,int n) {
            int dist[]=  new int[n];
            int pre [] = new int[n];
-           boolean  vis [] = new boolean[n];
-           Arrays.fill(dist,Integer.MAX_VALUE);
+         //boolean  vis [] = new boolean[n];
+           Arrays.fill(dist,Integer.MAX_VALUE/10);
            dist[source] =0;
 
            PriorityQueue<int[]> que = new PriorityQueue<>((a,b)->a[1]-b[1]);
@@ -25,8 +25,9 @@ public class Dijiskra {
            {
                int node[] =que.poll();
                int from=  node[0];
-               if(vis[from]) continue;
-               vis[from] = true;
+             //  if(vis[from]) continue;
+             //  vis[from] = true;
+               if(node[1]>dist[from]) continue;
                HashMap<Integer, Integer>  edges = map.get(from);
                for(int to : edges.keySet()) {
                    if (dist[to] > dist[from] + edges.get(to)) {
