@@ -160,5 +160,26 @@ public class Q284 {
         }
         return  true;
     }
+    public String[] findRestaurant(String[] list1, String[] list2) {
+           HashMap<String ,Integer>  map1 =new HashMap<>();
+           HashMap<String ,Integer>  map2 =new HashMap<>();
+           TreeMap<Integer,ArrayList<String>>  map3 =new TreeMap<>();
+        for (int i = 0; i < list1.length; i++) {
+            map1.put(list1[i],i);
+        }
+        for (int i = 0; i < list2.length; i++) {
+            map1.put(list2[i],i);
+        }
+        for(String s : list1){
+            int a = map1.get(s);
+            if(map2.containsKey(s)){
+
+                int b = map2.get(s);
+                map3.computeIfAbsent(a+b,(key)->new ArrayList<>()).add(s);
+            }
+        }
+      ArrayList<String> res =   map3.firstEntry().getValue();
+        return res.toArray(new String[res.size()]);
+    }
 
 }
