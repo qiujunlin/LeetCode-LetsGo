@@ -43,7 +43,6 @@ public class Main {
             System.out.println(new String(ch[i]));
         }
     }
-
     static void insert(int x1, int y1, int x2, int y2, int dp[][]) {
         dp[x1][y1] += 1;
         dp[x1][y2 + 1] -= 1;
