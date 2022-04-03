@@ -204,7 +204,7 @@ Integer.toString(num,hexs);
 Integer.parseInt("1001",2)
 ```
 
-##### n->2   
+##### n->2
 
 ```
 1.取余法
