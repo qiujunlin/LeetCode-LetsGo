@@ -14,20 +14,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 
         public static void main(String[] args) throws InterruptedException {
-            System.out.println(0.1+0.1);
+            LinkedList<String> l =new LinkedList<>();
+            l.addFirst("das");
+            System.out.println(String.join(" ,",l));
 
-
-
-//           int a[] = new int[]{2,3,5,1,4,9,7,6,8,321,321,543,765,2313,3213,76,5435,24,65,54};
-//           int temp[] =new int[a.length];
-//           new Main2().quicksort(a,0,a.length-1);
-//            for (int i = 0; i < a.length; i++) {
-//                System.out.print(a[i]+" ");
-//            }
-//            List<String>  l =new ArrayList<>();
-//
-//            String.join("", l);
-//            System.out.println(Integer.MAX_VALUE);
 
         }
         void maopao(int a[]){

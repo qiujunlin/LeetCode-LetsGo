@@ -1,22 +1,54 @@
 package interview;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main4 {
-    static  class A{
-        int val =1;
-        static  int b =1;
-
-    }
-    static  class B extends A{
-
-    }
     public static void main(String[] args) {
-      B b =new B();
-      System.out.println(b.b);
+        Scanner s =new Scanner(System.in);
+        int n = s.nextInt();
+        int m  = s.nextInt();
+        ArrayList<Integer>  l[] =new ArrayList[n];
+        s.nextLine();
+        for (int i = 0; i <n ; i++) {
+            l[i] =new ArrayList<>();
+            String str =s.nextLine();
+            String strs[] =str.split(",");
+            int  num  = Integer.valueOf(strs[0]);
+            if(num!=0){
+                for (int j = 1; j <strs.length ; j++) {
+                     l[i].add(Integer.valueOf(strs[j]));
+                }
+            }
+        }
+        Queue<Integer> q =new LinkedList<>();
+        ArrayList<Integer> res = new ArrayList<>();
+        HashSet<Integer> vis =new HashSet<>();
+        q.offer(m); vis.add(m);
+        boolean isloop = false;
+         out: while (!q.isEmpty()){
+            int cur =q.poll();
+            for(int next :l[cur]){
+                if(vis.contains(next)) {
+                    isloop =true;
+                    break out;
+                }
+                else {
+                    q.add(next);
+                    res.add(next);
+                    vis.add(next);
+                }
+            }
+        }
+        if(isloop) System.out.println(-1);
+        else if(res.size()==0)  System.out.println("null");
+        else{
+            Collections.sort(res);
+            for (int i = 0; i < res.size(); i++) {
+                 if(i!=res.size()-1) {
+                     System.out.print(res.get(i)+",");
+                 }else System.out.println(res.get(i));
+            }
+        }
     }
+
 }

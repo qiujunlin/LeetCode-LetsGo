@@ -4,96 +4,42 @@ import java.util.*;
 
 class Solution {
     public static void main(String[] args) {
-        new Solution().main();
+        Scanner s  =new Scanner(System.in);
+        int n  = s.nextInt();
+        int m = s.nextInt();
+        HashMap<String,Node>  map =new HashMap<>();
+        s.nextLine();
+        while (m>0){
+            String title  = s.nextLine();
+            String content  = s.nextLine();
+            String [] arr1 = title.split("\\s+");
+            for(String str :  arr1) map.computeIfAbsent(str,(key)->new Node(str)).count+=3;
+            String [] arr2 = content.split("\\s+");
+            for(String str :  arr2) map.computeIfAbsent(str,(key)->new Node(str)).count+=1;
+            m--;
+        }
+        PriorityQueue<Node>  q = new PriorityQueue<>((a,b)->{
+            Node n1 = (Node)a;Node n2 = (Node)b;
+            if(n1.count==n2.count) return  n2.c  - n1.c;
+             else   return  n1.count-n2.count;
+        });
+        for(String str : map.keySet()){
+             q.offer(map.get(str));
+             while (q.size()>n) q.poll();
+        }
+        LinkedList<String>  l =new LinkedList<>();
+        Iterator<Node>  iterator = q.iterator();
+        while (iterator.hasNext()) l.addFirst(iterator.next().s);
+        String res =String.join(" ",l);
+        System.out.println(res);
     }
-     class  Tree {
-        int num ;
-        int val;
-        long count = 1;
-        long mul = 0;
-        ArrayList<Tree> nodes = new ArrayList<>();
+    static int shunxu = 1;
+    static  class  Node{
+        String s ;int count =0;
+        int c  =0;
+        public  Node(String s){
+            this.s = s; this.c =++shunxu;
+        }
+    }
 
-        public Tree(int val,int num ) {
-            this.val = val;
-            this.num =  num;
-        }
-        public void add(Tree tree) {
-            this.nodes.add(tree);
-        }
-        public  ArrayList<Tree> getNodes() {return nodes;}
-    }
-    int sumtree=0;
-     long maxmul =0;
-     int   n = 0;
-    long sum  =0;
-    public  void main() {
-        Scanner scanner = new Scanner(System.in);
-         n  = scanner.nextInt();
-        HashMap<Integer,ArrayList<Integer>> map = new HashMap<>();
-        int arr[] = new int[n-1];
-
-        for (int i = 0; i < n-1; i++) {
-            arr[i] = scanner.nextInt();
-            map.computeIfAbsent(arr[i],(key)->new ArrayList<>()).add(i+1);
-            map.computeIfAbsent(i+1,(key)->new ArrayList<>()).add(arr[i]);
-        }
-        HashSet<Integer> set = new HashSet<>();
-        int weight[] = new int[n];
-        for (int i = 0; i <n ; i++) {
-            weight[i] = scanner.nextInt();
-            sum+=weight[i];
-        }
-        Tree root   = new Tree(weight[0],1);
-        set.add(1);
-        Queue<Tree> trees = new LinkedList<>();
-        trees.add(root);
-        while(!trees.isEmpty()){
-            int size  =  trees.size();
-            for (int i = 0; i <size ; i++) {
-                Tree node = trees.poll();
-                int num = node.num;
-                for(int c : map.get(num)){
-                    if(!set.contains(c)){
-                        set.add(c);
-                        Tree tree = new Tree(weight[c-1],c);
-                        node.getNodes().add(tree);
-                        trees.offer(tree);
-                    }
-                }
-            }
-        }
-        backdfs(root);
-        backdfs2(root);
-        backdfs3(root,null);
-        System.out.println(sumtree);
-        System.out.println(maxmul);
-
-    }
-    private void backdfs3(Tree root, Tree pre) {
-        if(pre!=null) {
-            sumtree += root.count * (n - root.count) ;
-            maxmul = Math.max(root.mul * (sum - root.mul) - root.val * pre.val, maxmul);
-        }
-        for(Tree node:root.getNodes()){
-            backdfs3(node,root);
-        }
-    }
-    private  long backdfs2(Tree root) {
-        if(root==null)  return  0;
-        long mul  =0;
-        for(Tree node:root.getNodes()){
-            mul+=backdfs(node);
-        }
-        root.mul =  mul+root.val;
-        return  root.mul;
-    }
-    private  long backdfs(Tree root) {
-        if(root==null)  return  0;
-        long sum  =0;
-        for(Tree node:root.getNodes()){
-           sum+= backdfs(node);
-        }
-        root.count = sum+root.count;
-        return  root.count;
-    }
 }
