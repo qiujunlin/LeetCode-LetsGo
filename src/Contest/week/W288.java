@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
 
 public class W288 {
     public static void main(String[] args) {
-        System.out.println(Integer.valueOf(""));
+        System.out.println(Integer.MAX_VALUE<1E10);
     }
     public int largestInteger(int num) {
       String s =  String.valueOf(num);
@@ -107,8 +107,5 @@ public class W288 {
 
 
     }
-    [24,5,64,53,26,38]
-            54
 
-            180820950
 }
