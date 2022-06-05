@@ -3,59 +3,39 @@ package Test;
 
 import java.util.ArrayList;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class Main2   {
     public static void main(String[] args)  {
-        System.out.println("fds");
+        StringBuilder s =new StringBuilder("abc");
+        System.out.println(s.delete(0,1));
 
     }
-    public int giveGem(int[] gem, int[][] operations) {
-        for(int a[]:operations){
-             gem[a[1]] += gem[a[0]/2];
-             gem[a[0]]/=2;
-        }
-        int min = gem[0];
-        int max = gem[0];
-        for(int a:gem){
-            min =Math.min(min,a);
-            max =Math.min(max,a);
-        }
-        return  max-min;
+
+   static void quicsort(int nums[],int l,int r){
+        if(l>=r) return;
+        int i =part(nums,l,r);
+        quicsort(nums,l,i-1);
+        quicsort(nums,i+1,r);
     }
-    public int perfectMenu(int[] materials, int[][] cookbooks, int[][] attribute, int limit) {
-        int len =cookbooks.length;
-        int min = -1;
-        for (int i = 0; i < (1<<len); i++) {
-            int a =0;//暴富
-            int b =0;//美味
-            int temp[] = new int[5];
-
-            out:for (int j = 0; j <8 ; j++) {
-                 if((i>>j&1)==1) {
-                     int t[] =cookbooks[j];
-                     for (int k = 0; k <t.length ; k++) {
-                         if(temp[k]+t[k]>materials[k]) {
-                             break out;
-                         }
-                     }
-                 }
-                 a+=attribute[j][1];
-                 b+=attribute[j][0];
-            }
-            if(a>=limit) {
-                min =Math.max(min,b);
-            }
-        }
-        return  min;
+    private static  int part(int nums[], int l, int r) {
+         int  i =l;
+         int left=l;int right =r;
+         while (left<right){
+             while (right>left&&nums[right]>=nums[i])right--;
+             while (right>left&&nums[left]<=nums[i]) left++;
+             if(left<right) {
+                 int temp = nums[left];
+                 nums[left] = nums[right];
+                 nums[right] = temp;
+             }
+         }
+        int temp =nums[i];
+        nums[i]=nums[right];
+        nums[right] =temp;
+         return   left;
     }
-    public class TreeNode {
-      int val;
-      TreeNode left;
-      TreeNode right;
-      TreeNode(int x) { val = x; }
-  }
 
 
-  
 }
 

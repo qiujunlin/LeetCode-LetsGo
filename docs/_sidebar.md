@@ -9,11 +9,12 @@
 
 * 📗收集到的面试题
 
-* 📗字符串
+* 📗[字符串](algorithm/字符串.md)
 
 * 📗数据结构 
 
   * [👉并查集](algorithm/并查集/bingcha.md)
+  * [树](algorithm/tree.md)
   * 线段树/树状数组
   * 自动机
   * 差分
@@ -37,7 +38,7 @@
   * [✍️其他](algorithm/other/)
   
 * 📗数学
-   
+  
    * [👉数学题](algorithm/math/math.md)
    
 *  📗较难算法
