@@ -2,14 +2,14 @@ package Test;
 
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class Main2   {
     public static void main(String[] args)  {
-        StringBuilder s =new StringBuilder("abc");
-        System.out.println(s.delete(0,1));
-
+     String s= " ad d  sda   ";
+        System.out.println(s.split("\\s+").length);
     }
 
    static void quicsort(int nums[],int l,int r){
