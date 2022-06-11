@@ -8,8 +8,8 @@ import java.util.TreeSet;
 
 public class Main2   {
     public static void main(String[] args)  {
-     String s= " ad d  sda   ";
-        System.out.println(s.split("\\s+").length);
+  ArrayList<Integer> l =new ArrayList<>();
+
     }
 
    static void quicsort(int nums[],int l,int r){
