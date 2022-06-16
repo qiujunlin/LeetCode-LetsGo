@@ -1,15 +1,22 @@
 package Test;
 
 
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Main2   {
     public static void main(String[] args)  {
   ArrayList<Integer> l =new ArrayList<>();
-
+  int a[] = {1,2,3,4,5,6,7};
+  int b[] = new int[a.length];
+  int i=0;
+  int j=0;
+        //Arrays.copyOf;
+        for (int k = 0; k < a.length; k++) {
+            b[i++] =a[j++];
+        }
+        for (int k = 0; k <b.length ; k++) {
+            System.out.print(b[k] +" ");
+        }
     }
 
    static void quicsort(int nums[],int l,int r){
