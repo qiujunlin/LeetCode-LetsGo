@@ -123,4 +123,36 @@ public class Sort {
          quicksort(a,i+1,r);
 
     }
+
+    //堆排序
+    class Solution {
+
+        public int[] sortArray(int[] nums) {
+
+            int len = nums.length;
+            for(int i=(len-1/2);i>=0;i--){
+                sink(nums,i,len-1);
+            }
+            for(int i=len-1;i>=0;i--){
+                swap(nums,i,0);
+                sink(nums,0,i-1);
+            }
+            return nums;
+
+        }
+        void swap(int nums[],int i,int j){
+            int temp = nums[i];
+            nums[i]  =nums[j];
+            nums[j] =temp;
+        }
+        void sink(int nums[],int k,int len){
+            while(k*2+1<=len){
+                int n = k*2+1;
+                if(n+1<=len&&nums[n]<nums[n+1]) n++;
+                if(nums[n]<nums[k])  break;
+                swap(nums,n,k);
+                k=n;
+            }
+        }
+    }
 }
