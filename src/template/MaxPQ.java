@@ -7,15 +7,14 @@ import java.util.Random;
 public class MaxPQ {
 
     int nums[] ;
-    int len=0 ;
+    int len=-1 ;
     int maxlen ;
     public  MaxPQ(int len) {
         nums = new int[len];
     }
     public  void insert(int v){
-        nums[len] =  v;
+        nums[++len] =  v;
         swim(nums,len);
-        len++;
     }
     public  int deleteMax(){
         int key  = nums[0];
@@ -58,6 +57,9 @@ public class MaxPQ {
         MaxPQ maxPQ=new MaxPQ(100);
         for (int i = 0; i <100 ; i++) {
              maxPQ.insert(random.nextInt(100));
+        }
+        while (maxPQ.len!=0) {
+            System.out.println(maxPQ.deleteMax());
         }
         System.out.println( maxPQ.toString());
     }

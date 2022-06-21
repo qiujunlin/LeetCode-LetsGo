@@ -55,3 +55,4 @@ class Solution:
 
 ```
 
+求排列 外循环是 1- len，求组合 外循环是nums

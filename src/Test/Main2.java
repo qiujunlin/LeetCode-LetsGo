@@ -12,6 +12,7 @@ public class Main2   {
   int b[] = new int[a.length];
   int i=0;
   int j=0;
+  Arrays.s**
         //Arrays.copyOf;
         for (int k = 0; k < a.length; k++) {
             b[i++] =a[j++];
