@@ -7,59 +7,30 @@
   
 * [📜小番茄的模板](/模板/算法模板.md)
 
-* 📗字符串
-
-   [👉字符串](algorithm/字符串.md)
+* [📗字符串](algorithm/字符串.md)
 
 * 📗数据结构 
 
-  * [👉并查集](algorithm/并查集/bingcha.md)
-  * [树](algorithm/tree.md)
-  * 线段树/树状数组
-  * 自动机
-  * 差分
-  * 字典树
+  * [👉树](数据结构/tree.md)
+  * [👉线段树/树状数组](数据结构/线段树.md)
+  * [👉队列](数据结构/deque.md)
+  * [👉堆](数据结构/堆.md)
+  
+* 📗**算法**
+  * [👉专治排序](algorithm/sort.md)
+  * [👉搜索]((algorithm/search.md))
+  * [👉经典问题](algorithm/common.md)
+  
+* [📗数学]((math/math.md))
+  
+*  [📗图论](图论/图论.md)
+   
+* [📗动态规划](dp/背包dp.md)
 
-* 📗**基本算法**
-  * 👉专治排序
-  * [👉DFS/回溯](algorithm/DFS/dfs.md)
-  * [👉BFS](algorithm/search/search.md)
-  * [👉二分查找](algorithm/二分/二分.md)
-  * [👉动态规划](algorithm/dp/dp.md)
-  * [👉双指针](algorithm/双指针/双指针.md)
-  * [👉贪心](algorithm/贪心/贪心.md)
-  * [👉滑动窗口](algorithm/滑动/滑动.md)
-  * [👉Hashet](algorithm/set/hashset.md)
-  * [前缀和](algorithm/前缀和/前缀.md)
-  * [👉位运算](algorithm/位运算/位运算.md)
-  * [👉回文](algorithm/回文/回文.md)
-  * [👉单调栈](algorithm/单调栈/单调栈.md)
-  * [👉经典问题](algorithm/经典问题/classic.md)
-  * [✍️其他](algorithm/other/)
+* [📗收集到的面试题](面试题/question.md)
+
   
-* 📗数学
+
+   
   
-   * [👉数学题](algorithm/math/math.md)
    
-*  📗较难算法
-   
-   * kmp
-   
-*  📗图论
-   
-   * [👉图论](algorithm/图论/图论.md)
-   
-* 📗动态规划
-   * 区间DP
-   * [背包DP](dp/背包dp.md)
-   * 树形DP
-   * [状态压缩DP](dp/状压dp.md)
-   * 数位DP
-   * 计数型DP
-   * 递推型DP
-   * 概率型DP
-   * 博弈型DP
-   * 记忆化搜索
-   * [👉背包](algorithm/背包/背包.md)
-   
-   📗收集到的面试题
