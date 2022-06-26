@@ -7,19 +7,10 @@ import java.util.*;
 
 public class Main2   {
     public static void main(String[] args)  {
-  ArrayList<Integer> l =new ArrayList<>();
-  int a[] = {1,2,3,4,5,6,7};
-  int b[] = new int[a.length];
-  int i=0;
-  int j=0;
-  Arrays.s**
-        //Arrays.copyOf;
-        for (int k = 0; k < a.length; k++) {
-            b[i++] =a[j++];
-        }
-        for (int k = 0; k <b.length ; k++) {
-            System.out.print(b[k] +" ");
-        }
+        System.out.println(gcd(15,18));
+    }
+    static  int  gcd(int a,int b){
+        return   a==0?b:gcd(b%a,a);
     }
 
    static void quicsort(int nums[],int l,int r){

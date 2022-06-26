@@ -2,13 +2,9 @@
 
 
 
-##### 二分查找好难啊----
-$$
-f(x,y) = \sqrt[n]{{x^2}{y^3}} $
-$$
+##### dp好难啊----
+
 记录刷leetcode的题目 ，整理题目方便复习
-
-
 
  [GitHub](https://github.com/qiujunlin) [Get Started](README.md)
 
