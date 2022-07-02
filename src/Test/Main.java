@@ -1,6 +1,7 @@
 package Test;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.Random;
 import java.util.Scanner;
 class A{
@@ -11,8 +12,11 @@ class A{
 public class Main extends A{
 
     public static void main(String[] args) {
-       Main.print();
-    }
+
+    String s ="abc";
+    StringBuilder stringBuilder =new StringBuilder("abc");
+        System.out.println(stringBuilder.equals(s));
+     }
 
 
 
