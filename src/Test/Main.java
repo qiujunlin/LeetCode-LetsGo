@@ -13,7 +13,7 @@ public class Main {
         @Override
         public boolean equals(Object obj) {
             Node a = (Node)obj;
-            String.
+       ///     String.
             return  this.a == a.a && this.b.equals(a.b);
         }
     }
