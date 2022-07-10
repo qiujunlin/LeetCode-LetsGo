@@ -4,6 +4,7 @@ package Contest.week;
 
 import java.util.PriorityQueue;
 import java.util.TreeSet;
+import java.util.concurrent.*;
 
 public class W301 {
 
@@ -84,4 +85,39 @@ public class W301 {
      * "___L___"
      * "_L_____"
      */
+  static   volatile   int a =0;
+    public static void main(String[] args) throws  Exception {
+
+        ThreadFactory threadFactory =new ThreadFactory() {
+            @Override
+            public Thread newThread(Runnable r) {
+                a++;
+                return new Thread(r,"thread" + a);
+            }
+        };
+            ThreadPoolExecutor threadPoolExecutor =new ThreadPoolExecutor(
+                10,
+                100,
+                1000,
+                TimeUnit.SECONDS,
+                new ArrayBlockingQueue<Runnable>(10),
+                threadFactory,
+             new   ThreadPoolExecutor.CallerRunsPolicy());
+        for (int i = 0; i < 1000; i++) {
+            threadPoolExecutor.execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println(Thread.currentThread().getName());
+                }
+            });
+        }
+        while (!threadPoolExecutor.isTerminated()) {
+        }
+
+    }
 }
