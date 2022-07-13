@@ -26,23 +26,8 @@ public class Main {
      */
 
     public static void main(String[] args) throws InterruptedException {
-        Semaphore semaphore =new Semaphore(2);
-       // System.out.println( semaphore.);
-        HashMap<Integer,Integer> map =new HashMap<>();
-
-//        Long start1 = System.currentTimeMillis();
-//        CountDownLatch latch = new CountDownLatch(5);
-//        for(int i = 0; i<5; i++){
-//            new Thread(new Test(latch, i)).start();
-//        }
-//        latch.await();
-//        try {
-//            System.out.println("count");
-//            Thread.sleep(5000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        System.out.println("last");
+      Random random =new Random();
+      int a =random.nextInt(100);
 
     }
 
