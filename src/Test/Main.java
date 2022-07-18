@@ -26,8 +26,10 @@ public class Main {
      */
 
     public static void main(String[] args) throws InterruptedException {
-      Random random =new Random();
-      int a =random.nextInt(100);
+      //Random random =new Random();
+      //int a =random.nextInt(100);
+       char c = '哈';
+
 
     }
 
