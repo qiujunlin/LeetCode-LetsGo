@@ -1,8 +1,6 @@
 package template;
 
-import Test.Main;
 
-import java.util.concurrent.SynchronousQueue;
 
 public class Skiplist {
     int curmaxlevel  = 1;
