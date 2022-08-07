@@ -1,9 +1,10 @@
-package Test;
+package template.mianshi.bytedance;
+
 
 
 import java.util.Scanner;
 
-public class Main {
+public class BIgCHnegfa {
 
 
 
