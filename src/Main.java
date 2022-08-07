@@ -1,39 +1,45 @@
+import template.MaxPQ;
+
 import java.math.BigInteger;
 import java.util.*;
-
-public class Main {
+public  class  Main{
     public static void main(String[] args) {
-    int a =  new Main().solution("...XXXX",4);
-        System.out.println(a);
+        Scanner scanner =new Scanner(System.in);
+        int a = scanner.nextInt();
+        scanner.nextLine();
+        while (a>0){
+            String s = scanner.nextLine();
+            int b = scanner.nextInt();
+            scanner.nextLine();
+            String c = scanner.nextLine();
 
-    }
-    public int solution(String S, int B) {
-        // write your code in Java 8 (Java SE 8)
-          PriorityQueue<Integer> q  =new PriorityQueue<>((a,b)->b-a);
-          int c =0;
-          for (int i = 0; i <S.length() ; i++) {
-            if(S.charAt(i)=='X') c++;
-            else{
-                if(c!=0) q.offer(c);
-                c =0;
+            String str[] = c.split(" ");
+            int hash[] =new int[26];
+            for (int i = 0; i <s.length() ; i++) {
+                hash[s.charAt(i)-'a']++;
             }
+            Arrays.sort(str,(e,f)->{
+                String s1 = (String)e;
+                String s2 = (String)f;
+                return  s1.length()-s2.length();
+            });
+            int res =0;
+       //     System.out.println(str.length);
+            for (int i = 0; i < str.length; i++) {
+                boolean is =false;
+                for (int j = 0; j <str[i].length() ; j++) {
+                     if(--hash[str[i].charAt(j)-'a']<0) is =true;
+                }
+                if(is){
+                    for (int j = 0; j <str[i].length() ; j++) {
+                        ++hash[str[i].charAt(j)-'a'];
+                    }
+                }else{
+                    res++;
+                }
+            }
+            System.out.println(res);
+
         }
-        if(c!=0) q.offer(c);
-       // System.out.println(q);
-          int res =0;
-          while (B>0&&!q.isEmpty()){
-              int a =q.poll();
-              if(a+1<=B){
-                  res+=a;
-                  B-=(a+1);
-              }else{
-                  res+=B-1;
-                  B =0;
-              }
-            //  System.out.println(B);
-          }
-          return  res;
-
     }
-
 }
