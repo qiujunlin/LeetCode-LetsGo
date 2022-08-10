@@ -1,8 +1,6 @@
 package Test;
 
 
-import template.MaxPQ;
-
 import java.util.*;
 
 public class Main2   {
