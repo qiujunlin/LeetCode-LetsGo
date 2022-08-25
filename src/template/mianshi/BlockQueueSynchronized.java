@@ -22,17 +22,17 @@ interface BlockingQueue<E> {
     int size();
 }
 
-public class BlockQueue2<E> implements BlockingQueue<E> {
+public class BlockQueueSynchronized<E> implements BlockingQueue<E> {
     private final static int DEFAULT_MAX_COUNT = 10;
     private final int maxCount;
 
     private final ArrayDeque<E> blockingQueue;
 
-    public BlockQueue2() {
+    public BlockQueueSynchronized() {
         this(DEFAULT_MAX_COUNT);
     }
 
-    public BlockQueue2(int size) {
+    public BlockQueueSynchronized(int size) {
         blockingQueue = new ArrayDeque<>(size);
         maxCount = size;
     }

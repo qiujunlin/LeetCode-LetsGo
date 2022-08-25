@@ -7,7 +7,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class BlockQueue {
+public class BlockQueueCondition {
 
     private List<Integer>list = new LinkedList<>();
     private Lock lock = new ReentrantLock();
@@ -18,10 +18,10 @@ public class BlockQueue {
     private final static int DEFAULT_QUEUQE_SIZE = 10;
     private int size;
 
-    public BlockQueue(){
+    public BlockQueueCondition(){
         this.size = DEFAULT_QUEUQE_SIZE;
     }
-    public BlockQueue(int size){
+    public BlockQueueCondition(int size){
         this.size = size;
     }
 
@@ -71,7 +71,7 @@ public class BlockQueue {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        BlockQueue myque = new BlockQueue(2);
+        BlockQueueCondition myque = new BlockQueueCondition(2);
         myque.myPut(2);
         myque.myPut(3);
         System.out.println(myque.myTake());//输出2
