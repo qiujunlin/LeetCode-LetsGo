@@ -45,8 +45,10 @@ public  class  ReadBag {
     }
 
     /**
+     *基本原理就是“二倍均值”，简单说，也就是一个公式，在这里，令P为人数，M为红包总金额，那么每次抢到的红包金额=随机区间（0，P/Mx2），这样才可以保证每次抢到随机金额的均值是相等的。
+     *
      * 红包金额为M，剩余人数为N
-     * 每次抢到的金额 = 随机区间 （0， M / N X 2）
+     * 每次抢到的金额 = 随机区间 （0， M / N   X 2）
      */
 
     private static void testPocket2(BigDecimal amount, BigDecimal min, BigDecimal num) {

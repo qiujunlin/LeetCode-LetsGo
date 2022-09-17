@@ -1,7 +1,9 @@
 package Contest.week;
 
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 public class DW86 {
     public static void main(String[] args) {
@@ -81,6 +83,47 @@ public class DW86 {
         return  max;
 
 
+    }
+    long pre[] ;
+    public int maximumRobots(int[] chargeTimes, int[] runningCosts, long budget) {
+        this.pre =new long[chargeTimes.length+1];
+        for (int i = 0; i <chargeTimes.length ; i++) {
+            pre[i+1] =runningCosts[i] +pre[i];
+        }
+        int  l =0;
+        int r = chargeTimes.length;
+        while (l<r){
+            int mid = (l+r+1)/2;
+            if(judge(chargeTimes,runningCosts,budget,mid)){
+                l =mid;
+
+            }else{
+                r =mid-1;
+            }
+        }
+        return  l;
+
+    }
+
+    private boolean judge(int[] chargeTimes, int[] nums, long budget, int k) {
+
+
+        long sum =0;
+        Deque<Integer> queue =new LinkedList();
+        for(int i=0;i<nums.length;i++){
+            sum += nums[i];
+            while(!queue.isEmpty()&&nums[queue.peekLast()]<nums[i]){
+                queue.pollLast();
+            }
+            queue.offer(i);
+            while(!queue.isEmpty()&&queue.peekFirst()<=i-k) queue.pollFirst();
+            if(i>=k-1) {
+                sum -= nums[i-k];
+            }
+            if(sum*k + nums[queue.peekFirst()] <=budget)return  true;
+
+        }
+        return  false;
     }
 
 
